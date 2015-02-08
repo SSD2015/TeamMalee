@@ -7,4 +7,5 @@ eXceed vote by @naneen @patawat @chaoexit @mntrq
 4). Mintra     Thirasirisin ID: 5610546761
 #Documentation
 [WIKI](https://github.com/SSD2015/TeamMaleeMeeLookMeowMeow/wiki)
+
 [Vision Statement](https://github.com/SSD2015/TeamMaleeMeeLookMeowMeow/wiki/Vision-Statement)
