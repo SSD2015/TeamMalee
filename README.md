@@ -11,4 +11,4 @@ eXceed vote by @naneen @patawat @chaoexit @mntrq
 * [Glossary](https://github.com/SSD2015/TeamMaleeMeeLookMeowMeow/wiki/Glossary)
 * [Supplementary-Requirements](https://github.com/SSD2015/TeamMaleeMeeLookMeowMeow/wiki/Supplementary-Requirements)
 * [Vision Statement](https://github.com/SSD2015/TeamMaleeMeeLookMeowMeow/wiki/Vision-Statement)
-* [Compare-Java-Web-Frameworks](https://github.com/SSD2015/TeamMaleeMeeLookMeowMeow/wiki/Compare-Java-Web-Frameworks)
+* [Compare-Java-Web-Frameworks](https://docs.google.com/a/ku.th/document/d/1deeeihO1HKNE_n8Me__GqPYPB32o5lMydAsDHvKhel8/edit#)
