@@ -1,10 +1,12 @@
 # TeamMalee
 eXceed vote by @naneen @patawat @chaoexit @mntrq
 #Member
-1). Tanatorn   Assawaamnuey ID: 5610545048  
-2). Patawat    Watakul      ID: 5610545714    
-3). Thanyabool Tovorapan    ID: 5610546745    
-4). Mintra     Thirasirisin ID: 5610546761
+ID     |  Name  | GitHub
+:--------: | ---------------------- | ---------
+5610545048 | Tanatorn Assawaamnuey  | @naneen
+5610545714 | Patawat Watakul        | @patawat
+5610546745 | Thanyaboon Tovorapan   | @choaexit
+5610546761 | Mintra Thirasirisin    | @mntrq
 #Documentation
 * [WIKI](https://github.com/SSD2015/TeamMaleeMeeLookMeowMeow/wiki)
 * [Informal Use Cases](https://github.com/SSD2015/TeamMaleeMeeLookMeowMeow/wiki/Informal-use-cases)
