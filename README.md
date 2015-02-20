@@ -16,4 +16,4 @@ ID     |  Name  | GitHub
 * [Compare-Java-Web-Frameworks](https://docs.google.com/a/ku.th/document/d/1deeeihO1HKNE_n8Me__GqPYPB32o5lMydAsDHvKhel8/edit#)
 * [Mockup](https://github.com/SSD2015/TeamMalee/wiki/Mockup)
 * [Domain Model](https://github.com/SSD2015/TeamMalee/wiki/Domain-Model)
-* [Iteration](https://github.com/SSD2015/TeamMalee/wiki/Iteration-Planning)
+* [Iteration Planning](https://github.com/SSD2015/TeamMalee/wiki/Iteration-Planning)
