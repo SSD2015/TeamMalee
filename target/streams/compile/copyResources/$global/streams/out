@@ -1,0 +1,6 @@
+[debug] Copy resource mappings: 
+[debug] 	(/Users/Martin/Desktop/PlayProject/conf/application.conf,/Users/Martin/Desktop/PlayProject/target/scala-2.11/classes/application.conf)
+[debug] 	(/Users/Martin/Desktop/PlayProject/conf/evolutions,/Users/Martin/Desktop/PlayProject/target/scala-2.11/classes/evolutions)
+[debug] 	(/Users/Martin/Desktop/PlayProject/conf/routes,/Users/Martin/Desktop/PlayProject/target/scala-2.11/classes/routes)
+[debug] 	(/Users/Martin/Desktop/PlayProject/conf/evolutions/default,/Users/Martin/Desktop/PlayProject/target/scala-2.11/classes/evolutions/default)
+[debug] 	(/Users/Martin/Desktop/PlayProject/conf/evolutions/default/1.sql,/Users/Martin/Desktop/PlayProject/target/scala-2.11/classes/evolutions/default/1.sql)

@@ -1,0 +1,11 @@
+[debug] Copy resource mappings: 
+[debug] 	(/Users/Martin/Desktop/PlayProject/target/web/public/test/public,/Users/Martin/Desktop/PlayProject/target/scala-2.11/test-classes/public)
+[debug] 	(/Users/Martin/Desktop/PlayProject/target/web/public/test/public/images,/Users/Martin/Desktop/PlayProject/target/scala-2.11/test-classes/public/images)
+[debug] 	(/Users/Martin/Desktop/PlayProject/target/web/public/test/public/javascripts,/Users/Martin/Desktop/PlayProject/target/scala-2.11/test-classes/public/javascripts)
+[debug] 	(/Users/Martin/Desktop/PlayProject/target/web/public/test/public/stylesheets,/Users/Martin/Desktop/PlayProject/target/scala-2.11/test-classes/public/stylesheets)
+[debug] 	(/Users/Martin/Desktop/PlayProject/target/web/public/test/public/images/favicon.png,/Users/Martin/Desktop/PlayProject/target/scala-2.11/test-classes/public/images/favicon.png)
+[debug] 	(/Users/Martin/Desktop/PlayProject/target/web/public/test/public/images/star copy.png,/Users/Martin/Desktop/PlayProject/target/scala-2.11/test-classes/public/images/star copy.png)
+[debug] 	(/Users/Martin/Desktop/PlayProject/target/web/public/test/public/images/star.png,/Users/Martin/Desktop/PlayProject/target/scala-2.11/test-classes/public/images/star.png)
+[debug] 	(/Users/Martin/Desktop/PlayProject/target/web/public/test/public/javascripts/jquery-1.9.0.min.js,/Users/Martin/Desktop/PlayProject/target/scala-2.11/test-classes/public/javascripts/jquery-1.9.0.min.js)
+[debug] 	(/Users/Martin/Desktop/PlayProject/target/web/public/test/public/stylesheets/main.css,/Users/Martin/Desktop/PlayProject/target/scala-2.11/test-classes/public/stylesheets/main.css)
+[debug] 	(/Users/Martin/Desktop/PlayProject/target/web/public/test/public/stylesheets/vote.css,/Users/Martin/Desktop/PlayProject/target/scala-2.11/test-classes/public/stylesheets/vote.css)
