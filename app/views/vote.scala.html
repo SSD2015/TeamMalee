@@ -1,0 +1,112 @@
+@(message: String)
+
+@mainVote("Vote page") {
+
+    <!--@play20.welcome(message, style = "Java")-->
+
+    <!--<div ui-content-for="title">
+        <span>Forms</span>
+    </div>-->
+
+    <div id="header">
+        <h1>@message</h1>
+    </div>
+
+    <form id="score" role="form" action = "/voting" method = post>
+        <div class="creativity">
+            <label for="sel1">Creativity</label>
+            <span class="rating">
+                <input type="radio" class="rating-input"
+                id="rating-input1-5" name="sel1" value="5">
+                <label for="rating-input1-5" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input1-4" name="sel1" value="4">
+                <label for="rating-input1-4" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input1-3" name="sel1" value="3">
+                <label for="rating-input1-3" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input1-2" name="sel1" value="2">
+                <label for="rating-input1-2" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input1-1" name="sel1" value="1">
+                <label for="rating-input1-1" class="rating-star"></label>
+            </span>
+        </div>
+        <br>
+        <br>
+        <div class="appearance">
+            <label for="sel2">Appearance</label>
+            <span class="rating">
+                <input type="radio" class="rating-input"
+                id="rating-input2-5" name="sel2" value="5">
+                <label for="rating-input2-5" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input2-4" name="sel2" value="4">
+                <label for="rating-input2-4" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input2-3" name="sel2" value="3">
+                <label for="rating-input2-3" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input2-2" name="sel2" value="2">
+                <label for="rating-input2-2" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input2-1" name="sel2" value="1">
+                <label for="rating-input2-1" class="rating-star"></label>
+            </span>
+        </div>
+        <br>
+        <br>
+        <div class="performance">
+            <label for="sel3">Performance</label>
+            <span class="rating">
+                <input type="radio" class="rating-input"
+                id="rating-input3-5" name="sel3" value="5">
+                <label for="rating-input3-5" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input3-4" name="sel3" value="4">
+                <label for="rating-input3-4" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input3-3" name="sel3" value="3">
+                <label for="rating-input3-3" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input3-2" name="sel3" value="2">
+                <label for="rating-input3-2" class="rating-star"></label>
+
+                <input type="radio" class="rating-input"
+                id="rating-input3-1" name="sel3" value="1">
+                <label for="rating-input3-1" class="rating-star"></label>
+            </span>
+        </div>
+        <br>
+        <br>
+        <div class="detailBox">
+            <div class="titleBox">
+                <label>Comment Box</label>
+            </div>
+        </div>
+
+        <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+    </form>
+    <div id="browse_app" class="text-center">
+        <a class="btn btn-large btn-info" href="/result">Browse to result page (Test)</a>
+    </div>
+    <br>
+    <br>
+    <div id="browse_app" class="text-center">
+        <a class="btn btn-large btn-info" href="/">Browse to index page (Test)</a>
+    </div>
+
+
+}
