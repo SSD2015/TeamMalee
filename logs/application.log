@@ -1,27 +1,9 @@
-2015-03-01 20:33:01,784 - [INFO] - from play in pool-4-thread-1 
-Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+2015-03-01 23:13:39,554 - [INFO] - from play in pool-4-thread-1 
+Listening for HTTP on /0:0:0:0:0:0:0:0%0:9000
 
-2015-03-01 20:33:18,954 - [INFO] - from play in play-internal-execution-context-1 
+2015-03-01 23:14:04,719 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:sqlite:db.sqlite
 
-2015-03-01 20:33:19,500 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-03-01 21:00:36,946 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:sqlite:db.sqlite
-
-2015-03-01 21:00:36,987 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-03-01 21:41:33,340 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:sqlite:db.sqlite
-
-2015-03-01 21:41:33,435 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-03-01 21:44:05,644 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:sqlite:db.sqlite
-
-2015-03-01 21:44:05,673 - [INFO] - from play in play-internal-execution-context-1 
+2015-03-01 23:14:05,036 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 

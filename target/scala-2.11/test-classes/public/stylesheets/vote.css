@@ -1,3 +1,20 @@
+
+.commentBox {
+    height: 40%;
+    width: 30%;
+}
+#header {
+    background-color: lightcoral;
+    text-align:center;
+}
+#score{
+    width: 100%;
+    padding: 60pt;
+}
+#submit{
+    width: 50%;
+}
+
 .rating {
     overflow: hidden;
     display: inline-block;

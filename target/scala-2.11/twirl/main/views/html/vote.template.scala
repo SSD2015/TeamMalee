@@ -45,23 +45,23 @@ Seq[Any](format.raw/*1.19*/("""
             <label for="sel1">Creativity</label>
             <span class="rating">
                 <input type="radio" class="rating-input"
-                id="rating-input1-5" name="rating-input-1" value="5">
+                id="rating-input1-5" name="sel1" value="5">
                 <label for="rating-input1-5" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input1-4" name="rating-input-1" value="4">
+                id="rating-input1-4" name="sel1" value="4">
                 <label for="rating-input1-4" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input1-3" name="rating-input-1" value="3">
+                id="rating-input1-3" name="sel1" value="3">
                 <label for="rating-input1-3" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input1-2" name="rating-input-1" value="2">
+                id="rating-input1-2" name="sel1" value="2">
                 <label for="rating-input1-2" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input1-1" name="rating-input-1" value="1">
+                id="rating-input1-1" name="sel1" value="1">
                 <label for="rating-input1-1" class="rating-star"></label>
             </span>
         </div>
@@ -71,23 +71,23 @@ Seq[Any](format.raw/*1.19*/("""
             <label for="sel2">Appearance</label>
             <span class="rating">
                 <input type="radio" class="rating-input"
-                id="rating-input2-5" name="rating-input-2" value="5">
+                id="rating-input2-5" name="sel2" value="5">
                 <label for="rating-input2-5" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input2-4" name="rating-input-2" value="4">
+                id="rating-input2-4" name="sel2" value="4">
                 <label for="rating-input2-4" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input2-3" name="rating-input-2" value="3">
+                id="rating-input2-3" name="sel2" value="3">
                 <label for="rating-input2-3" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input2-2" name="rating-input-2" value="2">
+                id="rating-input2-2" name="sel2" value="2">
                 <label for="rating-input2-2" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input2-1" name="rating-input-2" value="1">
+                id="rating-input2-1" name="sel2" value="1">
                 <label for="rating-input2-1" class="rating-star"></label>
             </span>
         </div>
@@ -97,40 +97,28 @@ Seq[Any](format.raw/*1.19*/("""
             <label for="sel3">Performance</label>
             <span class="rating">
                 <input type="radio" class="rating-input"
-                id="rating-input3-5" name="rating-input-3" value="5">
+                id="rating-input3-5" name="sel3" value="5">
                 <label for="rating-input3-5" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input3-4" name="rating-input-3" value="4">
+                id="rating-input3-4" name="sel3" value="4">
                 <label for="rating-input3-4" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input3-3" name="rating-input-3" value="3">
+                id="rating-input3-3" name="sel3" value="3">
                 <label for="rating-input3-3" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input3-2" name="rating-input-3" value="2">
+                id="rating-input3-2" name="sel3" value="2">
                 <label for="rating-input3-2" class="rating-star"></label>
 
                 <input type="radio" class="rating-input"
-                id="rating-input3-1" name="rating-input-3" value="1">
+                id="rating-input3-1" name="sel3" value="1">
                 <label for="rating-input3-1" class="rating-star"></label>
             </span>
         </div>
         <br>
         <br>
-        <div class="detailBox">
-            <div class="titleBox">
-                <label>Comment Box</label>
-            </div>
-            <div class="commentBox">
-                <form class="form-inline" role="form">
-                    <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Your comments"/>
-                    </div>
-                </form>
-            </div>
-        </div>
 
         <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
     </form>
@@ -144,7 +132,7 @@ Seq[Any](format.raw/*1.19*/("""
     </div>
 
 
-""")))}),format.raw/*119.2*/("""
+""")))}),format.raw/*107.2*/("""
 """))}
   }
 
@@ -157,11 +145,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 01 21:44:01 ICT 2015
-                  SOURCE: /Users/Martin/Desktop/PlayProject/app/views/vote.scala.html
-                  HASH: 84e954c64734db62f75dba262ece8eb5428fdea6
-                  MATRIX: 722->1|827->18|855->21|884->42|923->44|955->50|986->55|1000->61|1053->94|1199->213|1227->220|5774->4736
-                  LINES: 26->1|29->1|31->3|31->3|31->3|33->5|33->5|33->5|33->5|40->12|40->12|147->119
+                  DATE: Sun Mar 01 23:13:15 ICT 2015
+                  SOURCE: /Users/thanyaboontovorapan/IdeaProjects/TeamMalee/app/views/vote.scala.html
+                  HASH: c8bea7fcd01b2df6b06d9e8b28666da623de94be
+                  MATRIX: 722->1|827->18|855->21|884->42|923->44|955->50|986->55|1000->61|1053->94|1199->213|1227->220|5179->4141
+                  LINES: 26->1|29->1|31->3|31->3|31->3|33->5|33->5|33->5|33->5|40->12|40->12|135->107
                   -- GENERATED --
               */
           

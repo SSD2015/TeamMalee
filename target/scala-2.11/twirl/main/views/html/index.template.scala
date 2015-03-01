@@ -102,29 +102,7 @@ Seq[Any](format.raw/*1.19*/("""
     <div id="browse_app" class="text-center">
         <a class="btn btn-large btn-info" href="/vote">Vote page</a>
     </div>
-
-    <span class="rating">
-        <input type="radio" class="rating-input"
-            id="rating-input5" name="rating-input-1" value="5">
-        <label for="rating-input5" class="rating-star"></label>
-
-        <input type="radio" class="rating-input"
-            id="rating-input4" name="rating-input-1" value="4">
-        <label for="rating-input4" class="rating-star"></label>
-
-        <input type="radio" class="rating-input"
-            id="rating-input3" name="rating-input-1" value="3">
-        <label for="rating-input3" class="rating-star"></label>
-
-        <input type="radio" class="rating-input"
-            id="rating-input2" name="rating-input-1" value="2">
-        <label for="rating-input2" class="rating-star"></label>
-
-        <input type="radio" class="rating-input"
-            id="rating-input1" name="rating-input-1" value="1">
-        <label for="rating-input1" class="rating-star"></label>
-    </span>
-""")))}),format.raw/*99.2*/("""
+""")))}),format.raw/*77.2*/("""
 """))}
   }
 
@@ -137,11 +115,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 01 20:32:44 ICT 2015
-                  SOURCE: /Users/Martin/Desktop/PlayProject/app/views/index.scala.html
-                  HASH: 640bdd3df145f6b58586ac291d6b50823b0b347a
-                  MATRIX: 723->1|828->18|856->21|881->38|920->40|952->46|983->51|997->57|1050->90|1196->209|1224->216|4278->3240
-                  LINES: 26->1|29->1|31->3|31->3|31->3|33->5|33->5|33->5|33->5|40->12|40->12|127->99
+                  DATE: Sun Mar 01 23:13:15 ICT 2015
+                  SOURCE: /Users/thanyaboontovorapan/IdeaProjects/TeamMalee/app/views/index.scala.html
+                  HASH: e49692523efcb4dcaedb6fa221169e8cf09986c6
+                  MATRIX: 723->1|828->18|856->21|881->38|920->40|952->46|983->51|997->57|1050->90|1196->209|1224->216|3350->2312
+                  LINES: 26->1|29->1|31->3|31->3|31->3|33->5|33->5|33->5|33->5|40->12|40->12|105->77
                   -- GENERATED --
               */
           
