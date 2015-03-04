@@ -4,7 +4,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.index;
-
+import result.Users;
 //import javax.xml.transform.Result;
 
 /**
@@ -12,7 +12,7 @@ import views.html.index;
  */
 
 public class Login extends Controller {
-    public static Result test(){
+    public static Result log(){
         Form<Users> userForm = Form.form(Users.class);
         Users user = userForm.bindFromRequest().get();
         //System.out.print(user.email);

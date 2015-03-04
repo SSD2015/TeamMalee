@@ -3,13 +3,15 @@
 # ~~~~
 
 # Home page
-GET         /                    controllers.Application.index
+# GET         /voteO                    controllers.Application.index
 GET         /result              controllers.Application.votingResult
 GET         /vote                controllers.Application.gotoVotePage
+GET         /                    controllers.Application.login
+GET         /registor            controllers.Regis.regis()
 
-
+POST        /log                 controllers.Login.log
 POST        /voting              controllers.Voting.addVote
-
+POST        /regis               controllers.Regis.addNewAcc
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file        controllers.Assets.at(path="/public", file)
 

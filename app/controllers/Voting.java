@@ -17,4 +17,5 @@ public class Voting extends Controller{
 
         return ok(complete.render(Vote.find.all()));
     }
+
 }
