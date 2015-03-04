@@ -37,9 +37,9 @@
     position: relative;
     float: right;
     display: block;
-    width: 100px;
-    height: 100px;
-    background: url('../images/star.png') 0 -100px;
+    width: 16px;
+    height: 16px;
+    background: url('../images/star.png') 0 -16px;
 }
 
 /** Header */
