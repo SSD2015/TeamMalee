@@ -18,7 +18,7 @@ server.pid
 *.eml
 /dist/
 .cache
-
+db.sqlite
 
 ### SBT ###
 # Simple Build Tool
