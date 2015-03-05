@@ -1,18 +1,19 @@
-@(message: String)
+@(votes: List[result.Vote])
 
 @mainVote("Vote page") {
 
-    <!--@play20.welcome(message, style = "Java")-->
+    <!--@play20.welcome("Hello", style = "Java")-->
 
     <!--<div ui-content-for="title">
         <span>Forms</span>
     </div>-->
 
     <div id="header">
-        <h1>@message</h1>
+        <h1>Change vote score</h1>
     </div>
-
-    <form id="score" class="text-center" role="form" action = "/voting" method = post>
+    <form id="score" class="text-center" role="form" action = "/requestchangescore" method = post>
+        <select id="TestSelect" name = "id">
+        </select>
         <div class="creativity">
             <label for="sel1">Creativity</label>
             <span class="rating">
@@ -99,6 +100,7 @@
 
         <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
     </form>
+    <br>
     <div id="browse_app" class="text-center">
         <a class="btn btn-large btn-info" href="/result">Browse to result page (Test)</a>
     </div>
@@ -122,8 +124,35 @@
             </ul>
             <a href="#0" class="cd-popup-close img-replace">Close</a>
         </div> <!-- cd-popup-container -->
-    </div> <!-- cd-popup -->
-
     <!-- <script src="js/confirmPopUp.js"></script> <!-- Resource jQuery -->
+    <script type="text/javascript">
 
+        $(document).ready(function () {
+            setCurrentScore();
+        });
+
+        function setCurrentScore(){
+            @votes.map { vote => $( "#TestSelect" ).append ( "<option value = @vote.id>ID=@vote.id</option>" ) ;
+            @votes.map { vote =>
+            if ( @vote.id == $( "#TestSelect" ).val()) {
+            document.getElementById("rating-input1-@vote.sel1").checked = true;
+            document.getElementById("rating-input2-@vote.sel2").checked = true;
+            document.getElementById("rating-input3-@vote.sel3").checked = true;
+            }
+        }
+            }
+        };
+
+
+        $("#TestSelect").change(function() {
+            @votes.map { vote =>
+                if ( @vote.id == $( "#TestSelect" ).val()) {
+                    document.getElementById("rating-input1-@vote.sel1").checked = true;
+                    document.getElementById("rating-input2-@vote.sel2").checked = true;
+                    document.getElementById("rating-input3-@vote.sel3").checked = true;
+                }
+            }
+        });
+
+    </script>
 }

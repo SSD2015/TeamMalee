@@ -1,6 +1,6 @@
 @(message: String)
 
-@main("Vote page") {
+@main("Main Menu") {
 
     <!--@play20.welcome(message, style = "Java")-->
 
@@ -12,43 +12,22 @@
         <h1>@message</h1>
     </div>
 
-    <form id="score" role="form" action = "/voting" method = post>
-        <div class="creativity">
-            <label for="sel1">Creativity</label>
-            <select class="form-control" id="sel1" name="sel1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </div>
-        <br>
-        <br>
-        <div class="appearance">
-            <label for="sel2">Appearance</label>
-            <select class="form-control" id="sel2" name="sel2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </div>
-        <br>
-        <br>
-        <div class="performance">
-            <label for="sel3">Performance</label>
-            <select class="form-control" id="sel3" name="sel3">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </div>
-        <br>
-        <br>
+
+    <div style="text-align: center;">
+        <img src="@routes.Assets.at("images/map.png")" alt="map" style="width:30%;height:20%">
+    </div>
+    <br>
+    <br>
+
+
+    <div id="team">
+        <h2><a class="teamlist" href=" ">Team A</a></h2>
+        <h2><a class="teamlist" href=" ">Team B</a></h2>
+        <h2><a class="teamlist" href=" ">Team C</a></h2>
+        <h2><a class="teamlist" href=" ">Team D</a></h2>
+    </div>
+
+    <br>
 
         <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
 
@@ -65,7 +44,6 @@
             </div>
         </div>
 
-    </form>
     <div id="browse_app" class="text-center">
         <a class="btn btn-large btn-info" href="/result">Browse to result page (Test)</a>
     </div>
@@ -74,4 +52,7 @@
     <div id="browse_app" class="text-center">
         <a class="btn btn-large btn-info" href="/vote">Vote page</a>
     </div>
+
+
+
 }
