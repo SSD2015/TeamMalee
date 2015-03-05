@@ -12,8 +12,8 @@ import javax.persistence.Id;
 public class Account extends Model {
     @Id
     public Long id;
-    public String Username;
-    public String Password;
+    public String username;
+    public String password;
     //public String Name;
     // Finder will help us easily query data from database.
     //public static Finder<Long, Vote> find = new Finder<Long, Vote>(Long.class, Vote.class);

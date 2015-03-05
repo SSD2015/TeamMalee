@@ -15,10 +15,9 @@ public class Regis extends Controller {
         return ok(Register.render());
     }
     public static Result addNewAcc() {
-        Form<Account> Acc1 = Form.form(Account.class);
-        Account Acc = Acc1.bindFromRequest().get();
-        System.out.print(Acc.Username);
-        //Acc.save();
+        Account account = Form.form(Account.class).bindFromRequest().get();
+
+        account.save();
 
         return ok(Register.render());
     }

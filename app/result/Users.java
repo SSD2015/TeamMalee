@@ -1,5 +1,6 @@
 package result;
 
+import org.h2.engine.User;
 import play.db.ebean.Model;
 
 /**
@@ -9,4 +10,8 @@ public class Users extends Model {
 
     public String email;
     public String password;
+
+
 }
+
+
