@@ -1,0 +1,1 @@
+web: target/universal/stage/bin/teammalee -Dhttp.port=${PORT} -DapplyEvolutions.default=true
