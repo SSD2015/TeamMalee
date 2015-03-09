@@ -10,7 +10,7 @@ GET         /vote                controllers.Application.gotoVotePage
 GET         /                    controllers.Application.login
 GET         /registor            controllers.Regis.regis()
 
-POST        /log                 controllers.Login.log
+POST        /log                 controllers.Application.authenticate()
 POST        /voting              controllers.Voting.addVote
 POST        /regis               controllers.Regis.addNewAcc
 
