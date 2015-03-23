@@ -18,14 +18,17 @@ public class Application extends Controller {
         Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
 
         if (loginForm.hasErrors()) {
-            System.out.println("in1");
             return badRequest(login.render(loginForm));
         } else {
             session().clear();
             session("username", loginForm.get().username);
-            System.out.println("in2");
-            return ok(vote.render("New vote page"));
+            return ok(vote.render(session().get("username")));
         }
+    }
+    public static Result logout() {
+        session().clear();
+        flash("success", "You've been logged out");
+        return redirect("/");
     }
 
 
