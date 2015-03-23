@@ -13,10 +13,12 @@ import play.db.ebean.*;
  */
 @Entity
 public class Account extends Model {
-    @Constraints.Required
+
     @Id
     public Long id;
+    @Constraints.Required
     public String username;
+    @Constraints.Required
     public String password;
 
     public static Object authenticate(String username, String password) {
