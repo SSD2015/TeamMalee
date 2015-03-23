@@ -1,0 +1,22 @@
+@main("Register") {
+
+    <div class = "Head">
+        <div class="row">
+            <div class="col-md-12"><h1>Register</h1></div>
+
+        </div>
+    </div>
+    <form action = "/regis" method = post>
+        <div class="form-group">
+            <label for="Username">Username</label>
+            <input  class="form-control" id="Username" name="username" placeholder="Enter Username" >
+        </div>
+        <div class="form-group">
+            <label for="Password1">Password</label>
+            <input type="Password" class="form-control" id="Password" name="password" placeholder="Password">
+        </div>
+        @*gity *@
+        <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+    </form>
+
+}

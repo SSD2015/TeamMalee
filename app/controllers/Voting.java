@@ -18,6 +18,8 @@ public class Voting extends Controller{
         return ok(complete.render(Vote.find.all()));
     }
 
+
+
     public static Result changeVote() {
         Vote vote = Form.form(Vote.class).bindFromRequest().get();
 
@@ -35,4 +37,5 @@ public class Voting extends Controller{
     public static Result changeVotePage(){
         return ok(changevotescore.render(Vote.find.all()));
     }
+
 }

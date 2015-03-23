@@ -3,6 +3,12 @@
 
 # --- !Ups
 
+create table account (
+  id                        integer primary key AUTOINCREMENT,
+  username                  varchar(255),
+  password                  varchar(255))
+;
+
 create table vote (
   id                        integer primary key AUTOINCREMENT,
   sel1                      integer,
@@ -16,6 +22,8 @@ create table vote (
 # --- !Downs
 
 PRAGMA foreign_keys = OFF;
+
+drop table account;
 
 drop table vote;
 

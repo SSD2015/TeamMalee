@@ -3,9 +3,17 @@
 # ~~~~
 
 # Home page
-GET         /                    controllers.Application.index
+# GET         /voteO                    controllers.Application.index
 GET         /result              controllers.Application.votingResult
 GET         /vote                controllers.Application.gotoVotePage
+
+GET         /                    controllers.Application.login
+GET         /registor            controllers.Regis.regis()
+
+POST        /log                 controllers.Application.authenticate()
+POST        /voting              controllers.Voting.addVote
+POST        /regis               controllers.Regis.addNewAcc
+GET        /logout             controllers.Application.logout()
 GET         /changevote          controllers.Voting.changeVotePage
 
 POST        /voting              controllers.Voting.addVote
