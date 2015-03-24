@@ -9,6 +9,13 @@ create table account (
   password                  varchar(255))
 ;
 
+create table project (
+  id                        integer primary key AUTOINCREMENT,
+  name                      varchar(255),
+  imageurl                  varchar(255),
+  description               varchar(255))
+;
+
 create table vote (
   id                        integer primary key AUTOINCREMENT,
   sel1                      integer,
@@ -24,6 +31,8 @@ create table vote (
 PRAGMA foreign_keys = OFF;
 
 drop table account;
+
+drop table project;
 
 drop table vote;
 
