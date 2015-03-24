@@ -17,3 +17,4 @@ ID     |  Name  | GitHub
 * [Mockup](https://github.com/SSD2015/TeamMalee/wiki/Mockup)
 * [Domain Model](https://github.com/SSD2015/TeamMalee/wiki/Domain-Model)
 * [Iteration Planning](https://github.com/SSD2015/TeamMalee/wiki/Iteration-Planning)
+* [Installation Document](https://github.com/SSD2015/TeamMalee/wiki/Installation-Document)
