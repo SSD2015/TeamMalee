@@ -4,22 +4,25 @@
 
 # Home page
 # GET         /voteO                    controllers.Application.index
-GET         /result              controllers.Application.votingResult
-GET         /vote                controllers.Application.gotoVotePage
+GET         /result                    controllers.Application.votingResult
+GET         /vote                      controllers.Application.gotoVotePage
 
-GET         /                    controllers.Application.login
-GET         /registor            controllers.Regis.regis()
+GET         /                          controllers.Application.login
+GET         /registor                  controllers.Regis.regis()
 
-POST        /log                 controllers.Application.authenticate()
-POST        /voting              controllers.Voting.addVote
-POST        /regis               controllers.Regis.addNewAcc
-GET        /logout             controllers.Application.logout()
-GET         /changevote          controllers.Voting.changeVotePage
+POST        /index                     controllers.Application.index()
+GET         /index                     controllers.Application.index()
 
-POST        /voting              controllers.Voting.addVote
-POST        /requestchangescore  controllers.Voting.changeVote
+POST        /log                       controllers.Application.authenticate()
+POST        /voting                    controllers.Voting.addVote
+POST        /regis                     controllers.Regis.addNewAcc
+GET         /logout                    controllers.Application.logout()
+GET         /changevote                controllers.Voting.changeVotePage
+
+POST        /voting                    controllers.Voting.addVote
+POST        /requestchangescore        controllers.Voting.changeVote
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file        controllers.Assets.at(path="/public", file)
+GET         /assets/*file              controllers.Assets.at(path="/public", file)
 
     

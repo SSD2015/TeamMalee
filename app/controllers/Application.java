@@ -15,15 +15,16 @@ public class Application extends Controller {
         if(user!=null)
             return ok(vote.render(user));
         else
-            return redirect("/");
+            return redirect("/index");
 
     }
     public static Result login() {
         if (session().isEmpty())
             return ok(login.render(Form.form(Login.class)));
         else
-            return ok(vote.render(session().get("username")));
+            return ok(index.render(session().get("username")));
     }
+
     public static Result authenticate() {
         Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
 
@@ -32,7 +33,7 @@ public class Application extends Controller {
         } else {
             session().clear();
             session("username", loginForm.get().username);
-            return ok(vote.render(session().get("username")));
+            return ok(index.render(session().get("username")));
         }
     }
     public static Result logout() {
