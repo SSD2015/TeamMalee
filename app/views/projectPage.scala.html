@@ -1,0 +1,16 @@
+@import result.Project
+
+@(project: Project)
+
+@main("Team @project.name") {
+    <div class="text-center">
+        ID = @project.id <br>
+        name = @project.name <br>
+        description = @project.description <br>
+        imageurl = @project.imageurl <br>
+        manager = @project.manager <br>
+    </div>
+    <div id="browse_app" class="text-center">
+        <a class="btn btn-large btn-info" href="/index">Browse to index page (Test)</a>
+    </div>
+}

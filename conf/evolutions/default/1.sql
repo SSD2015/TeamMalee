@@ -13,7 +13,8 @@ create table project (
   id                        integer primary key AUTOINCREMENT,
   name                      varchar(255),
   imageurl                  varchar(255),
-  description               varchar(255))
+  description               varchar(255),
+  manager                   varchar(255))
 ;
 
 create table vote (

@@ -6,6 +6,7 @@ import result.Account;
 import result.Vote;
 import views.html.*;
 import play.data.*;
+import result.Project;
 
 public class Application extends Controller {
     public static Result index() { return ok(index.render("id")); }
@@ -42,7 +43,22 @@ public class Application extends Controller {
         return redirect("/");
     }
 
+    public static Result AddProject() {
+        Project project = Form.form(Project.class).bindFromRequest().get();
 
+        project.save();
+
+        return redirect("/");
+    }
+
+    public static Result GotoAddProjectPage() {
+        return ok(addproject.render("Hi"));
+    }
+
+
+    public static Result GotoProjectPage(Long id, String name) {
+        return ok(projectPage.render(Project.find.byId(id)));
+    }
 }
 
 

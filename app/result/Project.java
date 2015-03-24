@@ -14,7 +14,7 @@ public class Project extends Model {
     @Id
     public Long id;
     public String name, imageurl, description;
-    public Account manager;
+    public String manager;
 
-    public static Finder<Long, Vote> find = new Finder<Long, Vote>(Long.class, Vote.class);
+    public static Finder<Long, Project> find = new Finder<Long, Project>(Long.class, Project.class);
 }

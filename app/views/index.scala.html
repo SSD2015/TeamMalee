@@ -1,5 +1,6 @@
 @(message: String)
 
+@import result.Project
 @main("Main Menu") {
 
     <!--@play20.welcome(message, style = "Java")-->
@@ -21,13 +22,14 @@
     <br>
     <br>
 
+    @defining(Project.find.all()) { projects =>
+        <div class="text-center">
+        @projects.map { project =>
+            <h2><a class="teamlist" href='@routes.Application.GotoProjectPage( project.id , project.name )'>Team @project.name</a></h2>
+        }
+        </div>
+    }
 
-    <div id="team">
-        <h2><a class="teamlist" href=" ">Team A</a></h2>
-        <h2><a class="teamlist" href=" ">Team B</a></h2>
-        <h2><a class="teamlist" href=" ">Team C</a></h2>
-        <h2><a class="teamlist" href=" ">Team D</a></h2>
-    </div>
 
     <br>
 
@@ -43,6 +45,11 @@
     <br>
     <div id="browse_app" class="text-center">
         <a class="btn btn-large btn-info" href="/changevote">Change vote</a>
+    </div>
+    <br>
+    <br>
+    <div id="browse_app" class="text-center">
+        <a class="btn btn-large btn-info" href="/addprojectpage">Add project</a>
     </div>
 
     <br><br>

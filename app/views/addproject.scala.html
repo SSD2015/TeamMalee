@@ -1,0 +1,39 @@
+@(message: String)
+
+@main("Add project") {
+
+    <!--@play20.welcome(message, style = "Java")-->
+
+    <!--<div ui-content-for="title">
+        <span>Forms</span>
+    </div>-->
+
+    <div id="header">
+        <h1>@message</h1>
+
+        <a href = "/logout"><button type="button" class="btn btn-danger">Logout</button></a>
+    </div>
+
+    <form id="project" class="text-center" role="form" action = "/addproject" method = post>
+        name: <input type="text" name="name"><br>
+        image url: <input type="text" name="imageurl"><br>
+        description: <input type="text" name="description"><br>
+        manager: <input type="text" name="manager"><br>
+
+        <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+    </form>
+    <div id="browse_app" class="text-center">
+        <a class="btn btn-large btn-info" href="/result">Browse to result page (Test)</a>
+    </div>
+    <br>
+    <br>
+    <div id="browse_app" class="text-center">
+        <a class="btn btn-large btn-info" href="/">Browse to index page (Test)</a>
+    </div>
+
+
+    <!-- pop up -->
+
+    <!-- <script src="js/confirmPopUp.js"></script> <!-- Resource jQuery -->
+
+}
