@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import play.db.ebean.*;
 import play.db.ebean.Model.Finder;
 
+
 @Entity
 public class Project extends Model {
     @Id
