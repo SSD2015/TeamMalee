@@ -1,5 +1,5 @@
 @(votes: List[result.Vote])
-
+@import result.Account
 @main("Vote result") {
     <div class="text-center">
         @votes.map { vote =>
@@ -7,6 +7,10 @@
             @vote.sel1 <br>
             @vote.sel2 <br>
             @vote.sel3 <br>
+            @defining(Account.find.byId(vote.voterID)) { account =>
+                Voter = @account.username <br>
+            }
+            projectID = @vote.projectID <br>
         <br>
         }
     </div>

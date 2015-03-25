@@ -21,7 +21,9 @@ create table vote (
   id                        integer primary key AUTOINCREMENT,
   sel1                      integer,
   sel2                      integer,
-  sel3                      integer)
+  sel3                      integer,
+  project_id                integer,
+  voter_id                  integer)
 ;
 
 

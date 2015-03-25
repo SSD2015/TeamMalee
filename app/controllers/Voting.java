@@ -15,7 +15,7 @@ public class Voting extends Controller{
 
         vote.save();
 
-        return ok(complete.render(Vote.find.all()));
+        return redirect("/vote");
     }
 
 
@@ -35,7 +35,9 @@ public class Voting extends Controller{
     }
 
     public static Result changeVotePage(){
-        return ok(changevotescore.render(Vote.find.all()));
+        if(session().isEmpty())
+            return redirect("/");
+            return ok(changevotescore.render(Vote.find.all()));
     }
 
 }

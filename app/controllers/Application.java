@@ -9,8 +9,17 @@ import play.data.*;
 import result.Project;
 
 public class Application extends Controller {
-    public static Result index() { return ok(index.render(session().get("username"))); }
-    public static Result votingResult() { return ok(complete.render( Vote.find.all())); }
+    public static Result index() {
+        if(!session().isEmpty()) {
+            return ok(index.render(session().get("username")));
+        }
+        return redirect("/");
+    }
+    public static Result votingResult() {
+        if (session().isEmpty())
+            return redirect("/");
+        return ok(complete.render( Vote.find.all()));
+    }
     public static Result gotoVotePage() {
         String user = session().get("username");
         if(user!=null)
@@ -23,7 +32,7 @@ public class Application extends Controller {
         if (session().isEmpty())
             return ok(login.render(Form.form(Login.class)));
         else
-            return ok(index.render(session().get("username")));
+            return redirect("/index");
     }
 
     public static Result authenticate() {
@@ -32,9 +41,11 @@ public class Application extends Controller {
         if (loginForm.hasErrors()) {
             return badRequest(login.render(loginForm));
         } else {
+            Account user = (Account)Account.authenticate(loginForm.get().username, loginForm.get().password);
             session().clear();
             session("username", loginForm.get().username);
-            return ok(index.render(session().get("username")));
+            session("id", ""+user.id);
+            return redirect("/index");
         }
     }
     public static Result logout() {
@@ -52,11 +63,17 @@ public class Application extends Controller {
     }
 
     public static Result GotoAddProjectPage() {
+        if(session().isEmpty()){
+            return redirect("/");
+        }
         return ok(addproject.render("Hi"));
     }
 
 
     public static Result GotoProjectPage(Long id, String name) {
+        if (session().isEmpty()){
+            return redirect("/");
+        }
         return ok(projectPage.render(Project.find.byId(id),session().get("username")));
     }
 }

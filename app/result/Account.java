@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import com.avaje.ebean.Ebean;
 import play.data.validation.Constraints;
 import play.db.ebean.*;
-//import play.db.ebean.Model.Finder;
+import play.db.ebean.Model.Finder;
 
 /**
  * Created by patawat on 3/3/15 AD.
@@ -34,5 +34,5 @@ public class Account extends Model {
 
     //public String Name;
     // Finder will help us easily query data from database.
-    //public static Finder<Long, Account> find = new Finder<Long, Account>(Long.class, Account.class);
+    public static Finder<Long, Account> find = new Finder<Long, Account>(Long.class, Account.class);
 }
