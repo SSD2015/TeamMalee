@@ -1,6 +1,7 @@
 package result;
 import javax.persistence.*;
 
+import com.avaje.ebean.Ebean;
 import play.db.ebean.*;
 import play.db.ebean.Model.Finder;
 /**
@@ -18,4 +19,12 @@ public class Vote extends Model {
 
     // Finder will help us easily query data from database.
     public static Finder<Long, Vote> find = new Finder<Long, Vote>(Long.class, Vote.class);
+
+    public static Object findExist(String voterID, String projectID) {
+
+        return Ebean.find(Vote.class).where()
+                .eq("voterID", voterID)
+                .eq("projectID", projectID)
+                .findUnique();
+    }
 }

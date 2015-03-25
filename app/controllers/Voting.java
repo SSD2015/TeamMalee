@@ -12,10 +12,13 @@ public class Voting extends Controller{
 
     public static Result addVote() {
         Vote vote = Form.form(Vote.class).bindFromRequest().get();
+        vote.voterID = Integer.parseInt(session().get("id"));
+        if (Vote.findExist(vote.voterID+"", vote.projectID+"") == null) {
+            vote.save();
+            return redirect("/vote");
+        }
 
-        vote.save();
-
-        return redirect("/vote");
+        return ok(views.html.vote.render("You already vote this project"));
     }
 
 

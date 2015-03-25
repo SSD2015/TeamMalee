@@ -19,4 +19,6 @@ public class Project extends Model {
     public String manager;
 
     public static Finder<Long, Project> find = new Finder<Long, Project>(Long.class, Project.class);
+
+
 }
