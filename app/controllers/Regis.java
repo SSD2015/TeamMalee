@@ -1,5 +1,6 @@
 package controllers;
 
+import com.avaje.ebean.Ebean;
 import play.data.Form;
 import play.mvc.*;
 import result.Account;
@@ -16,6 +17,9 @@ public class Regis extends Controller {
     }
     public static Result addNewAcc() {
         Account account = Form.form(Account.class).bindFromRequest().get();
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() != null) {
+            return ok(login.render(Form.form(Login.class)));
+        }
 
         account.save();
 
