@@ -1,8 +1,60 @@
 @import result.Project
 
-@(project: Project)
+@(project: Project, message: String)
 
-@main("Team @project.name") {
+@mainProj("Team @project.name") {
+    //header bar
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">@message</a>
+            </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href= "/index">Index</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href= "/logout">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+                <!-- /.navbar-collapse -->
+        </div>
+            <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="@routes.Assets.at("images/submarine.png")" style="width:50%;">
+                    <div class="intro-text">
+                        <span class="name">Team @project.name</span>
+                        <hr class="star-light">
+                        <span class="skills">@project.description</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
     <div class="text-center">
         ID = @project.id <br>
         name = @project.name <br>
@@ -10,7 +62,5 @@
         imageurl = @project.imageurl <br>
         manager = @project.manager <br>
     </div>
-    <div id="browse_app" class="text-center">
-        <a class="btn btn-large btn-info" href="/index">Browse to index page (Test)</a>
-    </div>
+
 }

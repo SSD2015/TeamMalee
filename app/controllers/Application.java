@@ -9,7 +9,7 @@ import play.data.*;
 import result.Project;
 
 public class Application extends Controller {
-    public static Result index() { return ok(index.render("id")); }
+    public static Result index() { return ok(index.render(session().get("username"))); }
     public static Result votingResult() { return ok(complete.render( Vote.find.all())); }
     public static Result gotoVotePage() {
         String user = session().get("username");
@@ -57,7 +57,7 @@ public class Application extends Controller {
 
 
     public static Result GotoProjectPage(Long id, String name) {
-        return ok(projectPage.render(Project.find.byId(id)));
+        return ok(projectPage.render(Project.find.byId(id),session().get("username")));
     }
 }
 
