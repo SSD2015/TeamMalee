@@ -1,20 +1,18 @@
-@(message: String)
+@import result.Project
+@import result.Vote
+@(project: Project)
 
 @mainVote("Vote page") {
 
-    <!--@play20.welcome(message, style = "Java")-->
-
-    <!--<div ui-content-for="title">
-        <span>Forms</span>
-    </div>-->
 
     <div id="header">
-        <h1>@message</h1>
+        <h1>@session().get("username")</h1>
 
         <a href = "/logout"><button type="button" class="btn btn-danger">Logout</button></a>
     </div>
 
     <form id="score" class="text-center" role="form" action = "/voting" method = post onsubmit="return confirm('Do you want to submit the form?');">
+        Vote for Team @project.name
         <div class="creativity">
             <label for="sel1">Creativity</label>
             <span class="rating">
@@ -93,7 +91,7 @@
         </div>
         <br>
         <br>
-        <input type="hidden" name="projectID" value="1">
+        <input type="hidden" name="projectID" value="@project.id">
 
         <button id="submit" type="submit" class="btn btn-primary btn-block center-block"> Submit </button>
     </form>
@@ -106,6 +104,21 @@
         <a class="btn btn-large btn-info" href="/">Browse to index page (Test)</a>
     </div>
 
+    <script type="text/javascript">
 
+    $(document).ready(function () {
+        setCurrentScore();
+    });
+
+    function setCurrentScore(){
+        @defining( (Vote.findExist(session().get("id")+"", project.id+"")) ) { voterVote =>
+            @if(voterVote != null) {
+                document.getElementById("rating-input1-@voterVote.sel1").checked = true;
+                document.getElementById("rating-input2-@voterVote.sel2").checked = true;
+                document.getElementById("rating-input3-@voterVote.sel3").checked = true;
+            }
+        }
+    };
+    </script>
 
 }
