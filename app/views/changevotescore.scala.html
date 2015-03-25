@@ -11,7 +11,7 @@
     <div id="header">
         <h1>Change vote score</h1>
     </div>
-    <form id="score" class="text-center" role="form" action = "/requestchangescore" method = post>
+    <form id="score" class="text-center" role="form" action = "/requestchangescore" method = post onsubmit="return confirm('Do you want to submit the form?');">
         <select id="TestSelect" name = "id">
         </select>
         <div class="creativity">
@@ -93,7 +93,7 @@
         <br>
         <br>
 
-        <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+        <button id="submit" type="submit" class="btn btn-primary btn-block center-block" >Submit</button>
     </form>
     <br>
     <div id="browse_app" class="text-center">
