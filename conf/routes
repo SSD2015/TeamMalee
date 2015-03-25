@@ -5,7 +5,6 @@
 # Home page
 # GET         /voteO                    controllers.Application.index
 GET         /result                    controllers.Application.votingResult
-GET         /vote                      controllers.Application.gotoVotePage
 
 GET         /                          controllers.Application.login
 GET         /registor                  controllers.Regis.regis()
@@ -25,6 +24,7 @@ POST        /requestchangescore        controllers.Voting.changeVote
 GET         /addprojectpage            controllers.Application.GotoAddProjectPage
 POST        /addproject                controllers.Application.AddProject
 GET         /project/:name             controllers.Application.GotoProjectPage(id:Long, name:String)
+GET         /project/:name/vote        controllers.Application.gotoVotePage(id:Long, name:String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file              controllers.Assets.at(path="/public", file)

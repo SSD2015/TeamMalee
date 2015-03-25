@@ -2,6 +2,7 @@ package controllers;
 
 import play.mvc.*;
 import play.data.Form;
+import result.Project;
 import views.html.*;
 import result.Vote;
 
@@ -13,12 +14,18 @@ public class Voting extends Controller{
     public static Result addVote() {
         Vote vote = Form.form(Vote.class).bindFromRequest().get();
         vote.voterID = Integer.parseInt(session().get("id"));
-        if (Vote.findExist(vote.voterID+"", vote.projectID+"") == null) {
+        Vote voterVote = (Vote)Vote.findExist(vote.voterID+"", vote.projectID+"");
+        Project projectVoted = (Project) Project.find.byId(Long.valueOf(vote.projectID));
+        if (voterVote == null) {
             vote.save();
-            return redirect("/vote");
+            return ok(projectPage.render(projectVoted, "Vote succeeded"));
         }
+        voterVote.sel1 = vote.sel1;
+        voterVote.sel2 = vote.sel2;
+        voterVote.sel3 = vote.sel3;
 
-        return ok(views.html.vote.render("You already vote this project"));
+        voterVote.update();
+        return ok(projectPage.render(projectVoted, "Change voting score succeeded"));
     }
 
 

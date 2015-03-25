@@ -20,14 +20,6 @@ public class Application extends Controller {
             return redirect("/");
         return ok(complete.render( Vote.find.all()));
     }
-    public static Result gotoVotePage() {
-        String user = session().get("username");
-        if(user!=null)
-            return ok(vote.render(user));
-        else
-            return redirect("/index");
-
-    }
     public static Result login() {
         if (session().isEmpty())
             return ok(login.render(Form.form(Login.class)));
@@ -74,7 +66,16 @@ public class Application extends Controller {
         if (session().isEmpty()){
             return redirect("/");
         }
-        return ok(projectPage.render(Project.find.byId(id),session().get("username")));
+        return ok(projectPage.render(Project.find.byId(id),""));
+    }
+
+    public static Result gotoVotePage(Long id, String name) {
+        String user = session().get("username");
+        if(user!=null) {
+            Project projectVoted = Project.find.byId(id);
+            return ok(vote.render(projectVoted));
+        }
+        return redirect("/index");
     }
 }
 
