@@ -32,9 +32,11 @@ public class Application extends Controller {
         if (loginForm.hasErrors()) {
             return badRequest(login.render(loginForm));
         } else {
+            Account user = (Account)Account.authenticate(loginForm.get().username, loginForm.get().password);
             session().clear();
             session("username", loginForm.get().username);
-            return ok(index.render(session().get("username")));
+            session("id", ""+user.id);
+            return redirect("/index");
         }
     }
     public static Result logout() {

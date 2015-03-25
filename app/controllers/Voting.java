@@ -15,7 +15,7 @@ public class Voting extends Controller{
 
         vote.save();
 
-        return ok(complete.render(Vote.find.all()));
+        return redirect("/vote");
     }
 
 

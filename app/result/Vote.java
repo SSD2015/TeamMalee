@@ -2,6 +2,7 @@ package result;
 import javax.persistence.*;
 
 import play.db.ebean.*;
+import play.db.ebean.Model.Finder;
 /**
  * Created by thanyaboontovorapan on 2/28/15 AD.
  */
@@ -12,6 +13,8 @@ public class Vote extends Model {
     public int sel1;
     public int sel2;
     public int sel3;
+    public int projectID;
+    public int voterID;
 
     // Finder will help us easily query data from database.
     public static Finder<Long, Vote> find = new Finder<Long, Vote>(Long.class, Vote.class);

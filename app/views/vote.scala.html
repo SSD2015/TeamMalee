@@ -93,11 +93,8 @@
         </div>
         <br>
         <br>
-        <div class="detailBox">
-            <div class="titleBox">
-                <label>Comment Box</label>
-            </div>
-        </div>
+        <input type="hidden" name="voterID" value="@session.get("id")">
+        <input type="hidden" name="projectID" value="1">
 
         <button id="submit" type="submit" class="btn btn-primary btn-block center-block"> Submit </button>
     </form>
