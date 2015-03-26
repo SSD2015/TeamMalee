@@ -58,7 +58,7 @@ public class Application extends Controller {
         if(session().isEmpty()){
             return redirect("/");
         }
-        return ok(addproject.render("Hi"));
+        return ok(addproject.render("Add Project"));
     }
 
 
