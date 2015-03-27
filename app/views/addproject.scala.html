@@ -31,6 +31,9 @@
                     <li class="page-scroll">
                         <a href= "/index">Index</a>
                     </li>
+                    <li class = "page-scroll">
+                        <a href = "/result">Voting Result</a>
+                    </li>
                     <li class="page-scroll">
                         <a href= "/logout">Log Out</a>
                     </li>
@@ -40,7 +43,6 @@
         </div>
             <!-- /.container-fluid -->
     </nav>
-
 
     <header>
         <div class="container">
@@ -54,26 +56,38 @@
 
                         <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
                     </form>
-                    <div id="browse_app" class="text-center">
-                        <a class="btn btn-large btn-info" href="/result">Browse to result page (Test)</a>
+
+                    <!-- add image -->
+                    <div id="dropzone">
+                        <div>drop image</div>
+                        @*<input type="text" name="imageurl"><br>*@
+                        <input type="file" name="imageurl" accept="image/png, application/pdf" />
                     </div>
-                    <br>
-                    <br>
-                    <div id="browse_app" class="text-center">
-                        <a class="btn btn-large btn-info" href="/">Browse to index page (Test)</a>
+                    * only .png file
+
+                    <br><br>
+
+                    <!-- add text -->
+                    <div class="wrap">
+                        <div class="mat-div">
+                            <label for="first-name" class="mat-label">First Name</label>
+                            <input type="text" class="mat-input" id="first-name">
+                        </div>
+
+                        <div class="mat-div">
+                            <label for="first-name" class="mat-label">Last Name</label>
+                            <input type="text" class="mat-input" id="last-name">
+                        </div>
+
+                        <div class="mat-div">
+                            <label for="address" class="mat-label">Address</label>
+                            <input type="text" class="mat-input" id="address">
+                        </div>
+                        <button>Submit</button>
                     </div>
+
                 </div>
             </div>
         </div>
     </header>
-
-    
-
-
-
-
-
-
-
-
 }
