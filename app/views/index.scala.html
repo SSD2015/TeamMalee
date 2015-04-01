@@ -67,80 +67,26 @@
                     <hr class="star-primary">
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
+                @defining(Project.find.all()) { projects =>
+                    @projects.map { project =>
+                        <div class="col-sm-4 portfolio-item">
+                            <a href="@routes.Application.GotoProjectPage( project.id , project.name )" class="portfolio-link" data-toggle="modal">
+                                <div class="caption">
+                                    <div class="caption-content">
+                                        <i class="fa fa-search-plus fa-3x"></i>
+                                        <h3>Team @project.name</h3>
+                                    </div>
+                                </div>
+                                <img src="@routes.Assets.at("images/cake.png")" class="img-responsive" alt="">
+
+                            </a>
                         </div>
-                        <img src="@routes.Assets.at("images/cabin.png")" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="@routes.Assets.at("images/cake.png")" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="@routes.Assets.at("images/circus.png")" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="@routes.Assets.at("images/game.png")" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="@routes.Assets.at("images/safe.png")" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="@routes.Assets.at("images/submarine.png")" class="img-responsive" alt="">
-                    </a>
-                </div>
+                    }
+                }
             </div>
         </div>
-
-    <br>
-    <br>
-
-    @defining(Project.find.all()) { projects =>
-        <div class="text-center">
-        @projects.map { project =>
-            <h2><a class="teamlist" href='@routes.Application.GotoProjectPage( project.id , project.name )'>Team @project.name</a></h2>
-        }
-        </div>
-    }
     </section>
 
     <header>
