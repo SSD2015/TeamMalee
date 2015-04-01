@@ -8,7 +8,6 @@
         <span>Forms</span>
     </div>-->
 
-    //header bar
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,16 +25,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden active">
-                        <a href="#page-top"></a>
+                        <a href = "#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href= "/index">Index</a>
+                        <a href = "/index">Index</a>
                     </li>
                     <li class = "page-scroll">
                         <a href = "/result">Voting Result</a>
                     </li>
                     <li class="page-scroll">
-                        <a href= "/logout">Log Out</a>
+                        <a href = "/logout">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -45,49 +44,48 @@
     </nav>
 
     <header>
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-12" style="text-decoration-color: slategrey">
                     <form id="project" class="text-center" role="form" action = "/addproject" method = post>
-                        name: <input type="text" name="name"><br>
-                        image url: <input type="text" name="imageurl"><br>
-                        description: <input type="text" name="description"><br>
-                        manager: <input type="text" name="manager"><br>
+                        @*name: <input type="text" name="name"><br>*@
+                        @*image url: <input type="text" name="imageurl"><br>*@
+                        @*description: <input type="text" name="description"><br>*@
+                        @*manager: <input type="text" name="manager"><br>*@
 
-                        <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+                                <!-- add image -->
+                            <div id="dropzone">
+                                <div>drop image</div>
+                                @*<input type="text" name="imageurl"><br>*@
+                                <input type="file" name="imageurl" accept="image/png" />
+                            </div>
+                            * only .png file
+
+                            <br><br>
+
+                                <!-- add text -->
+                            <div class="wrap">
+                                <div class="mat-div">
+                                    <label for="name" class="mat-label">Name</label>
+                                    <input type="text" class="mat-input" name="name">
+                                </div>
+
+                                <div class="mat-div">
+                                    <label for="description" class="mat-label">Project Description</label>
+                                    <input type="text" class="mat-input" name="description">
+                                </div>
+
+                                <div class="mat-div">
+                                    <label for="maneger" class="mat-label">Project Maneger</label>
+                                    <input type="text" class="mat-input" name="manager">
+                                </div>
+                                <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+                            </div>
                     </form>
-
-                    <!-- add image -->
-                    <div id="dropzone">
-                        <div>drop image</div>
-                        @*<input type="text" name="imageurl"><br>*@
-                        <input type="file" name="imageurl" accept="image/png, application/pdf" />
-                    </div>
-                    * only .png file
-
-                    <br><br>
-
-                    <!-- add text -->
-                    <div class="wrap">
-                        <div class="mat-div">
-                            <label for="first-name" class="mat-label">First Name</label>
-                            <input type="text" class="mat-input" id="first-name">
-                        </div>
-
-                        <div class="mat-div">
-                            <label for="first-name" class="mat-label">Last Name</label>
-                            <input type="text" class="mat-input" id="last-name">
-                        </div>
-
-                        <div class="mat-div">
-                            <label for="address" class="mat-label">Address</label>
-                            <input type="text" class="mat-input" id="address">
-                        </div>
-                        <button>Submit</button>
-                    </div>
-
                 </div>
             </div>
         </div>
+
     </header>
 }
