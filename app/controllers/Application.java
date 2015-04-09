@@ -9,15 +9,12 @@ import play.data.*;
 import result.Project;
 
 public class Application extends Controller {
+    @Security.Authenticated(Secured.class)
     public static Result index() {
-        if(!session().isEmpty()) {
-            return ok(index.render(session().get("username")));
-        }
-        return redirect("/");
+        return ok(index.render(session().get("username")));
     }
+    @Security.Authenticated(Secured.class)
     public static Result votingResult() {
-        if (session().isEmpty())
-            return redirect("/");
         return ok(complete.render( Vote.find.all()));
     }
     public static Result login() {
@@ -53,29 +50,24 @@ public class Application extends Controller {
 
         return redirect("/");
     }
-
+    @Security.Authenticated(Secured.class)
     public static Result GotoAddProjectPage() {
-        if(session().isEmpty()){
-            return redirect("/");
-        }
         return ok(addproject.render("Add Project"));
     }
 
-
+    @Security.Authenticated(Secured.class)
     public static Result GotoProjectPage(Long id, String name) {
-        if (session().isEmpty()){
-            return redirect("/");
-        }
+
         return ok(projectPage.render(Project.find.byId(id),""));
     }
-
+    @Security.Authenticated(Secured.class)
     public static Result gotoVotePage(Long id, String name) {
         String user = session().get("username");
-        if(user!=null) {
+        //if(user!=null) {
             Project projectVoted = Project.find.byId(id);
             return ok(vote.render(projectVoted));
-        }
-        return redirect("/index");
+        //}
+        //return redirect("/index");
     }
 }
 
