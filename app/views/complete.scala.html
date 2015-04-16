@@ -1,16 +1,16 @@
-@(votes: List[result.Vote])
+@(votes: List[result.resultVote])
 @import result.Account
 @main("Vote result") {
     <div class="text-center">
         @votes.map { vote =>
-            id = @vote.id <br>
-            @vote.sel1 <br>
-            @vote.sel2 <br>
-            @vote.sel3 <br>
-            @defining(Account.find.byId(vote.voterID)) { account =>
-                Voter = @account.username <br>
-            }
-            projectID = @vote.projectID <br>
+            id = @vote.getname <br>
+            @vote.getScore <br>
+            @vote.getScore2 <br>
+            @vote.getScore3 <br>
+            @*@defining(Account.find.byId(vote.voterID)) { account =>*@
+                @*Voter = @account.username <br>*@
+            @*}*@
+            @*projectID = @vote.projectID <br>*@
         <br>
         }
     </div>

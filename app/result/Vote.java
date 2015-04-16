@@ -27,4 +27,5 @@ public class Vote extends Model {
                 .eq("projectID", projectID)
                 .findUnique();
     }
+
 }
