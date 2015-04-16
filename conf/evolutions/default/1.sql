@@ -6,7 +6,8 @@
 create table account (
   id                        integer primary key AUTOINCREMENT,
   username                  varchar(255),
-  password                  varchar(255))
+  password                  varchar(255),
+  type                      varchar(255))
 ;
 
 create table project (
