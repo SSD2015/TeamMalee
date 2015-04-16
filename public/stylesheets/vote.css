@@ -39,9 +39,9 @@ body{
     position: relative;
     float: right;
     display: block;
-    width: 20px;
-    height: 20px;
-    background: url('../images/star.png') 0 -20px;
+    width: 100px;
+    height: 100px;
+    background: url('../images/star.png') 0 -100px;
 }
 
 /** Header */
