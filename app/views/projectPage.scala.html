@@ -13,6 +13,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="@routes.Assets.at("javascripts/project.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/addProj.js")" type="text/javascript"></script>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/addProj.css")">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/index">@project.name</a>
+                    <a class="navbar-brand" href="/index">@session.get("username")</a>
                 </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -77,6 +79,22 @@
             description = @project.description <br>
             imageurl = @project.imageurl <br>
             manager = @project.manager <br>
+        </div>
+            <div>
+            <h1>Upload a new image:</h1>
+            @helper.form(action = routes.ImageController.uploadImage(project.id), 'enctype -> "multipart/form-data") {
+                <div id = "dropzone">
+                <input type="file" class="" accept="image/png" name="image">
+                </div>
+                <button type="submit">Upload image!</button>
+            }
+            </div>
+
+        <div>
+            <h1>Images in Database:</h1>
+                <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
+                    <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
+                </a>
         </div>
 
             <div class = pop>

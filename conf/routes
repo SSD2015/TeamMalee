@@ -30,6 +30,9 @@ GET         /project/:name/vote        controllers.Application.gotoVotePage(id:L
 GET         /assets/*file              controllers.Assets.at(path="/public", file)
 
 #admin
-GET         /AdminIndex                     controllers.Application.Adminindex()
+GET         /AdminIndex                controllers.Application.Adminindex()
 
+
+#image
+POST        /                          controllers.ImageController.uploadImage(id: Long)
     

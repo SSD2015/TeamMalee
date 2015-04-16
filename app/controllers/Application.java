@@ -23,7 +23,7 @@ public class Application extends Controller {
     }
     @Security.Authenticated(Secured.class)
     public static Result votingResult() {
-        ArrayList results = new ArrayList();
+        ArrayList<resultVote> results = new ArrayList<resultVote>();
 
         for (int i=0;i< Project.find.all().size();i++){
             System.out.print("in");
@@ -44,6 +44,10 @@ public class Application extends Controller {
 
         if (session().isEmpty())
             return ok(login.render(Form.form(Login.class)));
+        else if (session().get("type") == null) {
+            session().clear();
+            return redirect("/");
+        }
         else if (session().get("type").equals("Admin")){
             System.out.println(session().get("type"));
             return redirect("/AdminIndex");
