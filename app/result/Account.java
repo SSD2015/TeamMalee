@@ -22,7 +22,7 @@ public class Account extends Model {
     @Constraints.Required
     public String password;
     @Constraints.Required
-    public String Type;
+    public String type;
 
     public static Object authenticate(String username, String password) {
         System.out.println(username + " " + password); // Check if form data is passed.

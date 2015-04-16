@@ -1,10 +1,12 @@
 package controllers;
 
+import Admin.html.MainAdmin;
 import play.data.Form;
 import play.mvc.*;
 import result.Account;
 import result.Vote;
 import views.html.*;
+import Admin.html.*;
 import play.data.*;
 import result.Project;
 
@@ -13,15 +15,25 @@ public class Application extends Controller {
     public static Result index() {
         return ok(index.render(session().get("username")));
     }
+    public static Result Adminindex() {
+        return ok(MainAdmin.render(session().get("username")));
+    }
     @Security.Authenticated(Secured.class)
     public static Result votingResult() {
         return ok(complete.render( Vote.find.all()));
     }
     public static Result login() {
+
         if (session().isEmpty())
             return ok(login.render(Form.form(Login.class)));
-        else
+        else if (session().get("type").equals("Admin")){
+            System.out.println(session().get("type"));
+            return redirect("/AdminIndex");
+        }
+        else {
+            System.out.println(session().get("type"));
             return redirect("/index");
+        }
     }
 
     public static Result authenticate() {
@@ -29,12 +41,21 @@ public class Application extends Controller {
 
         if (loginForm.hasErrors()) {
             return badRequest(login.render(loginForm));
-        } else {
+        }
+        else {
             Account user = (Account)Account.authenticate(loginForm.get().username, loginForm.get().password);
             session().clear();
             session("username", loginForm.get().username);
             session("id", ""+user.id);
-            return redirect("/index");
+            session("type",user.type);
+            if (session().get("type").equals("Admin")){
+                System.out.println(session().get("type"));
+                return redirect("/AdminIndex");
+            }
+            else {
+                System.out.println(session().get("type"));
+                return redirect("/index");
+            }
         }
     }
     public static Result logout() {
