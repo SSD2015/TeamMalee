@@ -27,7 +27,7 @@ public class Application extends Controller {
 
         for (int i=0;i< Project.find.all().size();i++){
             System.out.print("in");
-           results.add(new resultVote(i,0,0,0));
+           results.add(new resultVote(i+1,0,0,0));
         }
 
         for(int i=0;i< Vote.find.all().size();i++){
