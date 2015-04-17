@@ -12,7 +12,6 @@ import static play.data.Form.form;
 
 import result.Project;
 import views.html.*;
-import java.util.List;
 import java.io.File;
 
 public class ImageController extends Controller {
@@ -57,7 +56,7 @@ public class ImageController extends Controller {
             file.renameTo(new File("public/projectimages/", id+".png"));
 
 
-            return ok(projectPage.render(Project.find.byId(id), "Success"));
+            return redirect("/");
         }
     }
 
