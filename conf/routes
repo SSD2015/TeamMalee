@@ -23,7 +23,6 @@ POST        /voting                               controllers.Voting.addVote
 GET         /addprojectpage                       controllers.Application.GotoAddProjectPage
 POST        /addproject                           controllers.Application.AddProject
 GET         /project/:name                        controllers.Application.GotoProjectPage(id:Long, name:String)
-GET         /project/:name/editdescription        controllers.Application.GotoProjectEditDescription(id:Long, name:String)
 POST        /                                     controllers.Application.editDescription(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path

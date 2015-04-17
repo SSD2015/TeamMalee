@@ -81,9 +81,8 @@
                             <span class="name">Team @project.name</span>
                             <hr class="star-light">
                             <span class="skills">@project.description</span>
-                            @if( session.get("username").equals(project.manager) || session.get("type").equals("Admin") ) {
-                                <a href="@routes.Application.GotoProjectEditDescription( project.id , project.name )" >Edit description</a>
-                            }
+
+
                         </div>
                     </div>
                 </div>
@@ -102,16 +101,22 @@
                                 <a href="#!" class="closePopUpEdit">X</a>
                                 <h2>Edit description</h2>
                             </header>
-                            <article>
 
-                                testtttt
+                            <article>
+                                <form role="form" action = "@routes.Application.editDescription(project.id)" method = post>
+                                        <!-- add text -->
+                                    <div class="wrap">
+                                        <textarea name="inputDescription" cols="50" rows="7" style="color: red">@project.description</textarea>
+                                        <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+                                    </div>
+                                </form>
                             </article>
                         </div>
                         <a href="#!" class="closePopUpOutSideEdit"></a>
                     </aside>
                 </div>
             }
-            <br><br><br><br>
+            <br><br>
 
             <div class = pop>
                 <a href="#popUp" id="openPopUp">Vote</a>

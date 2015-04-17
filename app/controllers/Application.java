@@ -115,12 +115,6 @@ public class Application extends Controller {
     }
 
     @Security.Authenticated(Secured.class)
-    public static Result GotoProjectEditDescription(Long id, String name) {
-
-        return ok(EditDescription.render(Project.find.byId(id)));
-    }
-
-    @Security.Authenticated(Secured.class)
     public static Result editDescription(Long id) {
         Form<EditDescriptionForm> form = form(EditDescriptionForm.class).bindFromRequest();
 
