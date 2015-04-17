@@ -114,34 +114,6 @@
                 </div>
             </div>
         </header>
-            
-            @*pop up edit description*@
-            @if( session.get("username").equals(project.manager) || session.get("type").equals("Admin") ) {
-                <div class = editPop>
-                    <a href="#popUpEdit" id="openPopUpEdit">Edit description</a>
-
-                        <!-- POP UP -->
-                    <aside id="popUpEdit" class="popupEdit">
-                        <div class="popUpContainerEdit">
-                            <header>
-                                <a href="#!" class="closePopUpEdit">X</a>
-                                <h2>Edit description</h2>
-                            </header>
-
-                            <article>
-                                <form role="form" action = "@routes.Application.editDescription(project.id)" method = post>
-                                        <!-- add text -->
-                                    <div class="wrap">
-                                        <textarea name="inputDescription" cols="50" rows="7" style="color: red">@project.description</textarea>
-                                        <button id="submit1" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
-                                    </div>
-                                </form>
-                            </article>
-                        </div>
-                        <a href="#!" class="closePopUpOutSideEdit"></a>
-                    </aside>
-                </div>
-            }
             <br><br>
 
             <div class = pop>
