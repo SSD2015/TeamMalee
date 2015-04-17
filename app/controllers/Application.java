@@ -1,11 +1,13 @@
 package controllers;
 
 import Admin.html.MainAdmin;
+import Admin.html.userList;
 import play.data.Form;
 import play.mvc.*;
 import result.Account;
 import result.Vote;
 import result.resultVote;
+import scala.collection.immutable.List;
 import views.html.*;
 import Admin.html.*;
 import play.data.*;
@@ -18,7 +20,13 @@ import static play.data.Form.form;
 public class Application extends Controller {
     @Security.Authenticated(Secured.class)
     public static Result index() {
+        if(session().get("type").equals("Admin")){
+            return redirect("/AdminIndex");
+        }
         return ok(index.render(session().get("username")));
+    }
+    public static Result accList() {
+        return ok(userList.render(Account.find.all()));
     }
     public static Result Adminindex() {
         return ok(MainAdmin.render(session().get("username")));
