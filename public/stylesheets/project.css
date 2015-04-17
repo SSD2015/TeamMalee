@@ -65,7 +65,7 @@
 header {
     text-align: center;
     color: #fff;
-    background: #18bc9c;
+    background: #ffcd69;
 }
 
 header .container {
@@ -189,7 +189,7 @@ a#openPopUp:hover{
     background-color: #a9a9a9;
     overflow: scroll;
 }
- The cancel button on popup dialog
+ /*The cancel button on popup dialog*/
 .popup a.closePopUp{
     font-family: verdana;
     color: #e74c3c;
@@ -202,11 +202,11 @@ a#openPopUp:hover{
     font-size: 1.5em;
     text-decoration: none;
 }
- The cancel button on popup dialog
+ /*The cancel button on popup dialog*/
 .popup a:hover{
     color: #c0392b;
 }
- When popup is targeted, by clicking on link with #popup in HTML
+ /*When popup is targeted, by clicking on link with #popup in HTML*/
 .popup:target{
     opacity: 1;
     top: 0;
