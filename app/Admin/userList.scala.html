@@ -5,7 +5,7 @@
 
 <html>
     <head>
-        <title>Vote result"</title>
+        <title>AccList</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
@@ -18,6 +18,13 @@
     </head>
     <body>
         <div class="text-center">
+            <form action = "/deleteAcc" method = post>
+                <div class="form-group">
+                    <label for="id">Username</label>
+                    <input class="form-control" id="id" name="id" placeholder="Enter ID" >
+                    <button button id="submit" type="submit"  class="btn btn-danger">Delete</button>
+                </div>
+            </form>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -25,12 +32,14 @@
                         <th>Username</th>
                         <th>Password</th>
                         <th>Type</th>
+
                     </tr>
                 </thead>
                 <tbody>
         @accList.map { acc =>
                 <tr>
-                    <td>@acc.id</td>
+
+                    <td id="id" name="id">@acc.id</td>
                     <td>@acc.username</td>
                     <td>@acc.password</td>
                     <td>@acc.getType</td>

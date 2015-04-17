@@ -21,7 +21,6 @@ public class Application extends Controller {
         return ok(index.render(session().get("username")));
     }
     public static Result accList() {
-
         return ok(userList.render(Account.find.all()));
     }
     public static Result Adminindex() {
