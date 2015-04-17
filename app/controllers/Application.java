@@ -108,6 +108,10 @@ public class Application extends Controller {
         //}
         //return redirect("/index");
     }
+
+    public static Result criteria() {
+        return ok(criteria.render());
+    }
 }
 
 
