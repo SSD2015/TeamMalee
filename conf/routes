@@ -12,11 +12,12 @@ GET         /registor                             controllers.Regis.regis()
 POST        /index                                controllers.Application.index()
 GET         /index                                controllers.Application.index()
 
-POST        /log                                  controllers.Application.authenticate()
-POST        /voting                               controllers.Voting.addVote
-POST        /regis                                controllers.Regis.addNewAcc
-GET         /logout                               controllers.Application.logout()
-GET         /changevote                           controllers.Voting.changeVotePage
+POST        /log                       controllers.Application.authenticate()
+POST        /voting                    controllers.Voting.addVote
+POST        /regis                     controllers.Regis.addNewAcc
+GET         /logout                    controllers.Application.logout()
+GET         /changevote                controllers.Voting.changeVotePage
+GET         /criteria                  controllers.Application.criteria()
 
 POST        /voting                               controllers.Voting.addVote
 POST        /requestchangescore                   controllers.Voting.changeVote

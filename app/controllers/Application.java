@@ -114,8 +114,6 @@ public class Application extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result editDescription(Long id) {
-        Vote vote = Form.form(Vote.class).bindFromRequest().get();
-
         Form<EditDescriptionForm> form = form(EditDescriptionForm.class).bindFromRequest();
 
         Project targetProject = Project.find.byId(id);
@@ -132,6 +130,9 @@ public class Application extends Controller {
 
     }
 
+    public static Result criteria() {
+        return ok(criteria.render());
+    }
 }
 
 
