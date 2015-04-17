@@ -30,6 +30,7 @@ GET         /assets/*file              controllers.Assets.at(path="/public", fil
 
 #admin
 GET         /AdminIndex                controllers.Application.Adminindex()
+GET         /AccList                   controllers.Application.accList()
 
 
 #image

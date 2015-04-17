@@ -32,6 +32,10 @@ public class Account extends Model {
                 .eq("password", password)
                 .findUnique();
     }
+    public String getType(){
+        return this.type;
+    }
+
 
 
     //public String Name;
