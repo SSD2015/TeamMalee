@@ -30,7 +30,10 @@ POST        /                                     controllers.Application.editDe
 GET         /assets/*file                         controllers.Assets.at(path="/public", file)
 
 #admin
-GET         /AdminIndex                           controllers.Application.Adminindex()
+GET         /AdminIndex                controllers.Application.Adminindex()
+GET         /AccList                   controllers.Application.accList()
+POST        /deleteAcc                 Admin.accController.remove()
+
 
 
 #image
