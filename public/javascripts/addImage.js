@@ -1,7 +1,6 @@
 /**
  * Created by neen_tta on 4/17/15 AD.
  */
-
 // add image
 $(function() {
 

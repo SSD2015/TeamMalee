@@ -17,6 +17,7 @@
             <!-- Custom CSS -->
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/freelancer.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/project.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/addImage.css")">
             <!-- jQuery -->
         <script src="@routes.Assets.at("javascripts/jquery.js")" type="text/javascript"></script>
             <!-- Bootstrap Core JavaScript -->
@@ -29,12 +30,7 @@
 
             <!-- Custom Theme JavaScript -->
         <script src="@routes.Assets.at("javascripts/freelancer.js")" type="text/javascript"></script>
-
-        <script src="@routes.Assets.at("../../public/javascripts/addText.js")" type="text/javascript"></script>
-
-        @* ต้องเอามารวม *@
-        <script src="@routes.Assets.at("../../public/javascripts/addText.js")" type="text/javascript"></script>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/addProj.css")">
+        <script src="@routes.Assets.at("javascripts/addImage.js")" type="text/javascript"></script>
 
     </head>
     <body>
@@ -80,6 +76,7 @@
                         <div class="intro-text">
                             <span class="name">Team @project.name</span>
                             <hr class="star-light">
+
                             <span class="skills">@project.description</span><br>
 
                             @*pop up edit description*@
@@ -241,22 +238,30 @@
             <br><br>
             <br><br>
 
-            <div>
-            <h1>Upload a new image:</h1>
-            @helper.form(action = routes.ImageController.uploadImage(project.id), 'enctype -> "multipart/form-data") {
-                <div id = "dropzone">
-                <input type="file" class="" accept="image/png" name="image">
-                </div>
-                <button id = "submit3" type="submit">Upload image!</button>
-            }
-            </div>
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div>
+                                <h1>Upload a new image:</h1>
+                                @helper.form(action = routes.ImageController.uploadImage(project.id), 'enctype -> "multipart/form-data") {
+                                    <div id = "dropzone">
+                                        <input type="file" class="" accept="image/png" name="image">
+                                    </div>
+                                    <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Upload image!</button>
+                                }
+                            </div>
 
-        <div>
-            <h1>Images in Database:</h1>
-                <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
-                    <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
-                </a>
-        </div>
+                            <div>
+                                <h1>Images in Database:</h1>
+                                <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
+                                    <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             <script type="text/javascript">
 
