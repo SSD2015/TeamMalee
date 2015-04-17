@@ -70,34 +70,6 @@
             </div>
         </header>
 
-        <div id="browse_app" class="text-center">
-            <a class="btn btn-large btn-info" href="@routes.Application.gotoVotePage( project.id , project.name )">Vote</a>
-        </div>
-
-        <div class="text-center">
-            ID = @project.id <br>
-            name = @project.name <br>
-            description = @project.description <br>
-            imageurl = @project.imageurl <br>
-            manager = @project.manager <br>
-        </div>
-            <div>
-            <h1>Upload a new image:</h1>
-            @helper.form(action = routes.ImageController.uploadImage(project.id), 'enctype -> "multipart/form-data") {
-                <div id = "dropzone">
-                <input type="file" class="" accept="image/png" name="image">
-                </div>
-                <button type="submit">Upload image!</button>
-            }
-            </div>
-
-        <div>
-            <h1>Images in Database:</h1>
-                <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
-                    <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
-                </a>
-        </div>
-
             <div class = pop>
                 <a href="#popUp" id="openPopUp">Vote</a>
 
@@ -225,13 +197,32 @@
 
             <br><br>
 
-        <div class="text-center">
+            <div class="text-center">
             ID = @project.id <br>
-            name = @project.name <br>
-            description = @project.description <br>
-            imageurl = @project.imageurl <br>
-            manager = @project.manager <br>
+                name = @project.name <br>
+                description = @project.description <br>
+                imageurl = @project.imageurl <br>
+                manager = @project.manager <br>
         </div>
-        <br><br>
+            <br><br>
+
+            <div>
+            <h1>Upload a new image:</h1>
+            @helper.form(action = routes.ImageController.uploadImage(project.id), 'enctype -> "multipart/form-data") {
+                <div id = "dropzone">
+                <input type="file" class="" accept="image/png" name="image">
+                </div>
+                <button type="submit">Upload image!</button>
+            }
+            </div>
+
+        <div>
+            <h1>Images in Database:</h1>
+                <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
+                    <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
+                </a>
+        </div>
+
+
     </body>
 </html>

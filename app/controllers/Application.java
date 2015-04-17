@@ -103,6 +103,7 @@ public class Application extends Controller {
 
         return ok(projectPage.render(Project.find.byId(id),""));
     }
+
     @Security.Authenticated(Secured.class)
     public static Result gotoVotePage(Long id, String name) {
         String user = session().get("username");
