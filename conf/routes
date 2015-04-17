@@ -33,4 +33,7 @@ GET         /assets/*file              controllers.Assets.at(path="/public", fil
 #admin
 GET         /AdminIndex                controllers.Application.Adminindex()
 
+
+#image
+POST        /                          controllers.ImageController.uploadImage(id: Long)
     
