@@ -1,5 +1,5 @@
 /**
- * Created by neen_tta on 3/27/15 AD.
+ * Created by neen_tta on 4/17/15 AD.
  */
 
 // add image
@@ -43,17 +43,3 @@ $(function() {
         }
     });
 });
-
-// add text
-$( function() {
-        $(".mat-input").focus(function () {
-            $(this).parent().addClass("is-active is-completed");
-        });
-
-        $(".mat-input").focusout(function () {
-            if ($(this).val() === "")
-                $(this).parent().removeClass("is-completed");
-            $(this).parent().removeClass("is-active");
-        })
-    }
-)
