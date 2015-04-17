@@ -12,8 +12,11 @@ import views.html.*;
  * Created by patawat on 3/3/15 AD.
  */
 public class Regis extends Controller {
+    @Security.Authenticated(Secured.class)
     public static Result regis() {
-        return ok(Register.render());
+        if (session().get("type").equals("Admin"))
+            return ok(Register.render());
+        return redirect("/");
     }
     public static Result addNewAcc() {
         Account account = Form.form(Account.class).bindFromRequest().get();
