@@ -329,7 +329,7 @@ a#openPopUp:hover{
     height:100%;
     margin:0;
     padding: 0;
-    padding-top: 10em;
+    padding-top: 3em;
     position: relative;
     text-align:center;
 }
@@ -460,6 +460,35 @@ a#openPopUpEdit:hover{
 
 .wrap{
     padding-top: 2em;
+}
+
+
+
+/*body{*/
+    /*position: relative;*/
+    /*background-color: #EEF0D4;*/
+/*}*/
+#edit{
+    width: 80px;
+    height:auto;
+    position:absolute;
+    /*top: 0; bottom: 0; left: 0;*/
+
+    /*margin: 50px auto;*/
+}
+#circulo{
+    opacity: 1;
+    transition: 1.2s;
+    -wenkit-transition: 1.2s;
+    -moz-transition: 1.2s;
+    -o-transition: 1.2s;
+    -ms-transition: 1.2s;
+}
+#edit:hover{
+    cursor: pointer;
+}
+#edit:hover #circulo{
+    opacity: 0;
 }
 
 
