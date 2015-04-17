@@ -47,8 +47,9 @@ public class Application extends Controller {
             resultPro.setScore2(resultV.sel2);
             resultPro.setScore3(resultV.sel3);
         }
-
-        return ok(complete.render( results));
+        if(session().get("type").equals("Admin"))
+            return ok(complete.render( results));
+        return redirect("/");
     }
     public static Result login() {
 
@@ -105,7 +106,9 @@ public class Application extends Controller {
     }
     @Security.Authenticated(Secured.class)
     public static Result GotoAddProjectPage() {
-        return ok(addproject.render("Add Project"));
+        if(session().get("type").equals("Admin"))
+            return ok(addproject.render("Add Project"));
+        return redirect("/");
     }
 
     @Security.Authenticated(Secured.class)
