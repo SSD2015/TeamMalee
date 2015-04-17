@@ -37,18 +37,20 @@ public class Application extends Controller {
 
         for (int i=0;i< Project.find.all().size();i++){
             System.out.print("in");
-           results.add(new resultVote(i+1,0,0,0));
+           results.add(new resultVote("",0,0,0));
         }
 
         for(int i=0;i< Vote.find.all().size();i++){
             Vote resultV = Vote.find.byId((long) i+1);
             resultVote resultPro = (resultVote) results.get(resultV.projectID-1);
+            resultPro.setName(Project.find.byId((long) resultV.projectID).name);
             resultPro.setScore(resultV.sel1);
             resultPro.setScore2(resultV.sel2);
             resultPro.setScore3(resultV.sel3);
         }
-
-        return ok(complete.render( results));
+        if(session().get("type").equals("Admin"))
+            return ok(complete.render( results));
+        return redirect("/");
     }
     public static Result login() {
 
@@ -105,7 +107,9 @@ public class Application extends Controller {
     }
     @Security.Authenticated(Secured.class)
     public static Result GotoAddProjectPage() {
-        return ok(addproject.render("Add Project"));
+        if(session().get("type").equals("Admin"))
+            return ok(addproject.render("Add Project"));
+        return redirect("/");
     }
 
     @Security.Authenticated(Secured.class)

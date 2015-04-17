@@ -18,14 +18,15 @@ import org.joda.time.Seconds;
 public class Global extends GlobalSettings {
     private static Cancellable scheduler;
     private static Date nextValidTimeAfter;
-    private static int timeLeft;
+    private static int timeLeftHour = -1;
+    private static int timeLeftMinute = -1;
 
-    @Override
-    public void onStart(Application application) {
-        super.onStart(application);
-        System.out.println("System started");
-        //schedule();
-    }
+//    @Override
+//    public void onStart(Application application) {
+//        super.onStart(application);
+//        System.out.println("System started");
+//        //schedule();
+//    }
 
     @Override
     public void onStop(Application application) {
@@ -36,6 +37,9 @@ public class Global extends GlobalSettings {
     }
 
     public static int nextExecutionInSeconds(int hour, int minute){
+        if (hour == -1 || minute == -1) {
+            return -1;
+        }
         return Seconds.secondsBetween(
                 new DateTime(),
                 nextExecution(hour, minute)
@@ -55,6 +59,8 @@ public class Global extends GlobalSettings {
     }
 
     public static boolean stopTimer() {
+        timeLeftHour = -1;
+        timeLeftMinute = -1;
         if (scheduler != null) {
             scheduler.cancel();
             return true;
@@ -67,21 +73,25 @@ public class Global extends GlobalSettings {
         schedule(hour, minute);
     }
 
-    public static int getTimeLeft() {
-        return timeLeft;
+    public static int getTimeLeftHour() {
+        return timeLeftHour;
+    }
+
+    public static int getTimeLeftMinute() {
+        return timeLeftMinute;
     }
 
     private static void schedule(int hour, int minute) {
         try {
             CronExpression e = new CronExpression("0 " + minute + " " + hour + " ? * *");
             nextValidTimeAfter = e.getNextValidTimeAfter(new Date());
-            timeLeft = nextExecutionInSeconds(hour, minute);
+            timeLeftHour = hour;
+            timeLeftMinute = minute;
             FiniteDuration d = Duration.create(
                     nextValidTimeAfter.getTime() - System.currentTimeMillis(),
                     TimeUnit.MILLISECONDS);
 
             System.out.println("Scheduling to run at " + nextValidTimeAfter);
-
             scheduler = Akka.system().scheduler().scheduleOnce(d, new Runnable() {
 
                 @Override
@@ -89,7 +99,7 @@ public class Global extends GlobalSettings {
                     System.out.println("Ruuning scheduler");
 
                     //schedule(); //Schedule for next time
-
+                    stopTimer();
                 }
             }, Akka.system().dispatcher());
         } catch (Exception e) {
