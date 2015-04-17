@@ -106,7 +106,7 @@ header .intro-text .skills {
     }
 }
 
-/*popUp*/
+/*pop up vote*/
 .pop{
     font-family:sans-serif;
     width:100%;
@@ -254,7 +254,8 @@ a#openPopUp:hover{
     width: 100%;
 }
 #submit{
-    width: 50%;
+    background-color: #a28f79;
+    width: 40%;
 }
 
 .rating {
@@ -318,4 +319,147 @@ a#openPopUp:hover{
     color: #666;
     border-bottom-color: #666;
 }
+
+
+
+/*edit pop up*/
+.editPop{
+    font-family:sans-serif;
+    width:100%;
+    height:100%;
+    margin:0;
+    padding: 0;
+    padding-top: 10em;
+    position: relative;
+    text-align:center;
+}
+
+#openPopUpEdit{
+    text-align:center;
+    background-color: #1abc9c;
+    padding: 15px 15px;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.5em;
+    border-radius: 3.5px;
+    text-decoration: none;
+
+    transition:background-color 0.15s linear;
+    -webkit-transition:background-color 0.15s linear;
+    -moz-transition:background-color 0.25s linear;
+    -o-transition:background-color 0.25s linear;
+}
+a#openPopUpEdit:hover{
+    cursor: pointer;
+    background-color: #16a085;
+}
+.popupEdit{
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    z-index: 9999999;
+    background: rgba(0,0,0, 0.75);
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+
+    -webkit-transition: opacity  0.35s ease;
+    -moz-transition: opacity 0.35s ease;
+    -o-transition: opacity 0.35s ease;
+    transition: opacity 0.35s ease;
+}
+.popupEdit .popUpContainerEdit{
+    width: 100%;
+    max-width: 500px;
+    position: fixed; /* To avoid scroll to target */
+    left: 50%;
+    top: -100vh;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+
+    /* Trick to properly center the element by using negative
+    1/2 length of element as margin left and top */
+    margin-left: -250px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    z-index: 9999999;
+}
+.popupEdit h2{
+    padding: 0.5em;
+    text-align: center;
+    color: #444444;
+    margin: 0;
+}
+.popupEdit img{
+    width: 100%;
+    display: block;
+}
+.popupEdit article{
+    height: 300px;
+}
+/* The cancel button on popup dialog */
+.popupEdit a.closePopUpEdit{
+    font-family: verdana;
+    color: #e74c3c;
+    position: absolute;
+    top: 0.2em;
+    right: 0.375em;
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+/* The cancel button on popup dialog */
+.popupEdit a:hover{
+    color: #c0392b;
+}
+/* When popup is targeted, by clicking on link with #popup in HTML */
+.popupEdit:target{
+    opacity: 1;
+    top: 0;
+}
+.popupEdit .closePopUpOutSideEdit{
+    position: absolute;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999991;
+}
+.popupEdit:target .popUpContainerEdit{
+    top: 50px;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+}
+
+@media  (max-width: 796px) {
+    .popupEdit .popUpContainerEdit{
+        width: 90%;
+        max-width: none;
+        left: 5%;
+        margin-left: 0;
+    }
+    .popupEdit ul{
+        padding: 0 1em 0 1em;
+    }
+    .popupEdit:target .popUpContainerEdit{
+        top: 25px;
+        -webkit-transition: top  0.35s ease;
+        -moz-transition: top 0.35s ease;
+        -o-transition: top 0.35s ease;
+        transition: top 0.35s ease;
+    }
+}
+
+.wrap{
+    padding-top: 2em;
+}
+
 

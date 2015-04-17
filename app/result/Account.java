@@ -33,7 +33,9 @@ public class Account extends Model {
                 .findUnique();
     }
 
-
+    public String getType(){
+        return this.type;
+    }
     //public String Name;
     // Finder will help us easily query data from database.
     public static Finder<Long, Account> find = new Finder<Long, Account>(Long.class, Account.class);
