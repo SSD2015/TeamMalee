@@ -34,6 +34,7 @@
         <body>
             //header bar
             <nav class="navbar navbar-default navbar-fixed-top">
+
                 <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header page-scroll">
@@ -65,19 +66,16 @@
                     <!-- /.container-fluid -->
             </nav>
 
-            <div class="text-center">
+
                 @votes.map { vote =>
                     id = @vote.getname <br>
                     @vote.getScore <br>
                     @vote.getScore2 <br>
                     @vote.getScore3 <br>
-                    @*@defining(Account.find.byId(vote.voterID)) { account =>*@
-                        @*Voter = @account.username <br>*@
-                    @*}*@
-                    @*projectID = @vote.projectID <br>*@
+
                 <br>
                 }
-            </div>
+
             <div id="browse_app" class="text-center">
                 <a class="btn btn-large btn-info" href="/index">Browse to index page (Test)</a>
             </div>

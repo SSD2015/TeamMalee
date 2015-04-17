@@ -7,7 +7,7 @@
 GET         /result                               controllers.Application.votingResult
 
 GET         /                                     controllers.Application.login
-GET         /registor                             controllers.Regis.regis()
+GET         /register                             controllers.Regis.regis()
 
 POST        /index                                controllers.Application.index()
 GET         /index                                controllers.Application.index()
@@ -30,7 +30,10 @@ POST        /                                     controllers.Application.editDe
 GET         /assets/*file                         controllers.Assets.at(path="/public", file)
 
 #admin
-GET         /AdminIndex                           controllers.Application.Adminindex()
+GET         /AdminIndex                controllers.Application.Adminindex()
+GET         /AccList                   controllers.Application.accList()
+POST        /deleteAcc                 Admin.accController.remove()
+
 
 
 #image
