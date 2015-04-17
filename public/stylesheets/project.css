@@ -186,7 +186,7 @@ a#openPopUp:hover{
 }
 .popup article{
     height: 600px;
-    background-color: #a9a9a9;
+    /*background-color: #a9a9a9;*/
     overflow: scroll;
 }
 /* The cancel button on popup dialog */
@@ -253,7 +253,7 @@ a#openPopUp:hover{
 #score{
     width: 100%;
 }
-#submit{
+#submit2{
     background-color: #a28f79;
     width: 40%;
 }
@@ -460,6 +460,10 @@ a#openPopUpEdit:hover{
 
 .wrap{
     padding-top: 2em;
+}
+
+#submit{
+    width: 40%;
 }
 
 
