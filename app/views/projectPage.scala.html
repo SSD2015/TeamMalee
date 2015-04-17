@@ -107,7 +107,7 @@
                                         <!-- add text -->
                                     <div class="wrap">
                                         <textarea name="inputDescription" cols="50" rows="7" style="color: red">@project.description</textarea>
-                                        <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+                                        <button id="submit1" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
                                     </div>
                                 </form>
                             </article>
@@ -213,7 +213,7 @@
                                 <br>
 
                                 <input type="hidden" name="projectID" value="@project.id">
-                                <button id="submit" type="submit" class="btn btn-primary btn-block center-block"> Submit </button>
+                                <button id="submit2" type="submit" class="btn btn-primary btn-block center-block"> Submit </button>
                                 <br>
                             </form>
 
@@ -225,6 +225,28 @@
             </div>
 
 
+
+
+            <br><br>
+
+            <br><br>
+
+            <div>
+            <h1>Upload a new image:</h1>
+            @helper.form(action = routes.ImageController.uploadImage(project.id), 'enctype -> "multipart/form-data") {
+                <div id = "dropzone">
+                <input type="file" class="" accept="image/png" name="image">
+                </div>
+                <button id = "submit3" type="submit">Upload image!</button>
+            }
+            </div>
+
+        <div>
+            <h1>Images in Database:</h1>
+                <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
+                    <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
+                </a>
+        </div>
 
             <script type="text/javascript">
 
@@ -242,28 +264,5 @@
                 }
             };
             </script>
-
-            <br><br>
-
-            <br><br>
-
-            <div>
-            <h1>Upload a new image:</h1>
-            @helper.form(action = routes.ImageController.uploadImage(project.id), 'enctype -> "multipart/form-data") {
-                <div id = "dropzone">
-                <input type="file" class="" accept="image/png" name="image">
-                </div>
-                <button type="submit">Upload image!</button>
-            }
-            </div>
-
-        <div>
-            <h1>Images in Database:</h1>
-                <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
-                    <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
-                </a>
-        </div>
-
-
     </body>
 </html>
