@@ -64,6 +64,9 @@
                             <span class="name">Team @project.name</span>
                             <hr class="star-light">
                             <span class="skills">@project.description</span>
+                            @if( session.get("username").equals(project.manager) ) {
+                                <a href="@routes.Application.GotoProjectEditDescription( project.id , project.name )" >Edit description</a>
+                            }
                         </div>
                     </div>
                 </div>
@@ -197,13 +200,6 @@
 
             <br><br>
 
-            <div class="text-center">
-            ID = @project.id <br>
-                name = @project.name <br>
-                description = @project.description <br>
-                imageurl = @project.imageurl <br>
-                manager = @project.manager <br>
-        </div>
             <br><br>
 
             <div>
