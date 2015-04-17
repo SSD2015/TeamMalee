@@ -65,16 +65,32 @@
                 </div>
                     <!-- /.container-fluid -->
             </nav>
+                <div class="text-center">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>score1</th>
+                                <th>score2</th>
+                                <th>score3</th>
 
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @votes.map { acc =>
+                            <tr>
 
-                @votes.map { vote =>
-                    id = @vote.getname <br>
-                    @vote.getScore <br>
-                    @vote.getScore2 <br>
-                    @vote.getScore3 <br>
+                                <td id="id" name="id">@acc.getname</td>
+                                <td>@acc.getScore</td>
+                                <td>@acc.getScore2</td>
+                                <td>@acc.getScore3</td>
 
-                <br>
-                }
+                            </tr>
+                        <tbody>
+                        }
+                    </table>
+                </div>
+
 
             <div id="browse_app" class="text-center">
                 <a class="btn btn-large btn-info" href="/index">Browse to index page (Test)</a>
