@@ -13,6 +13,8 @@ import result.Project;
 
 import java.util.ArrayList;
 
+import static play.data.Form.form;
+
 public class Application extends Controller {
     @Security.Authenticated(Secured.class)
     public static Result index() {
@@ -102,6 +104,30 @@ public class Application extends Controller {
     public static Result GotoProjectPage(Long id, String name) {
 
         return ok(projectPage.render(Project.find.byId(id),""));
+    }
+
+    @Security.Authenticated(Secured.class)
+    public static Result GotoProjectEditDescription(Long id, String name) {
+
+        return ok(EditDescription.render(Project.find.byId(id)));
+    }
+
+    @Security.Authenticated(Secured.class)
+    public static Result editDescription(Long id) {
+        Form<EditDescriptionForm> form = form(EditDescriptionForm.class).bindFromRequest();
+
+        Project targetProject = Project.find.byId(id);
+
+        targetProject.description = form.get().inputDescription;
+
+        targetProject.update();
+
+        return redirect(routes.Application.GotoProjectPage( targetProject.id , targetProject.name ));
+    }
+
+    public static class EditDescriptionForm {
+        public String inputDescription;
+
     }
 
     public static Result criteria() {
