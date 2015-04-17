@@ -237,7 +237,7 @@
 
             <br><br>
             <br><br>
-
+            @if(session.get("username").equals(project.manager) || session.get("type").equals("Admin")) {
             <header>
                 <div class="container">
                     <div class="row">
@@ -261,7 +261,8 @@
                         </div>
                     </div>
                 </div>
-
+            </header>
+            }
 
             <script type="text/javascript">
 
