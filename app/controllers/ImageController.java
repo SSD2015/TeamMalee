@@ -12,7 +12,6 @@ import static play.data.Form.form;
 
 import result.Project;
 import views.html.*;
-import java.util.List;
 import java.io.File;
 
 public class ImageController extends Controller {
@@ -40,6 +39,7 @@ public class ImageController extends Controller {
 //    }
 
     public static Result uploadImage(long id) {
+        System.out.println("Project id1 = " + id);
         Form<UploadImageForm> form = form(UploadImageForm.class).bindFromRequest();
 
         if (form.hasErrors()) {
@@ -51,11 +51,12 @@ public class ImageController extends Controller {
 //                    form.get().image.getFile(),
 //                    id
 //            );
+            System.out.println("Project id = " + id);
             File file = form.get().image.getFile();
             file.renameTo(new File("public/projectimages/", id+".png"));
 
 
-            return ok(projectPage.render(Project.find.byId(id), "Success"));
+            return redirect("/");
         }
     }
 
