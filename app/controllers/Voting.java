@@ -30,7 +30,7 @@ public class Voting extends Controller{
 
 
 
-    public static Result changeVote() {
+    public static void changeVote() {
         Vote vote = Form.form(Vote.class).bindFromRequest().get();
 
         Vote oldVote = Vote.find.byId(vote.id);
@@ -41,13 +41,5 @@ public class Voting extends Controller{
 
         oldVote.update();
 
-        return ok(changevotescore.render(Vote.find.all()));
     }
-
-    public static Result changeVotePage(){
-        if(session().isEmpty())
-            return redirect("/");
-            return ok(changevotescore.render(Vote.find.all()));
-    }
-
 }
