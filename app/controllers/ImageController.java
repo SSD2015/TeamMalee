@@ -51,6 +51,10 @@ public class ImageController extends Controller {
 //                    form.get().image.getFile(),
 //                    id
 //            );
+            File checker = new File("public/projectimages");
+            if ( !checker.exists() ) {
+                checker.mkdir();
+            }
             System.out.println("Project id = " + id);
             File file = form.get().image.getFile();
             file.renameTo(new File("public/projectimages/", id+".png"));
