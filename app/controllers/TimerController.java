@@ -11,13 +11,9 @@ import views.html.TimerPage;
 import static play.data.Form.form;
 
 public class TimerController extends Controller{
-    public static void stopTimer() {
-        if ( Global.stopTimer() ) {
-            System.out.println("Time stopped");
-        }
-        else {
-            System.out.println("Time isn't started");
-        }
+    public static Result stopTimer() {
+        Global.stopTimer();
+        return redirect(routes.TimerController.gotoTimerPage());
     }
 
     public static void startTimer(int hour, int minute) {

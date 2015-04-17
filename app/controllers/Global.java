@@ -92,7 +92,6 @@ public class Global extends GlobalSettings {
                     TimeUnit.MILLISECONDS);
 
             System.out.println("Scheduling to run at " + nextValidTimeAfter);
-
             scheduler = Akka.system().scheduler().scheduleOnce(d, new Runnable() {
 
                 @Override

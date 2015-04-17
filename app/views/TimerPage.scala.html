@@ -83,6 +83,13 @@
 
         <div class = "text-center">Registration closes in <span id="time"></span> minutes!</div>
 
+
+        @if(controllers.TimerController.getTimeLeftInSec() != -1) {
+            <form action="/stoptimer" method="get">
+                <input type="submit" value="Stop timer!!"
+                name="Submit" id="frm1_submit" />
+            </form>
+        }
         <script>
         function startTimer(duration, display) {
             var start = Date.now(),
