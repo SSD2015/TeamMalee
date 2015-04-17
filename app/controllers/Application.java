@@ -18,6 +18,9 @@ import static play.data.Form.form;
 public class Application extends Controller {
     @Security.Authenticated(Secured.class)
     public static Result index() {
+        if(session().get("type").equals("Admin")){
+            return redirect("/AdminIndex");
+        }
         return ok(index.render(session().get("username")));
     }
     public static Result Adminindex() {
