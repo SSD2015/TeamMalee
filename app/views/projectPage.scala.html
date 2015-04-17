@@ -80,48 +80,45 @@
                         <div class="intro-text">
                             <span class="name">Team @project.name</span>
                             <hr class="star-light">
-                            <span class="skills">@project.description</span>
+                            <span class="skills">@project.description</span><br>
 
+                            @*pop up edit description*@
+                            @if( session.get("username").equals(project.manager) || session.get("type").equals("Admin") ) {
+                                <div class = editPop>
+                                    <a href="#popUpEdit" id="openPopUpEdit">Edit description</a>
 
+                                        <!-- POP UP -->
+                                    <aside id="popUpEdit" class="popupEdit">
+                                        <div class="popUpContainerEdit">
+                                            <header>
+                                                <a href="#!" class="closePopUpEdit">X</a>
+                                                <h2>Edit description</h2>
+                                            </header>
+
+                                            <article>
+                                                <form role="form" action = "@routes.Application.editDescription(project.id)" method = post>
+                                                        <!-- add text -->
+                                                    <div class="wrap">
+                                                        <textarea name="inputDescription" cols="50" rows="7" style="color: red">@project.description</textarea>
+                                                        <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </article>
+                                        </div>
+                                        <a href="#!" class="closePopUpOutSideEdit"></a>
+                                    </aside>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-
-            @*pop up edit description*@
-            @if( session.get("username").equals(project.manager) || session.get("type").equals("Admin") ) {
-                <div class = editPop>
-                    <a href="#popUpEdit" id="openPopUpEdit">Edit description</a>
-
-                        <!-- POP UP -->
-                    <aside id="popUpEdit" class="popupEdit">
-                        <div class="popUpContainerEdit">
-                            <header>
-                                <a href="#!" class="closePopUpEdit">X</a>
-                                <h2>Edit description</h2>
-                            </header>
-
-                            <article>
-                                <form role="form" action = "@routes.Application.editDescription(project.id)" method = post>
-                                        <!-- add text -->
-                                    <div class="wrap">
-                                        <textarea name="inputDescription" cols="50" rows="7" style="color: red">@project.description</textarea>
-                                        <button id="submit1" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
-                                    </div>
-                                </form>
-                            </article>
-                        </div>
-                        <a href="#!" class="closePopUpOutSideEdit"></a>
-                    </aside>
-                </div>
-            }
             <br><br>
 
             <div class = pop>
                 <a href="#popUp" id="openPopUp">Vote</a>
-
-                    <!-- POP UP -->
+                <!-- POP UP -->
                 <aside id="popUp" class="popup">
                     <div class="popUpContainer">
                         <header>
@@ -224,11 +221,24 @@
                 </aside>
             </div>
 
+            <script type="text/javascript">
 
+            $(document).ready(function () {
+            setCurrentScore();
+            });
 
+            function setCurrentScore(){
+                @defining( (Vote.findExist(session().get("id")+"", project.id+"")) ) { voterVote =>
+                    @if(voterVote != null) {
+                        document.getElementById("rating-input1-@voterVote.sel1").checked = true;
+                        document.getElementById("rating-input2-@voterVote.sel2").checked = true;
+                        document.getElementById("rating-input3-@voterVote.sel3").checked = true;
+                    }
+                }
+            };
+            </script>
 
             <br><br>
-
             <br><br>
 
             <div>

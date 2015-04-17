@@ -37,12 +37,13 @@ public class Application extends Controller {
 
         for (int i=0;i< Project.find.all().size();i++){
             System.out.print("in");
-           results.add(new resultVote(i+1,0,0,0));
+           results.add(new resultVote("",0,0,0));
         }
 
         for(int i=0;i< Vote.find.all().size();i++){
             Vote resultV = Vote.find.byId((long) i+1);
             resultVote resultPro = (resultVote) results.get(resultV.projectID-1);
+            resultPro.setName(Project.find.byId((long) resultV.projectID).name);
             resultPro.setScore(resultV.sel1);
             resultPro.setScore2(resultV.sel2);
             resultPro.setScore3(resultV.sel3);

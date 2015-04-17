@@ -4,17 +4,20 @@ package result;
  * Created by patawat on 4/16/15 AD.
  */
 public class resultVote {
-    private int name;
+
+    private String name;
     private int score;
     private int score2;
     private int score3;
-    public resultVote(int ProjectNum,int score,int score2,int score3){
-        this.name = ProjectNum;
+    public resultVote(String name,int score,int score2,int score3){
+
+        this.name = name;
         this.score = score;
         this.score2 = score2;
         this.score3 = score3;
     }
-    public int getname(){
+
+    public String getname(){
         return this.name;
     }
     public int getScore(){
@@ -25,6 +28,9 @@ public class resultVote {
     }
     public int getScore3(){
         return this.score3;
+    }
+    public void setName(String name){
+        this.name = name;
     }
     public void setScore(int newScore){
         this.score +=newScore;
