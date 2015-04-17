@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/index">@session.get("username")</a>
+                    <a class="navbar-brand" href="/index">@session.get("type"): @session.get("username")</a>
                 </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -255,12 +255,12 @@
                                     }
                                 </div>
 
-                                <div>
-                                    <h1>Images in Database:</h1>
-                                    <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
-                                        <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
-                                    </a>
-                                </div>
+                            <div>
+                                <h1>Image in Database:</h1>
+                                <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
+                                    <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
+                                </a>
+
                             </div>
                         </div>
                     </div>
