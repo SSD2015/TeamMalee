@@ -37,9 +37,9 @@ public class Application extends Controller {
         for (int i=0;i< Project.find.all().size();i++){
             System.out.print("in");
 
-           results.add(new resultVote(Project.find.byId((long) i+1).name,0,0,0,0));
+           results.add(new resultVote(Project.find.byId((long) i+1).name,0));
         }
-
+        // Come back to clean code
         for(int i=0;i< Vote.find.all().size();i++){
             Vote resultV = Vote.find.byId((long) i+1);
             resultVote resultPro = (resultVote) results.get(resultV.projectID-1);
@@ -47,6 +47,8 @@ public class Application extends Controller {
             resultPro.setScore(resultV.sel1);
             resultPro.setScore2(resultV.sel2);
             resultPro.setScore3(resultV.sel3);
+            resultPro.setScore4(resultV.sel4);
+            resultPro.setScore5(resultV.sel5);
         }
         for (int i=0;i< Criteria.find.all().size();i++){
             Criteria resultC = Criteria.find.byId((long) i+1);

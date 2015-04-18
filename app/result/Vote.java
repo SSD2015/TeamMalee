@@ -14,6 +14,8 @@ public class Vote extends Model {
     public int sel1;
     public int sel2;
     public int sel3;
+    public int sel4;
+    public int sel5;
     public int projectID;
     public int voterID;
 

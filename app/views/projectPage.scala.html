@@ -161,8 +161,8 @@
 
                         <article>
                             <form id="score" class="text-center" role="form" action = "/voting" method = post onsubmit="return confirm('Do you want to submit the form?');">
-                                <div class="creativity">
-                                    <label for="sel1">Creativity</label>
+                                <div class="Ease of use">
+                                    <label for="sel1">Ease of use</label>
                                     <span class="rating">
                                         <input type="radio" class="rating-input"
                                         id="rating-input1-5" name="sel1" value="5">
@@ -187,8 +187,8 @@
                                 </div>
                                 <br>
                                 <br>
-                                <div class="appearance">
-                                    <label for="sel2">Appearance</label>
+                                <div class="Reliability">
+                                    <label for="sel2">Reliability</label>
                                     <span class="rating">
                                         <input type="radio" class="rating-input"
                                         id="rating-input2-5" name="sel2" value="5">
@@ -213,8 +213,8 @@
                                 </div>
                                 <br>
                                 <br>
-                                <div class="performance">
-                                    <label for="sel3">Performance</label>
+                                <div class="Completeness">
+                                    <label for="sel3">Completeness</label>
                                     <span class="rating">
                                         <input type="radio" class="rating-input"
                                         id="rating-input3-5" name="sel3" value="5">
@@ -235,6 +235,58 @@
                                         <input type="radio" class="rating-input"
                                         id="rating-input3-1" name="sel3" value="1">
                                         <label for="rating-input3-1" class="rating-star"></label>
+                                    </span>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="Security">
+                                    <label for="sel4">Security</label>
+                                    <span class="rating">
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input4-5" name="sel4" value="5">
+                                        <label for="rating-input4-5" class="rating-star"></label>
+
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input4-4" name="sel4" value="4">
+                                        <label for="rating-input4-4" class="rating-star"></label>
+
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input4-3" name="sel4" value="3">
+                                        <label for="rating-input4-3" class="rating-star"></label>
+
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input4-2" name="sel4" value="2">
+                                        <label for="rating-input4-2" class="rating-star"></label>
+
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input4-1" name="sel4" value="1">
+                                        <label for="rating-input4-1" class="rating-star"></label>
+                                    </span>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="Quality of UI">
+                                    <label for="sel5">Quality of UI</label>
+                                    <span class="rating">
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input5-5" name="sel5" value="5">
+                                        <label for="rating-input5-5" class="rating-star"></label>
+
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input5-4" name="sel5" value="4">
+                                        <label for="rating-input5-4" class="rating-star"></label>
+
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input5-3" name="sel5" value="3">
+                                        <label for="rating-input5-3" class="rating-star"></label>
+
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input5-2" name="sel5" value="2">
+                                        <label for="rating-input5-2" class="rating-star"></label>
+
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input5-1" name="sel5" value="1">
+                                        <label for="rating-input5-1" class="rating-star"></label>
                                     </span>
                                 </div>
                                 <br>
@@ -296,6 +348,8 @@
                             document.getElementById("rating-input1-@voterVote.sel1").checked = true;
                             document.getElementById("rating-input2-@voterVote.sel2").checked = true;
                             document.getElementById("rating-input3-@voterVote.sel3").checked = true;
+                            document.getElementById("rating-input4-@voterVote.sel4").checked = true;
+                            document.getElementById("rating-input5-@voterVote.sel5").checked = true;
                         }
                     }
                 };

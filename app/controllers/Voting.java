@@ -28,6 +28,8 @@ public class Voting extends Controller{
         voterVote.sel1 = vote.sel1;
         voterVote.sel2 = vote.sel2;
         voterVote.sel3 = vote.sel3;
+        voterVote.sel4 = vote.sel4;
+        voterVote.sel5 = vote.sel5;
 
         voterVote.update();
         return ok(projectPage.render(projectVoted, "Change voting score succeeded"));
@@ -43,6 +45,8 @@ public class Voting extends Controller{
         oldVote.sel1 = vote.sel1;
         oldVote.sel2 = vote.sel2;
         oldVote.sel3 = vote.sel3;
+        oldVote.sel4 = vote.sel4;
+        oldVote.sel5 = vote.sel5;
 
         oldVote.update();
 
