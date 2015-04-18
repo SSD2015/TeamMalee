@@ -5,54 +5,146 @@
 
 <html>
     <head>
-        <title>AccList</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <title>User List</title>
+
+            <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.css")">
+            <!-- Custom CSS -->
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/freelancer.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/result.css")">
+            <!-- jQuery -->
+        <script src="@routes.Assets.at("javascripts/jquery.js")" type="text/javascript"></script>
+            <!-- Bootstrap Core JavaScript -->
+        <script src="@routes.Assets.at("javascripts/bootstrap.js")" type="text/javascript"></script>
+
+            <!-- Plugin JavaScript -->
+        <script src="@routes.Assets.at("javascripts/jquery.easing.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/classie.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/cbpAnimatedHeader.js")" type="text/javascript"></script>
+
+            <!-- Custom Theme JavaScript -->
+        <script src="@routes.Assets.at("javascripts/freelancer.js")" type="text/javascript"></script>
     </head>
     <body>
-        <div class="text-center">
-            <form action = "/deleteAcc" method = post>
-                <div class="form-group">
-                    <label for="id">ID Delete</label>
-                    <input class="form-control" id="id" name="id" placeholder="Enter ID" >
-                    <button button id="submit" type="submit"  class="btn btn-danger">Delete</button>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/index">Rating result</a>
                 </div>
-            </form>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Type</th>
-                        <th>GroupID</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-        @accList.map { acc =>
-                <tr>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden active">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class = "page-scroll">
+                            <a href = "/criteria">Criteria Vote</a>
+                        </li>
+                        <li class = "page-scroll">
+                            <a href = "/TimerPage">Set Timer</a>
+                        </li>
+                        <li class = "page-scroll">
+                            <a href = "/index">Index</a>
+                        </li>
+                        <li class = "page-scoll">
+                            <a href = "/addprojectpage">Add Project</a>
+                        </li>
+                        <li class = "page-scoll">
+                            <a href = "/register">register</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href= "/logout">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+                    <!-- /.navbar-collapse -->
+            </div>
+                <!-- /.container-fluid -->
+        </nav>
 
-                    <td id="id" name="id">@acc.id</td>
-                    <td>@acc.username</td>
-                    <td>@acc.password</td>
-                    <td>@acc.getType</td>
-                    <td>@acc.groupid</td>
+        <header>
 
-                </tr>
-                <tbody>
-            }
-            </table>
-        </div>
-        <div id="browse_app" class="text-center">
-            <a class="btn btn-large btn-info" href="/index">Browse to index page (Test)</a>
-        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12" style="text-decoration-color: slategrey">
+                        <div class="text-center">
+                            <form action = "/deleteAcc" method = post>
+                                <div class="form-group">
+                                    <label for="id">ID Delete</label>
+                                    <input class="form-control" id="id" name="id" placeholder="Enter ID" >
+                                    <button button id="submit" type="submit"  class="btn btn-danger">Delete</button>
+                                </div>
+                            </form>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
+                                        <th>Type</th>
+                                        <th>GroupID</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @accList.map { acc =>
+                                    <tr>
+
+                                        <td id="id" name="id">@acc.id</td>
+                                        <td>@acc.username</td>
+                                        <td>@acc.password</td>
+                                        <td>@acc.getType</td>
+                                        <td>@acc.groupid</td>
+
+                                    </tr>
+                                <tbody>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+            <!-- Footer -->
+        <footer class="text-center">
+            <div class="footer-above">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col col-md-6">
+                            <h3>About Exceed Vote</h3>
+                            <p>The Exceed Vote is the web-application<br>to help people and participants in the Exceed camp<br>to easily make a vote to the camp's project.</p>
+                        </div>
+                        <div class="footer-col col-md-6">
+                            <h3>Location</h3>
+                            <p>1 Moo 6, Kamphaeng Saen,<br>Kamphaeng Saen, Nakhonpathom<br> 73140 Thailand</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-below">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Copyright &copy; Team Malee Website 2015
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
