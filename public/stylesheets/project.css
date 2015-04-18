@@ -153,11 +153,12 @@ a#openPopUp:hover{
     transition: opacity 0.35s ease;
 }
 .popup .popUpContainer{
-    width: 100%;
-    max-width: 700px;
+    width: 80%;
+    max-width: none;
     position: fixed;  /*To avoid scroll to target*/
-    left: 50%;
+    left: 10%;
     top: -100vh;
+    margin-left: 0;
 
     -webkit-transition: top  0.35s ease;
     -moz-transition: top 0.35s ease;
@@ -166,7 +167,6 @@ a#openPopUp:hover{
 
      /*Trick to properly center the element by using negative*/
     /*1/2 length of element as margin left and top*/
-    margin-left: -250px;
     background-color: #ffffff;
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
@@ -369,12 +369,10 @@ a#openPopUpEdit:hover{
     transition: opacity 0.35s ease;
 }
 .popupEdit .popUpContainerEdit{
-    width: 100%;
-    max-width: 400px;
+    width: 80%;
+    max-width: none;
     position: fixed; /* To avoid scroll to target */
-    left:50%;
-    /*top:50%;*/
-    /*transform: translateX(-50%) translateY(-50%);*/
+    left:10%;
     top: -100vh;
     -webkit-transition: top  0.35s ease;
     -moz-transition: top 0.35s ease;
@@ -383,7 +381,7 @@ a#openPopUpEdit:hover{
 
     /* Trick to properly center the element by using negative
     1/2 length of element as margin left and top */
-    margin-left: -250px;
+    margin-left: 0;
     background-color: #ffffff;
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
@@ -462,6 +460,7 @@ a#openPopUpEdit:hover{
 
 .wrap{
     padding-top: 2em;
+    color: #0c65ff;
 }
 
 #submit{
