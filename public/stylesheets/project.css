@@ -468,8 +468,10 @@ a#openPopUpEdit:hover{
     width: 40%;
 }
 
+
 /* star */
 hr.star-light:after {
     color: #fff;
     background-color: #ffcd69;
 }
+
