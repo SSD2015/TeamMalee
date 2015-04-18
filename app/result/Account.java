@@ -36,6 +36,12 @@ public class Account extends Model {
                 .eq("password", password)
                 .findUnique();
     }
+    public static Account findAccount(String Id){
+        return Ebean.find(Account.class).where()
+                .eq("id", Id)
+                .findUnique();
+    }
+
 
     public String getType(){
         return this.type;
