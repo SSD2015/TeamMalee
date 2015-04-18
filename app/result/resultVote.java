@@ -9,12 +9,14 @@ public class resultVote {
     private int score;
     private int score2;
     private int score3;
-    public resultVote(String name,int score,int score2,int score3){
+    private int criteria;
+    public resultVote(String name,int score,int score2,int score3,int criteria){
 
         this.name = name;
         this.score = score;
         this.score2 = score2;
         this.score3 = score3;
+        this.criteria = criteria;
     }
 
     public String getname(){
@@ -29,6 +31,9 @@ public class resultVote {
     public int getScore3(){
         return this.score3;
     }
+    public int getCriteria(){
+        return this.criteria;
+    }
     public void setName(String name){
         this.name = name;
     }
@@ -40,6 +45,9 @@ public class resultVote {
     }
     public void setScore3(int newScore){
         this.score3 +=newScore;
+    }
+    public void setCriteria(int newScore){
+        this.criteria +=newScore;
     }
 
 }
