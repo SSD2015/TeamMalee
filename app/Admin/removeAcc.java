@@ -7,5 +7,4 @@ import play.db.ebean.Model;
  */
 public class removeAcc extends Model {
     public String id;
-
 }

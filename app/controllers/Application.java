@@ -22,14 +22,17 @@ public class Application extends Controller {
         }
         return ok(index.render(session().get("name")));
     }
+
     @Security.Authenticated(Secured.class)
     public static Result accList() {
         return ok(userList.render(Account.find.all()));
     }
+
     @Security.Authenticated(Secured.class)
     public static Result Adminindex() {
         return ok(MainAdmin.render(session().get("name")));
     }
+
     @Security.Authenticated(Secured.class)
     public static Result votingResult() {
         ArrayList<resultVote> results = new ArrayList<resultVote>();
@@ -57,6 +60,7 @@ public class Application extends Controller {
             return ok(complete.render( results));
         return redirect("/");
     }
+
     public static Result login() {
 
         if (session().isEmpty())
