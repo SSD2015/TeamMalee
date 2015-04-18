@@ -27,7 +27,6 @@ public class TimerController extends Controller{
     public static String getDate() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
-        System.out.println(dateFormat.format(date));
         return dateFormat.format(date);
     }
 
@@ -41,7 +40,6 @@ public class TimerController extends Controller{
 
     public static int getTimeLeftInSec() {
         int temp = Global.nextExecutionInSeconds(getTimeLeftHour(), getTimeLeftMinute());
-        System.out.println(temp);
         return temp;
     }
 
