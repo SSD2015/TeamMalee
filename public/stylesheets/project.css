@@ -153,10 +153,10 @@ a#openPopUp:hover{
     transition: opacity 0.35s ease;
 }
 .popup .popUpContainer{
-    width: 80%;
+    width: 60%;
     max-width: none;
     position: fixed;  /*To avoid scroll to target*/
-    left: 10%;
+    left: 20%;
     top: -100vh;
     margin-left: 0;
 
@@ -177,7 +177,7 @@ a#openPopUp:hover{
 .popup h2{
     padding: 0.5em;
     text-align: center;
-    color: #444444;
+    color: #ffffff;
     margin: 0;
 }
 .popup img{
@@ -186,7 +186,7 @@ a#openPopUp:hover{
 }
 .popup article{
     height: 600px;
-    /*background-color: #a9a9a9;*/
+    background-color: #fdfff0;
     overflow: scroll;
 }
  /*The cancel button on popup dialog*/
@@ -243,6 +243,10 @@ a#openPopUp:hover{
         -o-transition: top 0.35s ease;
         transition: top 0.35s ease;
     }
+}
+#popUpHeader{
+    background-color: #8b314a;
+    color: #ffffff;
 }
 
 /*voting*/
