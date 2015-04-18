@@ -105,7 +105,7 @@
             </div>
         }
         <script type="text/javascript">
-        $('#clock').countdown('2015/04/19 ' + @controllers.TimerController.getTimeLeftHour + ':' + @controllers.TimerController.getTimeLeftMinute + ':0')
+        $('#clock').countdown('@controllers.TimerController.getDate() ' + @controllers.TimerController.getTimeLeftHour + ':' + @controllers.TimerController.getTimeLeftMinute + ':0')
         .on('update.countdown', function(event) {
             var format = '%H:%M:%S';
             if(event.offset.days > 0) {

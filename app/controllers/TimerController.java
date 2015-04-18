@@ -7,6 +7,9 @@ import play.data.Form;
 import play.mvc.*;
 import play.libs.Time.CronExpression;
 import views.html.TimerPage;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import static play.data.Form.form;
 
@@ -21,6 +24,13 @@ public class TimerController extends Controller{
         Global.startTimer(hour, minute);
     }
 
+    public static String getDate() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        System.out.println(dateFormat.format(date));
+        return dateFormat.format(date);
+    }
+
     public static int getTimeLeftHour() {
         return Global.getTimeLeftHour();
     }
@@ -30,7 +40,9 @@ public class TimerController extends Controller{
     }
 
     public static int getTimeLeftInSec() {
-        return Global.nextExecutionInSeconds(getTimeLeftHour(), getTimeLeftMinute());
+        int temp = Global.nextExecutionInSeconds(getTimeLeftHour(), getTimeLeftMinute());
+        System.out.println(temp);
+        return temp;
     }
 
     @Security.Authenticated(Secured.class)
