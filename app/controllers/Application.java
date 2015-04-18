@@ -25,9 +25,11 @@ public class Application extends Controller {
         }
         return ok(index.render(session().get("username")));
     }
+    @Security.Authenticated(Secured.class)
     public static Result accList() {
         return ok(userList.render(Account.find.all()));
     }
+    @Security.Authenticated(Secured.class)
     public static Result Adminindex() {
         return ok(MainAdmin.render(session().get("username")));
     }
