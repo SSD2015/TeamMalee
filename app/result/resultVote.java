@@ -9,16 +9,20 @@ public class resultVote {
     private int score;
     private int score2;
     private int score3;
+    private int score4;
+    private int score5;
     private int criteria;
-    public resultVote(String name,int score,int score2,int score3,int criteria){
+    public resultVote(String name,int criteria){
 
         this.name = name;
-        this.score = score;
-        this.score2 = score2;
-        this.score3 = score3;
+        this.score = 0;
+        this.score2 = 0;
+        this.score3 = 0;
+        this.score4 = 0;
+        this.score5 = 0;
         this.criteria = criteria;
     }
-
+// Come back to clean code
     public String getname(){
         return this.name;
     }
@@ -30,6 +34,12 @@ public class resultVote {
     }
     public int getScore3(){
         return this.score3;
+    }
+    public int getScore4(){
+        return this.score4;
+    }
+    public int getScore5(){
+        return this.score5;
     }
     public int getCriteria(){
         return this.criteria;
@@ -45,6 +55,12 @@ public class resultVote {
     }
     public void setScore3(int newScore){
         this.score3 +=newScore;
+    }
+    public void setScore4(int newScore){
+        this.score4 +=newScore;
+    }
+    public void setScore5(int newScore){
+        this.score5 +=newScore;
     }
     public void setCriteria(int newScore){
         this.criteria +=newScore;

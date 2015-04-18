@@ -30,6 +30,8 @@ create table vote (
   sel1                      integer,
   sel2                      integer,
   sel3                      integer,
+  sel4                      integer,
+  sel5                      integer,
   project_id                integer,
   voter_id                  integer)
 ;
