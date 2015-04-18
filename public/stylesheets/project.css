@@ -372,7 +372,9 @@ a#openPopUpEdit:hover{
     width: 100%;
     max-width: 400px;
     position: fixed; /* To avoid scroll to target */
-    left: 50%;
+    left:50%;
+    /*top:50%;*/
+    /*transform: translateX(-50%) translateY(-50%);*/
     top: -100vh;
     -webkit-transition: top  0.35s ease;
     -moz-transition: top 0.35s ease;
@@ -432,7 +434,7 @@ a#openPopUpEdit:hover{
     z-index: 9999991;
 }
 .popupEdit:target .popUpContainerEdit{
-    top: 50px;
+    top:20%;
     -webkit-transition: top  0.35s ease;
     -moz-transition: top 0.35s ease;
     -o-transition: top 0.35s ease;
@@ -464,5 +466,12 @@ a#openPopUpEdit:hover{
 
 #submit{
     width: 40%;
+}
+
+
+/* star */
+hr.star-light:after {
+    color: #fff;
+    background-color: #ffcd69;
 }
 

@@ -14,10 +14,9 @@ body {
 }
 
 .mainRadio {
-    padding: 2em;
     margin: 0 auto;
     width: 100%;
-    min-width: 460px;
+    min-width: auto;
     max-width: 700px;
 }
 
@@ -53,7 +52,7 @@ a:hover {
     width: 48%;
     background: #fff;
     margin-bottom: 1em;
-    font-size: 1.3em;
+    font-size: 1.1em;
     height: 2.4em;
     color: #666;
     -o-transition: .1s ease-out;
