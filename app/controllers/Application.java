@@ -142,9 +142,14 @@ public class Application extends Controller {
     }
 
     public static Result criteria() {
-        return ok(criteria.render());
+        if (session().isEmpty())
+            return ok(login.render(Form.form(Login.class)));
+        else
+            return ok(criteria.render(session().get("name")));
     }
 }
+
+
 
 
 
