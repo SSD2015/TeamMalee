@@ -126,3 +126,9 @@ header {
     color: #fff;
     background: #fc6d58;
 }
+
+/* star */
+hr.star-light:after {
+    color: #fff;
+    background-color: #fc6d58;
+}
