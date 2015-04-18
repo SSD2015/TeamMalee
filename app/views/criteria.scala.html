@@ -77,8 +77,7 @@
 
                     <h3>The Best App</h3>
                     <div class="mainRadio">
-                        @defining(Project.find.all()) { projects =>
-                            @projects.map { project =>
+                        @defining(Project.find.all()) { projects =>@projects.map { project =>
 
                                 <div class="radioholder">
                                     <input type="radio" name="projecttype">
