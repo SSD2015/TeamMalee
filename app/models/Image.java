@@ -27,7 +27,7 @@ public class Image extends Model {
     public long id;
 
     @Constraints.Required
-    public String projectID;
+    public Long projectID;
 
     @Lob
     public byte[] data;

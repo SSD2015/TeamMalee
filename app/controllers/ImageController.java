@@ -13,7 +13,7 @@ import static play.data.Form.form;
 import result.Project;
 import views.html.*;
 import java.io.File;
-import models.Image
+import models.Image;
 
 public class ImageController extends Controller {
 
@@ -31,15 +31,21 @@ public class ImageController extends Controller {
         }
     }
 
+    public static boolean checkExist(long id) {
+        Image image = Image.find.where().eq("projectID", id).findUnique();
+        if ( image != null ) {
+            return true;
+        }
+        return false;
+    }
     public static Result uploadImage(long id) {
-        System.out.println("Project id1 = " + id);
         Form<UploadImageForm> form = form(UploadImageForm.class).bindFromRequest();
 
         if (form.hasErrors()) {
             return badRequest(projectPage.render(Project.find.byId(id), "Error occured"));
 
         } else {
-            Image oldImage = Image.find.where().eq("projectID", id).findUnique() != null
+            Image oldImage = Image.find.where().eq("projectID", id).findUnique();
             if (oldImage != null) {
                 oldImage.delete("secondary");
             }

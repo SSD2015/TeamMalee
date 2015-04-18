@@ -97,8 +97,8 @@
                                             <h3>Team @project.name</h3>
                                         </div>
                                     </div>
-                                    @if(resource("public/projectimages/" + project.id + ".png").isDefined) {
-                                        <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" class="img-responsive" alt="">
+                                    @if(controllers.ImageController.checkExist(project.id)) {
+                                        <img src="@routes.ImageController.getImage(project.id)" class="img-responsive" alt="">
                                     } else {
                                         <img src="@routes.Assets.at("images/cake.png")" class="img-responsive" alt="">
                                     }
