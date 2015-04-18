@@ -13,51 +13,53 @@ import static play.data.Form.form;
 import result.Project;
 import views.html.*;
 import java.io.File;
+import models.Image;
 
 public class ImageController extends Controller {
 
-//    public static Result getImage(long id) {
-//        Image image = null;
-//        List<Image> imageList = Image.find.all();
-//        for(int i = 0; i < imageList.size(); i++) {
-//            System.out.println("Size = " + imageList.size());
-//            if (imageList.get(i).projectID == id) {
-//                System.out.println("Found image");
-//                image = imageList.get(i);
-//            }
-//        }
-//
-//        if (image != null) {
-//
-//            /*** here happens the magic ***/
-//            return ok(image.data).as("image");
-//            /************************** ***/
-//
-//        } else {
-//            return badRequest(projectPage.render(Project.find.byId(id), "Error, Picture not found"));
-//        }
-//    }
+    public static Result getImage(long id) {
+        Image image = Image.find.where().eq("projectID", id).findUnique();
 
+        if (image != null) {
+
+            /*** here happens the magic ***/
+            return ok(image.data).as("image");
+            /************************** ***/
+
+        } else {
+            return badRequest(projectPage.render(Project.find.byId(id), "Picture not found"));
+        }
+    }
+
+    public static boolean checkExist(long id) {
+        Image image = Image.find.where().eq("projectID", id).findUnique();
+        if ( image != null ) {
+            return true;
+        }
+        return false;
+    }
     public static Result uploadImage(long id) {
-        System.out.println("Project id1 = " + id);
         Form<UploadImageForm> form = form(UploadImageForm.class).bindFromRequest();
 
         if (form.hasErrors()) {
             return badRequest(projectPage.render(Project.find.byId(id), "Error occured"));
 
         } else {
-//            new Image(
-//                    form.get().image.getFilename(),
-//                    form.get().image.getFile(),
-//                    id
-//            );
-            File checker = new File("public/projectimages");
-            if ( !checker.exists() ) {
-                checker.mkdir();
+            Image oldImage = Image.find.where().eq("projectID", id).findUnique();
+            if (oldImage != null) {
+                oldImage.delete("secondary");
             }
-            System.out.println("Project id = " + id);
-            File file = form.get().image.getFile();
-            file.renameTo(new File("public/projectimages/", id+".png"));
+            new Image(
+                    id,
+                    form.get().image.getFile()
+            );
+//            File checker = new File("public/projectimages");
+//            if ( !checker.exists() ) {
+//                checker.mkdir();
+//            }
+//            System.out.println("Project id = " + id);
+//            File file = form.get().image.getFile();
+//            file.renameTo(new File("public/projectimages/", id+".png"));
 
 
             return redirect("/");
