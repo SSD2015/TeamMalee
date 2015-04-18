@@ -2,17 +2,24 @@ package controllers; /**
  * Created by thanyaboontovorapan on 4/17/15 AD.
  */
 import akka.actor.Cancellable;
+import com.avaje.ebean.Ebean;
 import play.Application;
 import play.GlobalSettings;
 import play.Logger;
+import play.data.Form;
 import play.libs.Akka;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+import play.mvc.Result;
+import result.Account;
 import scala.concurrent.duration.FiniteDuration;
 import scala.concurrent.duration.Duration;
 import play.libs.Time.CronExpression;
 import org.joda.time.DateTime;
 import org.joda.time.Seconds;
+import views.html.Register;
+import views.html.login;
 
 
 public class Global extends GlobalSettings {
@@ -21,12 +28,13 @@ public class Global extends GlobalSettings {
     private static int timeLeftHour = -1;
     private static int timeLeftMinute = -1;
 
-//    @Override
-//    public void onStart(Application application) {
-//        super.onStart(application);
-//        System.out.println("System started");
-//        //schedule();
-//    }
+    @Override
+    public void onStart(Application application) {
+        super.onStart(application);
+        System.out.println("System started");
+        firstAccount();
+        //schedule();
+    }
 
     @Override
     public void onStop(Application application) {
@@ -56,6 +64,17 @@ public class Global extends GlobalSettings {
         return (next.isBeforeNow())
                 ? next.plusHours(24)
                 : next;
+    }
+
+    public static void firstAccount() {
+        Account account = new Account();
+        account.id = (long)1;
+        account.username = "admin";
+        account.password = "firstadmin";
+        account.type = "Admin";
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
+            account.save();
+        }
     }
 
     public static boolean stopTimer() {

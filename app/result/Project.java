@@ -15,7 +15,7 @@ import play.db.ebean.Model.Finder;
 public class Project extends Model {
     @Id
     public Long id;
-    public String name, imageurl, description;
+    public String name, description;
     public String manager;
 
     public static Finder<Long, Project> find = new Finder<Long, Project>(Long.class, Project.class);
