@@ -50,7 +50,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/index">@session.get("type"): @session.get("username") @if(controllers.TimerController.getTimeLeftInSec() != -1) {
-                        : Vote closes in <div id = "clock" style="display: inline"></div>}else { : Vote is close}</a>
+                        : <div id = "clock" style="display: inline"></div>}else { : Vote is close}</a>
                 </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
