@@ -25,9 +25,11 @@ public class Application extends Controller {
         }
         return ok(index.render(session().get("username")));
     }
+    @Security.Authenticated(Secured.class)
     public static Result accList() {
         return ok(userList.render(Account.find.all()));
     }
+    @Security.Authenticated(Secured.class)
     public static Result Adminindex() {
         return ok(MainAdmin.render(session().get("username")));
     }
@@ -83,6 +85,7 @@ public class Application extends Controller {
             session("username", loginForm.get().username);
             session("id", ""+user.id);
             session("type",user.type);
+            session("groupid", ""+user.groupid);
             if (session().get("type").equals("Admin")){
                 System.out.println(session().get("type"));
                 return redirect("/AdminIndex");
