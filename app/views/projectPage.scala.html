@@ -293,10 +293,11 @@
 
                             <div>
                                 <h1>Image in Database:</h1>
-                                <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
-                                    <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
-                                </a>
-
+                                @if(controllers.ImageController.checkExist(project.id)) {
+                                    <img class="img-responsive" src="@routes.ImageController.getImage(project.id)" style="width:50%;">
+                                } else {
+                                    <img class="img-responsive" src="@routes.Assets.at("images/submarine.png")" style="width:50%;">
+                                }
                             </div>
                         </div>
                     </div>

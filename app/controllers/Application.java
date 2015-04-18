@@ -2,6 +2,7 @@ package controllers;
 
 import Admin.html.MainAdmin;
 import Admin.html.userList;
+import com.avaje.ebean.Ebean;
 import play.data.Form;
 import play.mvc.*;
 import result.*;
@@ -113,8 +114,9 @@ public class Application extends Controller {
 
     public static Result AddProject() {
         Project project = Form.form(Project.class).bindFromRequest().get();
-
-        project.save();
+        if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
+            project.save();
+        }
 
         return redirect("/");
     }
