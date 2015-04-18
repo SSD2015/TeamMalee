@@ -24,6 +24,8 @@ public class Account extends Model {
     @Constraints.Required
     public Long groupid;
     @Constraints.Required
+    public String name;
+    @Constraints.Required
     public String type;
 
     public static Object authenticate(String username, String password) {

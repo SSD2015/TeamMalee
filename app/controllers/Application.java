@@ -23,7 +23,7 @@ public class Application extends Controller {
         if(session().get("type").equals("Admin")){
             return redirect("/AdminIndex");
         }
-        return ok(index.render(session().get("username")));
+        return ok(index.render(session().get("name")));
     }
     @Security.Authenticated(Secured.class)
     public static Result accList() {
@@ -31,7 +31,7 @@ public class Application extends Controller {
     }
     @Security.Authenticated(Secured.class)
     public static Result Adminindex() {
-        return ok(MainAdmin.render(session().get("username")));
+        return ok(MainAdmin.render(session().get("name")));
     }
     @Security.Authenticated(Secured.class)
     public static Result votingResult() {
@@ -86,6 +86,7 @@ public class Application extends Controller {
             session("id", ""+user.id);
             session("type",user.type);
             session("groupid", ""+user.groupid);
+            session("name", user.name);
             if (session().get("type").equals("Admin")){
                 System.out.println(session().get("type"));
                 return redirect("/AdminIndex");
