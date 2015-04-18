@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/teammalee -Dhttp.port=${PORT} -DapplyEvolutions.default=true -DapplyEvolutions.secoundary=true
+web: target/universal/stage/bin/teammalee -Dhttp.port=${PORT} -DapplyEvolutions.default=true -DapplyEvolutions.secondary=true
