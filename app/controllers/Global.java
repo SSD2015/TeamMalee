@@ -68,8 +68,9 @@ public class Global extends GlobalSettings {
     }
 
     public static void firstAccount() {
+        int i = 0;
         Account account = new Account();
-        account.id = (long)1;
+        account.id = (long)++i;
         account.username = "admin";
         account.password = "firstadmin";
         account.type = "Admin";
@@ -78,239 +79,211 @@ public class Global extends GlobalSettings {
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
-        //------------------------Saint4
+        //------------------------GG
         account = new Account();
-        account.id = (long)2;
-        account.username = "5610545765";
-        account.password = "muninthorn.t@ku.th";
+        account.id = (long)++i;
+        account.username = "5610545757";
+        account.password = "manatsawin.h@ku.th";
         account.type = "Voter";
-        account.name = "Saint";
+        account.name = "Win";
         account.groupid = (long)1;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
         account = new Account();
-        account.id = (long)3;
-        account.username = "5610545781";
-        account.password = "runyasak.c@ku.th";
+        account.id = (long)++i;
+        account.username = "5610546770";
+        account.password = "varis.k@ku.th";
         account.type = "Voter";
-        account.name = "JL-SMALLDICK";
+        account.name = "Win";
         account.groupid = (long)1;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
         account = new Account();
-        account.id = (long)4;
-        account.username = "5610545706";
-        account.password = "nara.s@ku.th";
+        account.id = (long)++i;
+        account.username = "5610545749";
+        account.password = "pongsachon.p@ku.th";
         account.type = "Voter";
-        account.name = "Job";
+        account.name = "Tan";
         account.groupid = (long)1;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
+        //-----------------TheFrank
         account = new Account();
-        account.id = (long)5;
-        account.username = "5610546788";
-        account.password = "vasupol.c@ku.th";
+        account.id = (long)++i;
+        account.username = "5610546681";
+        account.password = "kittinan.n@ku.th";
         account.type = "Voter";
-        account.name = "Spa";
-        account.groupid = (long)1;
-        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
-            account.save();
-        }
-        account = new Account();
-        account.id = (long)6;
-        account.username = "5610545803";
-        account.password = "wuttipong.k@ku.th";
-        account.type = "Voter";
-        account.name = "Best";
-        account.groupid = (long)1;
-        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
-            account.save();
-        }
-        //-----------------Manat
-        account = new Account();
-        account.id = (long)7;
-        account.username = "5610546231";
-        account.password = "chinnaporn.s@ku.th";
-        account.type = "Voter";
-        account.name = "Chin";
+        account.name = "Kit";
         account.groupid = (long)2;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
         account = new Account();
-        account.id = (long)8;
-        account.username = "5610545811";
-        account.password = "sorrawit.c@ku.th";
+        account.id = (long)++i;
+        account.username = "5610546281";
+        account.password = "perawith.j@ku.th";
         account.type = "Voter";
-        account.name = "Ong";
+        account.name = "Boss";
         account.groupid = (long)2;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
         account = new Account();
-        account.id = (long)9;
-        account.username = "5610546290";
-        account.password = "worapon.o@ku.th";
-        account.type = "Voter";
-        account.name = "Smart";
-        account.groupid = (long)2;
-        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
-            account.save();
-        }
-        account = new Account();
-        account.id = (long)10;
-        account.username = "5610545013";
-        account.password = "niti.p@ku.th";
-        account.type = "Voter";
-        account.name = "Kong";
-        account.groupid = (long)2;
-        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
-            account.save();
-        }
-        account = new Account();
-        account.id = (long)11;
-        account.username = "5610546800";
-        account.password = "supason.k@ku.th";
-        account.type = "Voter";
-        account.name = "Jeng";
-        account.groupid = (long)2;
-        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
-            account.save();
-        }
-        //--------------------2Big2Slim
-        account = new Account();
-        account.id = (long)12;
-        account.username = "5610545722";
-        account.password = "punpikorn.r@ku.th";
-        account.type = "Voter";
-        account.name = "PP";
-        account.groupid = (long)3;
-        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
-            account.save();
-        }
-        account = new Account();
-        account.id = (long)13;
-        account.username = "5610545668";
-        account.password = "nathakorn.s@ku.th";
-        account.type = "Voter";
-        account.name = "Korn";
-        account.groupid = (long)3;
-        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
-            account.save();
-        }
-        account = new Account();
-        account.id = (long)14;
-        account.username = "5610545731";
-        account.password = "piyaphat.t@ku.th";
-        account.type = "Voter";
-        account.name = "Pat";
-        account.groupid = (long)3;
-        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
-            account.save();
-        }
-        account = new Account();
-        account.id = (long)15;
-        account.username = "5610546711";
-        account.password = "naphat.y@ku.th";
+        account.id = (long)++i;
+        account.username = "5610546753";
+        account.password = "nathis.y@ku.th";
         account.type = "Voter";
         account.name = "New";
+        account.groupid = (long)2;
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
+            account.save();
+        }
+        account = new Account();
+        account.id = (long)++i;
+        account.username = "5610545692";
+        account.password = "thanachote.v@ku.th";
+        account.type = "Voter";
+        account.name = "Frank";
+        account.groupid = (long)2;
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
+            account.save();
+        }
+        account = new Account();
+        account.id = (long)++i;
+        account.username = "5610546729";
+        account.password = "thanaphon.k@ku.th";
+        account.type = "Voter";
+        account.name = "Mo";
+        account.groupid = (long)2;
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
+            account.save();
+        }
+        //--------------------Malee
+        account = new Account();
+        account.id = (long)++i;
+        account.username = "5610545048";
+        account.password = "tanatorn.a@ku.th";
+        account.type = "Voter";
+        account.name = "Neen";
         account.groupid = (long)3;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
         account = new Account();
-        account.id = (long)16;
-        account.username = "5610545676";
-        account.password = "nut.k@ku.th";
+        account.id = (long)++i;
+        account.username = "5610545714";
+        account.password = "patawat.w@ku.th";
         account.type = "Voter";
-        account.name = "Nut";
+        account.name = "Boss";
         account.groupid = (long)3;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
-        //--------------------FatCat
         account = new Account();
-        account.id = (long)17;
-        account.username = "5610546702";
-        account.password = "jiratchaya.i@ku.th";
+        account.id = (long)++i;
+        account.username = "5610546745";
+        account.password = "thanyaboon.t@ku.th";
         account.type = "Voter";
-        account.name = "Fern";
+        account.name = "Chao";
+        account.groupid = (long)3;
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
+            account.save();
+        }
+        account = new Account();
+        account.id = (long)++i;
+        account.username = "5610546761";
+        account.password = "mintra.t@ku.th";
+        account.type = "Voter";
+        account.name = "Mint";
+        account.groupid = (long)3;
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
+            account.save();
+        }
+        //--------------------JDED
+        account = new Account();
+        account.id = (long)++i;
+        account.username = "5410545044";
+        account.password = "waranyu.r@ku.th";
+        account.type = "Voter";
+        account.name = "Waranyu";
         account.groupid = (long)4;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
         account = new Account();
-        account.id = (long)18;
-        account.username = "5610545684";
-        account.password = "nichamon.h@ku.th";
+        account.id = (long)++i;
+        account.username = "5410545052";
+        account.password = "supayut.r@ku.th";
         account.type = "Voter";
-        account.name = "Pang";
+        account.name = "Supayut";
         account.groupid = (long)4;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
         account = new Account();
-        account.id = (long)19;
-        account.username = "5610546222";
-        account.password = "chonnipa.k@ku.th";
+        account.id = (long)++i;
+        account.username = "5410546334";
+        account.password = "wasin.h@ku.th";
         account.type = "Voter";
-        account.name = "June";
+        account.name = "Wasin";
         account.groupid = (long)4;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
         account = new Account();
-        account.id = (long)20;
-        account.username = "5610546257";
-        account.password = "natchanon.c@ku.th";
+        account.id = (long)++i;
+        account.username = "5410546393";
+        account.password = "akkarawit.p@ku.th";
         account.type = "Voter";
-        account.name = "Non";
+        account.name = "Akkarawit";
         account.groupid = (long)4;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
         account = new Account();
-        account.id = (long)21;
-        account.username = "5610546699";
-        account.password = "kittipat.p@ku.th";
+        account.id = (long)++i;
+        account.username = "5410547594";
+        account.password = "nachanok.s@ku.th";
         account.type = "Voter";
-        account.name = "Maxmi";
+        account.name = "Nachanok";
         account.groupid = (long)4;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
-        //----------------------Team!!!!!!!!!!! Saint4
+
+
+        //----------------------Team!!!!!!!!!!! GG
         Project project = new Project();
         project.id = (long)1;
-        project.name = "Saint4";
-        project.manager = "5610545765";
+        project.name = "GG";
+        project.manager = "5610545757";
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
             project.save();
         }
-        //----------------------Team!!!!!!!!!!! Manat
+        //----------------------Team!!!!!!!!!!! TheFrank
         project = new Project();
         project.id = (long)2;
-        project.name = "Manat";
-        project.manager = "5610546231";
+        project.name = "TheFrank";
+        project.manager = "5610546681";
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
             project.save();
         }
-        //----------------------Team!!!!!!!!!!! 2Big2Slim
+        //----------------------Team!!!!!!!!!!! Malee
         project = new Project();
         project.id = (long)3;
-        project.name = "2Big2Slim";
-        project.manager = "5610545722";
+        project.name = "Malee";
+        project.manager = "5610545048";
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
             project.save();
         }
-        //----------------------Team!!!!!!!!!!! FatCat
+        //----------------------Team!!!!!!!!!!! JDED
         project = new Project();
         project.id = (long)4;
-        project.name = "FatCat";
-        project.manager = "5610546702";
+        project.name = "JDED";
+        project.manager = "5410545044";
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
             project.save();
         }
