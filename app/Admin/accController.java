@@ -15,8 +15,10 @@ public class accController {
     public static Result remove() {
         removeAcc account = Form.form(removeAcc.class).bindFromRequest().get();
         System.out.println(account.id);
-        Account.find.byId((long) Integer.parseInt(account.id)).delete();
-
-        return redirect("/index");
+        if(Account.findAccount(account.id)!=null&&!account.id.equals("")) {
+            Account.find.byId((long) Integer.parseInt(account.id)).delete();
+            return redirect("/AccList");
+        }
+        return redirect("/AccList");
     }
 }
