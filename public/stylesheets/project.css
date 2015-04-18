@@ -160,6 +160,13 @@ a#openPopUp:hover{
     top: -100vh;
     margin-left: 0;
 
+    height: 90%;
+    max-height: none;
+    top:5%;
+    margin-top: 0;
+    bottom:5%;
+    margin-bottom: 0;
+
     -webkit-transition: top  0.35s ease;
     -moz-transition: top 0.35s ease;
     -o-transition: top 0.35s ease;
@@ -185,7 +192,11 @@ a#openPopUp:hover{
     display: block;
 }
 .popup article{
-    height: 600px;
+    height: 90%;
+    max-height: none;
+    bottom:5%;
+    margin-bottom: 0;
+    /*height: 400px;*/
     background-color: #fdfff0;
     overflow: scroll;
 }
@@ -232,6 +243,10 @@ a#openPopUp:hover{
         max-width: none;
         left: 5%;
         margin-left: 0;
+        height: 80%;
+        max-height: none;
+        top:10%;
+        margin-top: 0;
     }
     .popup ul{
         padding: 0 1em 0 1em;
