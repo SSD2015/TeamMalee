@@ -8,6 +8,7 @@ create table account (
   username                  varchar(255),
   password                  varchar(255),
   groupid                   integer,
+  name                      varchar(255),
   type                      varchar(255))
 ;
 

@@ -370,7 +370,7 @@ a#openPopUpEdit:hover{
 }
 .popupEdit .popUpContainerEdit{
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     position: fixed; /* To avoid scroll to target */
     left: 50%;
     top: -100vh;

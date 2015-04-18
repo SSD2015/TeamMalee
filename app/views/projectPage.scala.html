@@ -49,8 +49,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/index">@session.get("type"): @session.get("username") @if(controllers.TimerController.getTimeLeftInSec() != -1) {
-                        : Vote closes in <div id = "clock" style="display: inline"></div>}else { : Vote is close}</a>
+                    <a class="navbar-brand" href="/index">@session.get("type") : @session.get("name") @if(controllers.TimerController.getTimeLeftInSec() != -1) {
+                        : <div id = "clock" style="display: inline"></div>}else { : Vote is close}</a>
                 </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -105,7 +105,7 @@
                                                 <form role="form" action = "@routes.Application.editDescription(project.id)" method = post>
                                                         <!-- add text -->
                                                     <div class="wrap">
-                                                        <textarea name="inputDescription" cols="50" rows="7" style="color: red">@project.description</textarea>
+                                                        <textarea name="inputDescription" cols="40" rows="7" style="color: red">@project.description</textarea><br><br>
                                                         <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
                                                     </div>
                                                 </form>
