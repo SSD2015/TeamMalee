@@ -1,10 +1,15 @@
 package controllers;
 
+import com.avaje.ebean.Ebean;
 import play.mvc.*;
 import play.data.Form;
+import result.Account;
+import result.Criteria;
 import result.Project;
 import views.html.*;
 import result.Vote;
+
+import static result.Criteria.findExist;
 
 /**
  * Created by thanyaboontovorapan on 2/28/15 AD.
@@ -41,5 +46,19 @@ public class Voting extends Controller{
 
         oldVote.update();
 
+    }
+    public static Result VoteCri() {
+        Criteria getCri = Form.form(Criteria.class).bindFromRequest().get();
+        getCri.accID = Integer.parseInt(session().get("id"));
+        Criteria cri = (Criteria) findExist(getCri.accID + "");
+        if (cri == null) {
+            getCri.save();
+        }
+        else {
+            cri.projectid = getCri.projectid;
+            cri.update();
+        }
+
+        return redirect("/");
     }
 }

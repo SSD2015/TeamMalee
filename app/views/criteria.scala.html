@@ -76,17 +76,27 @@
                     <hr class="star-light">
 
                     <h3>The Best App</h3>
-                    <div class="mainRadio">
-                        @defining(Project.find.all()) { projects =>@projects.map { project =>
 
-                                <div class="radioholder">
-                                    <input type="radio" name="projecttype">
-                                    <label>Team @project.name</label>
-                               </div>
-                            }
-                        }
+                    <div class="mainRadio">
+                        <form action = "/addCriteria" method = post>
+
+                            <div class="projectid">
+
+                                @defining(Project.find.all()) { projects =>
+                                    @projects.map { project =>
+
+                                        <div class="radioholder">
+
+                                            <input type="radio" name="projectid" value="@project.id">
+                                            <label >Team @project.name</label>
+                                        </div>
+                                    }
+                                }
+
+                            </div>
+                            <button id="submit" type="submit" class="btn btn-primary btn-block center-block" style="width: 60%">Submit</button>
+                        </form>
                     </div>
-                    <button id="submit" type="submit" class="btn btn-primary btn-block center-block" style="width: 60%">Submit</button>
                 </div>
             </div>
         </div>

@@ -12,6 +12,12 @@ create table account (
   type                      varchar(255))
 ;
 
+create table criteria (
+  id                        integer primary key AUTOINCREMENT,
+  projectid                 varchar(255),
+  acc_id                    integer)
+;
+
 create table project (
   id                        integer primary key AUTOINCREMENT,
   name                      varchar(255),
@@ -36,6 +42,8 @@ create table vote (
 PRAGMA foreign_keys = OFF;
 
 drop table account;
+
+drop table criteria;
 
 drop table project;
 

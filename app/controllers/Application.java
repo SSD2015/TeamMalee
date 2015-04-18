@@ -4,14 +4,11 @@ import Admin.html.MainAdmin;
 import Admin.html.userList;
 import play.data.Form;
 import play.mvc.*;
-import result.Account;
-import result.Vote;
-import result.resultVote;
+import result.*;
 import scala.collection.immutable.List;
 import views.html.*;
 import Admin.html.*;
 import play.data.*;
-import result.Project;
 
 import java.util.ArrayList;
 
@@ -40,7 +37,7 @@ public class Application extends Controller {
         for (int i=0;i< Project.find.all().size();i++){
             System.out.print("in");
 
-           results.add(new resultVote(Project.find.byId((long) i+1).name,0,0,0));
+           results.add(new resultVote(Project.find.byId((long) i+1).name,0,0,0,0));
         }
 
         for(int i=0;i< Vote.find.all().size();i++){
@@ -50,6 +47,11 @@ public class Application extends Controller {
             resultPro.setScore(resultV.sel1);
             resultPro.setScore2(resultV.sel2);
             resultPro.setScore3(resultV.sel3);
+        }
+        for (int i=0;i< Criteria.find.all().size();i++){
+            Criteria resultC = Criteria.find.byId((long) i+1);
+            resultVote resultPro = (resultVote) results.get(Integer.parseInt(resultC.projectid)-1);
+            resultPro.setCriteria(1);
         }
         if(session().get("type").equals("Admin"))
             return ok(complete.render( results));
