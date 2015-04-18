@@ -79,6 +79,7 @@ public class Global extends GlobalSettings {
             account.save();
         }
         //------------------------Saint4
+        account = new Account();
         account.id = (long)2;
         account.username = "5610545765";
         account.password = "muninthorn.t@ku.th";
@@ -88,6 +89,7 @@ public class Global extends GlobalSettings {
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
+        account = new Account();
         account.id = (long)3;
         account.username = "5610545781";
         account.password = "runyasak.c@ku.th";
@@ -97,6 +99,7 @@ public class Global extends GlobalSettings {
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
+        account = new Account();
         account.id = (long)4;
         account.username = "5610545706";
         account.password = "nara.s@ku.th";
@@ -106,6 +109,7 @@ public class Global extends GlobalSettings {
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
+        account = new Account();
         account.id = (long)5;
         account.username = "5610546788";
         account.password = "vasupol.c@ku.th";
@@ -115,6 +119,7 @@ public class Global extends GlobalSettings {
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
+        account = new Account();
         account.id = (long)6;
         account.username = "5610545803";
         account.password = "wuttipong.k@ku.th";
@@ -125,6 +130,7 @@ public class Global extends GlobalSettings {
             account.save();
         }
         //-----------------Manat
+        account = new Account();
         account.id = (long)7;
         account.username = "5610546231";
         account.password = "chinnaporn.s@ku.th";
