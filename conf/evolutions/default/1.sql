@@ -7,6 +7,7 @@ create table account (
   id                        integer primary key AUTOINCREMENT,
   username                  varchar(255),
   password                  varchar(255),
+  groupid                   integer,
   type                      varchar(255))
 ;
 
