@@ -1,5 +1,7 @@
 @import result.Project
 @import result.Vote
+@import play.api.Play.resource
+@import play.api.Play.current
 @(project: Project, message: String)
 
 <!DOCTYPE html>
@@ -75,7 +77,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center">@message</div>
-                        <img class="img-responsive" src="@routes.Assets.at("images/submarine.png")" style="width:50%;">
+                        @if(resource("public/projectimages/" + project.id + ".png").isDefined) {
+                            <img class="img-responsive" src="@routes.Assets.at("projectimages/" + project.id + ".png")" style="width:50%;">
+                        } else {
+                            <img class="img-responsive" src="@routes.Assets.at("images/submarine.png")" style="width:50%;">
+                        }
                         <div class="intro-text">
                             <span class="name">Team @project.name</span>
                             <hr class="star-light">
@@ -116,112 +122,112 @@
         </header>
             <br><br>
 
-
             @if( !session.get("groupid").equals(project.id+"") ) {
-                <div class = pop>
-                    <a href="#popUp" id="openPopUp">Vote</a>
-                    <!-- POP UP -->
-                    <aside id="popUp" class="popup">
+            <div class = pop>
+                <a href="#popUp" id="openPopUp">Vote</a>
+                <!-- POP UP -->
+                <aside id="popUp" class="popup">
                         <div class="popUpContainer">
-                            <header>
-                                <a href="#!" class="closePopUp">X</a>
-                                <h2>Vote for Team @project.name</h2>
+                        <header>
+                            <a href="#!" class="closePopUp">X</a>
+                            <h2>Vote for Team @project.name</h2>
 
-                            </header>
+                        </header>
 
-                            <article>
+                        <article>
 
-                                <form id="score" class="text-center" role="form" action = "/voting" method = post onsubmit="return confirm('Do you want to submit the form?');">
-                                    <div class="creativity">
-                                        <label for="sel1">Creativity</label>
-                                        <span class="rating">
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input1-5" name="sel1" value="5">
-                                            <label for="rating-input1-5" class="rating-star"></label>
+                            <form id="score" class="text-center" role="form" action = "/voting" method = post onsubmit="return confirm('Do you want to submit the form?');">
+                                <div class="creativity">
+                                    <label for="sel1">Creativity</label>
+                                    <span class="rating">
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input1-5" name="sel1" value="5">
+                                        <label for="rating-input1-5" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input1-4" name="sel1" value="4">
-                                            <label for="rating-input1-4" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input1-4" name="sel1" value="4">
+                                        <label for="rating-input1-4" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input1-3" name="sel1" value="3">
-                                            <label for="rating-input1-3" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input1-3" name="sel1" value="3">
+                                        <label for="rating-input1-3" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input1-2" name="sel1" value="2">
-                                            <label for="rating-input1-2" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input1-2" name="sel1" value="2">
+                                        <label for="rating-input1-2" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input1-1" name="sel1" value="1">
-                                            <label for="rating-input1-1" class="rating-star"></label>
-                                        </span>
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <div class="appearance">
-                                        <label for="sel2">Appearance</label>
-                                        <span class="rating">
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input2-5" name="sel2" value="5">
-                                            <label for="rating-input2-5" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input1-1" name="sel1" value="1">
+                                        <label for="rating-input1-1" class="rating-star"></label>
+                                    </span>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="appearance">
+                                    <label for="sel2">Appearance</label>
+                                    <span class="rating">
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input2-5" name="sel2" value="5">
+                                        <label for="rating-input2-5" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input2-4" name="sel2" value="4">
-                                            <label for="rating-input2-4" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input2-4" name="sel2" value="4">
+                                        <label for="rating-input2-4" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input2-3" name="sel2" value="3">
-                                            <label for="rating-input2-3" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input2-3" name="sel2" value="3">
+                                        <label for="rating-input2-3" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input2-2" name="sel2" value="2">
-                                            <label for="rating-input2-2" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input2-2" name="sel2" value="2">
+                                        <label for="rating-input2-2" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input2-1" name="sel2" value="1">
-                                            <label for="rating-input2-1" class="rating-star"></label>
-                                        </span>
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <div class="performance">
-                                        <label for="sel3">Performance</label>
-                                        <span class="rating">
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input3-5" name="sel3" value="5">
-                                            <label for="rating-input3-5" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input2-1" name="sel2" value="1">
+                                        <label for="rating-input2-1" class="rating-star"></label>
+                                    </span>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="performance">
+                                    <label for="sel3">Performance</label>
+                                    <span class="rating">
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input3-5" name="sel3" value="5">
+                                        <label for="rating-input3-5" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input3-4" name="sel3" value="4">
-                                            <label for="rating-input3-4" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input3-4" name="sel3" value="4">
+                                        <label for="rating-input3-4" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input3-3" name="sel3" value="3">
-                                            <label for="rating-input3-3" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input3-3" name="sel3" value="3">
+                                        <label for="rating-input3-3" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input3-2" name="sel3" value="2">
-                                            <label for="rating-input3-2" class="rating-star"></label>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input3-2" name="sel3" value="2">
+                                        <label for="rating-input3-2" class="rating-star"></label>
 
-                                            <input type="radio" class="rating-input"
-                                            id="rating-input3-1" name="sel3" value="1">
-                                            <label for="rating-input3-1" class="rating-star"></label>
-                                        </span>
-                                    </div>
-                                    <br>
-                                    <br>
+                                        <input type="radio" class="rating-input"
+                                        id="rating-input3-1" name="sel3" value="1">
+                                        <label for="rating-input3-1" class="rating-star"></label>
+                                    </span>
+                                </div>
+                                <br>
+                                <br>
 
-                                    <input type="hidden" name="projectID" value="@project.id">
-                                    <button id="submit2" type="submit" class="btn btn-primary btn-block center-block"> Submit </button>
-                                    <br>
-                                </form>
+                                <input type="hidden" name="projectID" value="@project.id">
+                                <button id="submit2" type="submit" class="btn btn-primary btn-block center-block"> Submit </button>
+                                <br>
+                            </form>
 
 
-                            </article>
-                        </div>
-                        <a href="#!" class="closePopUpOutSide"></a>
-                    </aside>
-                </div>
+                        </article>
+                    </div>
+
+                    <a href="#!" class="closePopUpOutSide"></a>
+                </aside>
+            </div>
             }
 
             <script type="text/javascript">

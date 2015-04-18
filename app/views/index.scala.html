@@ -1,5 +1,7 @@
 @(message: String)
 
+@import play.api.Play.resource
+@import play.api.Play.current
 @import result.Project
 
 <!DOCTYPE html>
@@ -42,7 +44,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href = "/index">@session.get("type"): @message @if(controllers.TimerController.getTimeLeftInSec() != -1) {
-                            : Vote closes in <div id = "clock" style="display: inline"></div>}else { : Vote is close}</a>
+                            : <div id = "clock" style="display: inline"></div>}else { : Vote is closed}</a>
                     </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -96,7 +98,11 @@
                                             <h3>Team @project.name</h3>
                                         </div>
                                     </div>
-                                    <img src="@routes.Assets.at("images/cake.png")" class="img-responsive" alt="">
+                                    @if(resource("public/projectimages/" + project.id + ".png").isDefined) {
+                                        <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" class="img-responsive" alt="">
+                                    } else {
+                                        <img src="@routes.Assets.at("images/cake.png")" class="img-responsive" alt="">
+                                    }
 
                                 </a>
                             </div>
