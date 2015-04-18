@@ -17,6 +17,7 @@
             <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/freelancer.css")">
                 <!-- jQuery -->
             <script src="@routes.Assets.at("javascripts/jquery.js")" type="text/javascript"></script>
+            <script src="@routes.Assets.at("javascripts/jquery.countdown.js")"></script>
                 <!-- Bootstrap Core JavaScript -->
             <script src="@routes.Assets.at("javascripts/bootstrap.js")" type="text/javascript"></script>
 
@@ -39,7 +40,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href = "/index">@session.get("type"): @message</a>
+                        <a class="navbar-brand" href = "/index">@session.get("type"): @message @if(controllers.TimerController.getTimeLeftInSec() != -1) {
+                            : Vote closes in <div id = "clock" style="display: inline"></div>}else { : Vote is close}</a>
                     </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -118,5 +120,26 @@
             <div id="browse_app" class="text-center">
                 <a class="btn btn-large btn-info" href="/criteria">Voting for criteria</a>
             </div>
+
+            <script type="text/javascript">
+            $('#clock').countdown('2015/04/18 ' + @controllers.TimerController.getTimeLeftHour + ':' + @controllers.TimerController.getTimeLeftMinute + ':0')
+            .on('update.countdown', function(event) {
+            var format = '%H:%M:%S';
+            if(event.offset.days > 0) {
+            format = '%-d day%!d ' + format;
+            }
+            if(event.offset.weeks > 0) {
+            format = '%-w week%!w ' + format;
+            }
+            $(this).html(event.strftime(format));
+            })
+            .on('finish.countdown', function(event) {
+            $(this).html('Vote is closed!');
+            $("#openPopUp").on("click",function(e) {
+                e.preventDefault(); // (or return false;)
+            })
+            //.parent().addClass('disabled')
+            });
+            </script>
         </body>
     </html>

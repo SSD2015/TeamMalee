@@ -72,6 +72,7 @@ public class Global extends GlobalSettings {
         account.username = "admin";
         account.password = "firstadmin";
         account.type = "Admin";
+        account.groupid = (long)-1;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
