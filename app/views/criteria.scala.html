@@ -1,3 +1,7 @@
+@import play.api.Play.resource
+@import play.api.Play.current
+@import result.Project
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -30,7 +34,6 @@
 
 </head>
 <body>
-    //header bar
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -67,27 +70,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12" style="text-decoration-color: slategrey">
-                    <h1>The Best App</h1>
-
+                    <h1>Criteria Vote</h1>
+                    <br>
                     <div class="mainRadio">
-
-                        <div class="radioholder">
-                            <input type="radio" name="projecttype" value="gg">
-                            <label for="teamGG">Team GG</label>
-                        </div>
-                        <div class="radioholder">
-                            <input type="radio" name="projecttype" value="theFrank" checked>
-                            <label for="teamTheFrank">Team TheFrank</label>
-                        </div>
-                        <div class="radioholder">
-                            <input type="radio" name="projecttype" value="malee">
-                            <label for="teamMalee">Team Malee</label>
-                        </div>
-                        <div class="radioholder">
-                            <input type="radio" name="projecttype" value="jded">
-                            <label for="teamJDED">Team JDED</label>
-                        </div>
+                        <h3>> The Best App <</h3>
+                        @defining(Project.find.all()) { projects =>
+                            @projects.map { project =>
+                               <div class="radioholder">
+                                    <input type="radio" name="projecttype">
+                                    <label>Team @project.name</label>
+                               </div>
+                            }
+                        }
                     </div>
+                    <button id="submit" type="submit" class="btn btn-primary btn-block center-block" style="width: 60%">Submit</button>
                 </div>
             </div>
         </div>
@@ -119,11 +115,5 @@
                 </div>
             </div>
         </footer>
-            <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-        <div class="scroll-top page-scroll visible-xs visble-sm">
-            <a class="btn btn-primary" href="#page-top">
-                <i class="fa fa-chevron-up"></i>
-            </a>
-        </div>
 </body>
 </html>

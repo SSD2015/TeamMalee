@@ -27,6 +27,12 @@ h1 {
     line-height: 150%;
 }
 
+h3 {
+    text-align: center;
+    margin: 0 0 1.2em 0;
+    line-height: 150%;
+}
+
 p {
     margin-top: 2em;
     line-height: 150%;
