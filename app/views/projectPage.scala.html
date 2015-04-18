@@ -233,33 +233,33 @@
             <br><br>
             <br><br>
 
-            @*@if(session.get("username").equals(project.manager) || session.get("type").equals("Admin")) {*@
-                @*<header>*@
-                    @*<div class="container">*@
-                        @*<div class="row">*@
-                            @*<div class="col-lg-12"  style="text-decoration-color: slategrey">*@
-                                @*<div>*@
-                                    @*<h1>Upload a new image:</h1>*@
-                                    @*@helper.form(action = routes.ImageController.uploadImage(project.id), 'enctype -> "multipart/form-data") {*@
-                                        @*<div id = "dropzone">*@
-                                            @*<div>drop image<br>* only .png file</div>*@
-                                            @*<input type="file" name="image" accept="image/png" >*@
-                                        @*</div>*@
-                                        @*<button id="submit" type="submit" class="btn btn-primary btn-block center-block">Upload image!</button>*@
-                                    @*}*@
-                                @*</div>*@
+            @if(session.get("username").equals(project.manager) || session.get("type").equals("Admin")) {
+                <header>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12"  style="text-decoration-color: slategrey">
+                                <div>
+                                    <h1>Upload a new image:</h1>
+                                    @helper.form(action = routes.ImageController.uploadImage(project.id), 'enctype -> "multipart/form-data") {
+                                        <div id = "dropzone">
+                                            <div>drop image<br>* only .png file</div>
+                                            <input type="file" name="image" accept="image/png" >
+                                        </div>
+                                        <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Upload image!</button>
+                                    }
+                                </div>
 
-                            @*<div>*@
-                                @*<h1>Image in Database:</h1>*@
-                                @*<a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">*@
-                                    @*<img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">*@
-                                @*</a>*@
+                            <div>
+                                <h1>Image in Database:</h1>
+                                <a href="@routes.Assets.at("projectimages/" + project.id + ".png")" target="blank">
+                                    <img src="@routes.Assets.at("projectimages/" + project.id + ".png")" height="100" width="100">
+                                </a>
 
-                            @*</div>*@
-                        @*</div>*@
-                    @*</div>*@
-                @*</header>*@
-            @*}*@
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            }
 
             <script type="text/javascript">
                 $(document).ready(function () {
