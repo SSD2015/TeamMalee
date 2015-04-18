@@ -219,7 +219,7 @@ a#openPopUp:hover{
     z-index: 9999991;
 }
 .popup:target .popUpContainer{
-    top: 50px;
+    top: 25px;
     -webkit-transition: top  0.35s ease;
     -moz-transition: top 0.35s ease;
     -o-transition: top 0.35s ease;
