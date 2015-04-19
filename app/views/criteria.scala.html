@@ -148,6 +148,12 @@
     })
     //.parent().addClass('disabled')
     });
+
+    $(function() {
+        $("#submit").on("click",function(e) {
+            if ( @controllers.TimerController.getTimeLeftInSec == -1 ) e.preventDefault(); // (or return false;)
+        });
+    });
     </script>
 </body>
 </html>

@@ -56,6 +56,9 @@ public class Image extends Model {
             }
         }
 
-        this.save("secondary");
+        Image oldImage = Image.find.where().eq("projectID", id).findUnique();
+        if (oldImage == null) {
+            this.save("secondary");
+        }
     }
 }
