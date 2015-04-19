@@ -41,6 +41,8 @@ public class ImageController extends Controller {
     public static Result uploadImage(long id) {
         Form<UploadImageForm> form = form(UploadImageForm.class).bindFromRequest();
 
+        if(id == null || id <= 0)
+
         if (form.hasErrors()) {
             return badRequest(projectPage.render(Project.find.byId(id), "Error occured"));
 

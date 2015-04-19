@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center">@message</div>
-                        @if(controllers.ImageController.checkExist(project.id)) {
+                        @if(project.id != null && project.id >= 1 && controllers.ImageController.checkExist(project.id)) {
                             <img class="img-responsive" src="@routes.ImageController.getImage(project.id)" style="width:50%;">
                         } else {
                             <img class="img-responsive" src="@routes.Assets.at("images/submarine.png")" style="width:50%;">
@@ -275,7 +275,7 @@
             <br><br>
 
 
-            @if(session.get("username").equals(project.manager) || session.get("type").equals("Admin")) {
+            @if((session.get("username").equals(project.manager) || session.get("type").equals("Admin")) && project.id != null && project.id >= 1) {
                 <header>
                     <div class="container">
                         <div class="row">
