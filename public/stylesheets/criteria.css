@@ -52,7 +52,7 @@ a:hover {
     width: 49%;
     background: #fff;
     margin-bottom: 1em;
-    font-size: 1.1em;
+    font-size: 0.9em;
     height: 2.4em;
     color: #666;
     -o-transition: .1s ease-out;
@@ -61,6 +61,12 @@ a:hover {
     -webkit-transition: .1s ease-out;
     transition: .1s ease-out;
     cursor: pointer;
+}
+
+@media  (min-width: 796px) {
+    .radioholder {
+        font-size: 1.2em;
+    }
 }
 
 
