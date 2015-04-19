@@ -3,6 +3,7 @@ package controllers; /**
  */
 import akka.actor.Cancellable;
 import com.avaje.ebean.Ebean;
+import models.Image;
 import play.Application;
 import play.GlobalSettings;
 import play.Logger;
@@ -19,8 +20,11 @@ import scala.concurrent.duration.Duration;
 import play.libs.Time.CronExpression;
 import org.joda.time.DateTime;
 import org.joda.time.Seconds;
-import views.html.Register;
-import views.html.login;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 
 
 public class Global extends GlobalSettings {
@@ -534,6 +538,58 @@ public class Global extends GlobalSettings {
         account.groupid = (long)-1;
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
+        }
+
+        /////////----------------Image
+        BufferedImage tempImage = null;
+
+        try {
+
+            URL url = new URL("http://image.ohozaa.com/i/71d/gLexat.png");
+            tempImage = ImageIO.read(url);
+            File tempFile = File.createTempFile( "temporary", "png");
+            ImageIO.write(tempImage, "png", tempFile);
+
+            new Image((long)1, tempFile);
+
+            tempFile.delete();
+
+            //-------------------------
+
+            url = new URL("http://image.ohozaa.com/i/590/B60SEM.png");
+            tempImage = ImageIO.read(url);
+            tempFile = File.createTempFile( "temporary", "png");
+            ImageIO.write(tempImage, "png", tempFile);
+
+            new Image((long)2, tempFile);
+
+            tempFile.delete();
+
+            //-------------------------
+
+            url = new URL("http://image.ohozaa.com/i/485/TEcclg.png");
+            tempImage = ImageIO.read(url);
+            tempFile = File.createTempFile( "temporary", "png");
+            ImageIO.write(tempImage, "png", tempFile);
+
+            new Image((long)3, tempFile);
+
+            tempFile.delete();
+
+            //-------------------------
+
+            url = new URL("http://image.ohozaa.com/i/482/kUSfYr.png");
+            tempImage = ImageIO.read(url);
+            tempFile = File.createTempFile( "temporary", "png");
+            ImageIO.write(tempImage, "png", tempFile);
+
+            new Image((long)4, tempFile);
+
+            tempFile.delete();
+
+            //-------------------------
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
