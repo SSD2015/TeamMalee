@@ -112,7 +112,7 @@
                                             <h3>Team @project.name</h3>
                                         </div>
                                     </div>
-                                    @if(controllers.ImageController.checkExist(project.id)) {
+                                    @if(controllers.ImageController.checkExist(project.id) && project.id != null && project.id >= 1) {
                                         <img src="@routes.ImageController.getImage(project.id)" class="img-responsive" alt="">
                                     } else {
                                         <img src="@routes.Assets.at("images/cake.png")" class="img-responsive" alt="">
