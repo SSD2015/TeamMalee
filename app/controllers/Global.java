@@ -493,6 +493,48 @@ public class Global extends GlobalSettings {
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
             account.save();
         }
+
+        //------------------ Staff, TA
+        account = new Account();
+        account.id = (long)++i;
+        account.username = "5510546166";
+        account.password = "sarun.wo@ku.th";
+        account.type = "Voter";
+        account.name = "Sarun";
+        account.groupid = (long)-1;
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
+            account.save();
+        }
+        account = new Account();
+        account.id = (long)++i;
+        account.username = "5410545036";
+        account.password = "thai.p@ku.th";
+        account.type = "Voter";
+        account.name = "Thai";
+        account.groupid = (long)-1;
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
+            account.save();
+        }
+        account = new Account();
+        account.id = (long)++i;
+        account.username = "fengjeb";
+        account.password = "james.b@ku.th";
+        account.type = "Voter";
+        account.name = "Jim";
+        account.groupid = (long)-1;
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
+            account.save();
+        }
+        account = new Account();
+        account.id = (long)++i;
+        account.username = "geedev";
+        account.password = "keeratipong.u@ku.th";
+        account.type = "Voter";
+        account.name = "Keeratipong";
+        account.groupid = (long)-1;
+        if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() == null) {
+            account.save();
+        }
     }
 
     public static boolean stopTimer() {
