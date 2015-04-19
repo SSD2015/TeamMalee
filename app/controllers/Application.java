@@ -150,7 +150,7 @@ public class Application extends Controller {
         public String inputDescription;
 
     }
-
+    @Security.Authenticated(Secured.class)
     public static Result criteria() {
         if (session().isEmpty())
             return ok(login.render(Form.form(Login.class)));
