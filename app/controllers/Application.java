@@ -129,6 +129,7 @@ public class Application extends Controller {
         Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " requested to add project");
         Project project = Form.form(Project.class).bindFromRequest().get();
         if ( project.name.length() <= 0 || project.manager.length() <= 0 ) {
+            Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " failed to add project (null team name or manager)");
             return badRequest(addproject.render("Please at least fill in project name and project manager username"));
         }
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
