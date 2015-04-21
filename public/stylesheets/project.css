@@ -244,7 +244,7 @@ a#openPopUp:hover{
         margin-left: 0;
         height: 80%;
         max-height: none;
-        top:10%;
+        bottom: 10%;
         margin-top: 0;
     }
     .popup ul{
