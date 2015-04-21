@@ -15,12 +15,19 @@ import static result.Criteria.findExist;
  * Created by thanyaboontovorapan on 2/28/15 AD.
  */
 public class Voting extends Controller{
-
+    @Security.Authenticated(Secured.class)
     public static Result addVote() {
         Vote vote = Form.form(Vote.class).bindFromRequest().get();
         vote.voterID = Integer.parseInt(session().get("id"));
         Vote voterVote = (Vote)Vote.findExist(vote.voterID+"", vote.projectID+"");
         Project projectVoted = (Project) Project.find.byId(Long.valueOf(vote.projectID));
+        if ( vote.sel1 < 0 || vote.sel1 > 5 || vote.sel2 < 0 || vote.sel2 > 5 || vote.sel3 < 0 || vote.sel3 > 5 || vote.sel4 < 0 || vote.sel4 > 5 || vote.sel5 < 0 || vote.sel5 > 5 ) {
+            return ok(projectPage.render(projectVoted, "Vote Failed, invalid score"));
+        }
+        if ( TimerController.getTimeLeftInSec() <= 0) {
+            System.out.println("Time hacking failed");
+            return ok(projectPage.render(projectVoted, "Vote is closed!!, failed"));
+        }
         if (voterVote == null) {
             vote.save();
             return ok(projectPage.render(projectVoted, "Vote succeeded"));
@@ -36,7 +43,7 @@ public class Voting extends Controller{
     }
 
 
-
+    @Security.Authenticated(Secured.class)
     public static void changeVote() {
         Vote vote = Form.form(Vote.class).bindFromRequest().get();
 
@@ -51,6 +58,7 @@ public class Voting extends Controller{
         oldVote.update();
 
     }
+    @Security.Authenticated(Secured.class)
     public static Result VoteCri() {
         Criteria getCri = Form.form(Criteria.class).bindFromRequest().get();
         getCri.accID = Integer.parseInt(session().get("id"));

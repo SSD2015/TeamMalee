@@ -38,8 +38,13 @@ public class ImageController extends Controller {
         }
         return false;
     }
+    @Security.Authenticated(Secured.class)
     public static Result uploadImage(long id) {
         Form<UploadImageForm> form = form(UploadImageForm.class).bindFromRequest();
+        if(session().get("id").equals(id+"")) {
+            return redirect("/");
+        }
+
 
 
         if (form.hasErrors()) {

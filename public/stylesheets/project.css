@@ -244,7 +244,7 @@ a#openPopUp:hover{
         margin-left: 0;
         height: 80%;
         max-height: none;
-        top:10%;
+        bottom:10%;
         margin-top: 0;
     }
     .popup ul{
@@ -256,6 +256,9 @@ a#openPopUp:hover{
         -moz-transition: top 0.35s ease;
         -o-transition: top 0.35s ease;
         transition: top 0.35s ease;
+    }
+    #popUpHeader h2{
+        font-size: 1.3em;
     }
 }
 #popUpHeader{

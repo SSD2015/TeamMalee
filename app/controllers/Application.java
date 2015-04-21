@@ -26,11 +26,17 @@ public class Application extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result accList() {
+        if(!session().get("type").equals("Admin")) {
+            return redirect("/");
+        }
         return ok(userList.render(Account.find.all()));
     }
 
     @Security.Authenticated(Secured.class)
     public static Result Adminindex() {
+        if (!session().get("type").equals("Admin")) {
+            return redirect("/index");
+        }
         return ok(MainAdmin.render(session().get("name")));
     }
 
@@ -39,20 +45,21 @@ public class Application extends Controller {
         ArrayList<resultVote> results = new ArrayList<resultVote>();
 
         for (int i=0;i< Project.find.all().size();i++){
-            System.out.print("in");
 
            results.add(new resultVote(Project.find.byId((long) i+1).name,0));
         }
         // Come back to clean code
         for(int i=0;i< Vote.find.all().size();i++){
             Vote resultV = Vote.find.byId((long) i+1);
-            resultVote resultPro = (resultVote) results.get(resultV.projectID-1);
-            resultPro.setName(Project.find.byId((long) resultV.projectID).name);
-            resultPro.setScore(resultV.sel1);
-            resultPro.setScore2(resultV.sel2);
-            resultPro.setScore3(resultV.sel3);
-            resultPro.setScore4(resultV.sel4);
-            resultPro.setScore5(resultV.sel5);
+            if (resultV != null) {
+                resultVote resultPro = (resultVote) results.get(resultV.projectID-1);
+                resultPro.setName(Project.find.byId((long) resultV.projectID).name);
+                resultPro.setScore(resultV.sel1);
+                resultPro.setScore2(resultV.sel2);
+                resultPro.setScore3(resultV.sel3);
+                resultPro.setScore4(resultV.sel4);
+                resultPro.setScore5(resultV.sel5);
+            }
         }
         for (int i=0;i< Criteria.find.all().size();i++){
             Criteria resultC = Criteria.find.byId((long) i+1);
@@ -74,7 +81,7 @@ public class Application extends Controller {
         }
         else if (session().get("type").equals("Admin")){
             System.out.println(session().get("type"));
-            return redirect("/AdminIndex");
+            return redirect("/index");
         }
         else {
             System.out.println(session().get("type"));
@@ -111,8 +118,11 @@ public class Application extends Controller {
         flash("success", "You've been logged out");
         return redirect("/");
     }
-
+    @Security.Authenticated(Secured.class)
     public static Result AddProject() {
+        if(!session().get("type").equals("Admin")) {
+            return redirect("/");
+        }
         Project project = Form.form(Project.class).bindFromRequest().get();
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
             project.save();
@@ -135,6 +145,9 @@ public class Application extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result editDescription(Long id) {
+        if(!session().get("type").equals("Admin")) {
+            return redirect("/");
+        }
         Form<EditDescriptionForm> form = form(EditDescriptionForm.class).bindFromRequest();
 
         Project targetProject = Project.find.byId(id);

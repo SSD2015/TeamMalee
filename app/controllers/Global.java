@@ -12,7 +12,7 @@ import play.libs.Akka;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-import play.mvc.Result;
+import static play.mvc.Results.*;
 import result.Account;
 import result.Project;
 import scala.concurrent.duration.FiniteDuration;
@@ -25,7 +25,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import javax.imageio.ImageIO;
-
+import play.mvc.*;
+import play.mvc.Http.*;
+import play.libs.F.*;
 
 public class Global extends GlobalSettings {
     private static Cancellable scheduler;
@@ -47,6 +49,14 @@ public class Global extends GlobalSettings {
         if (scheduler != null) {
             scheduler.cancel();
         }
+    }
+
+    public Promise<Result> onBadRequest(RequestHeader request, String error) {
+        return Promise.<Result>pure(badRequest("Don't try to hack the URI!"));
+    }
+
+    public Promise<Result> onHandlerNotFound(RequestHeader request) {
+        return Promise.<Result>pure(badRequest("Don't try to hack the URI!"));
     }
 
     public static int nextExecutionInSeconds(int hour, int minute){
@@ -76,7 +86,7 @@ public class Global extends GlobalSettings {
         Account account = new Account();
         account.id = (long)++i;
         account.username = "admin";
-        account.password = "firstadmin";
+        account.password = "adminpassword";
         account.type = "Admin";
         account.name = "Administrator";
         account.groupid = (long)-1;
@@ -623,10 +633,10 @@ public class Global extends GlobalSettings {
             timeLeftHour = hour;
             timeLeftMinute = minute;
             FiniteDuration d = Duration.create(
-                    nextValidTimeAfter.getTime() - System.currentTimeMillis(),
-                    TimeUnit.MILLISECONDS);
+                    nextExecutionInSeconds(hour, minute),
+                    TimeUnit.SECONDS);
 
-            System.out.println("Scheduling to run at " + nextValidTimeAfter);
+            System.out.println("Scheduling to run at " + nextExecutionInSeconds(hour, minute));
             scheduler = Akka.system().scheduler().scheduleOnce(d, new Runnable() {
 
                 @Override

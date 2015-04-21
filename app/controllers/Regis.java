@@ -18,7 +18,11 @@ public class Regis extends Controller {
             return ok(Register.render());
         return redirect("/");
     }
+    @Security.Authenticated(Secured.class)
     public static Result addNewAcc() {
+        if(!session().get("type").equals("Admin")) {
+            return redirect("/");
+        }
         Account account = Form.form(Account.class).bindFromRequest().get();
         if ( Ebean.find(Account.class).where().eq("username", account.username).findUnique() != null) {
             return ok(login.render(Form.form(Login.class)));
