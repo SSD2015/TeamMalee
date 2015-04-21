@@ -1,6 +1,8 @@
 package controllers; /**
  * Created by thanyaboontovorapan on 4/17/15 AD.
  */
+import play.mvc.*;
+import play.mvc.Http.*;
 import akka.actor.Cancellable;
 import com.avaje.ebean.Ebean;
 import models.Image;
@@ -12,7 +14,7 @@ import play.libs.Akka;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-import play.mvc.Result;
+import static play.mvc.Results.*;
 import result.Account;
 import result.Project;
 import scala.concurrent.duration.FiniteDuration;
@@ -25,6 +27,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import javax.imageio.ImageIO;
+import play.libs.F.*;
+
 
 
 public class Global extends GlobalSettings {
@@ -36,7 +40,6 @@ public class Global extends GlobalSettings {
     @Override
     public void onStart(Application application) {
         super.onStart(application);
-        System.out.println("System started");
         firstAccount();
         //schedule();
     }
@@ -46,7 +49,17 @@ public class Global extends GlobalSettings {
         //Stop the scheduler
         if (scheduler != null) {
             scheduler.cancel();
+            Logger.info("Timer is stopped (at application exit)");
         }
+    }
+
+    public Promise<Result> onBadRequest(RequestHeader request, String error) {
+        return Promise.<Result>pure(badRequest("Don't try to hack the URI!"));
+    }
+
+    public Promise<Result> onHandlerNotFound(RequestHeader request) {
+        Logger.info("Someone try to use handler that's not exists");
+        return Promise.<Result>pure(badRequest("Don't try to hack the URI!"));
     }
 
     public static int nextExecutionInSeconds(int hour, int minute){
@@ -589,6 +602,7 @@ public class Global extends GlobalSettings {
 
             //-------------------------
         } catch (IOException e) {
+            Logger.error("Initialize project image failed");
             e.printStackTrace();
         }
     }
@@ -598,6 +612,7 @@ public class Global extends GlobalSettings {
         timeLeftMinute = -1;
         if (scheduler != null) {
             scheduler.cancel();
+            Logger.info("Timer is stopped(by user)");
             return true;
         }
         return false;
@@ -637,8 +652,9 @@ public class Global extends GlobalSettings {
                     stopTimer();
                 }
             }, Akka.system().dispatcher());
+            Logger.info("Timer is started");
         } catch (Exception e) {
-            Logger.error("", e);
+            Logger.error("Timer scheduling failed", e);
         }
     }
 }

@@ -14,7 +14,11 @@ import java.text.SimpleDateFormat;
 import static play.data.Form.form;
 
 public class TimerController extends Controller{
+    @Security.Authenticated(Secured.class)
     public static Result stopTimer() {
+        if (!session().get("type").equals("Admin")) {
+            return redirect("/index");
+        }
         Global.stopTimer();
         return redirect(routes.TimerController.gotoTimerPage());
     }
@@ -45,7 +49,9 @@ public class TimerController extends Controller{
 
     @Security.Authenticated(Secured.class)
     public static Result gotoTimerPage() {
-
+        if (!session().get("type").equals("Admin")) {
+            return redirect("/index");
+        }
         return ok(TimerPage.render());
     }
 

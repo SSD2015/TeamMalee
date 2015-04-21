@@ -3,10 +3,11 @@ package controllers;
 import Admin.html.MainAdmin;
 import Admin.html.userList;
 import com.avaje.ebean.Ebean;
+import play.Logger;
 import play.data.Form;
 import play.mvc.*;
 import result.*;
-import scala.collection.immutable.List;
+import java.util.List;
 import views.html.*;
 import Admin.html.*;
 import play.data.*;
@@ -26,17 +27,25 @@ public class Application extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result accList() {
+        if (!session().get("type").equals("Admin")) {
+            return redirect("/index");
+        }
+        Logger.info("User : " + session.get("username") + " Type " + session.get("type") + " accessed to account list page");
         return ok(userList.render(Account.find.all()));
     }
 
     @Security.Authenticated(Secured.class)
     public static Result Adminindex() {
+        if (!session().get("type").equals("Admin")) {
+            return redirect("/index");
+        }
+        Logger.info("User : " + session.get("username") + " Type " + session.get("type") + " accessed to admin index page");
         return ok(MainAdmin.render(session().get("name")));
     }
 
     @Security.Authenticated(Secured.class)
     public static Result votingResult() {
-        ArrayList<resultVote> results = new ArrayList<resultVote>();
+        List<resultVote> results = new ArrayList<resultVote>();
 
         for (int i=0;i< Project.find.all().size();i++){
             System.out.print("in");
@@ -59,8 +68,10 @@ public class Application extends Controller {
             resultVote resultPro = (resultVote) results.get(Integer.parseInt(resultC.projectid)-1);
             resultPro.setCriteria(1);
         }
-        if(session().get("type").equals("Admin"))
-            return ok(complete.render( results));
+        if(session().get("type").equals("Admin")) {
+            Logger.info("User : " + session.get("username") + " Type " + session.get("type") + " accessed to voting result page");
+            return ok(complete.render(results));
+        }
         return redirect("/");
     }
 
@@ -73,11 +84,9 @@ public class Application extends Controller {
             return redirect("/");
         }
         else if (session().get("type").equals("Admin")){
-            System.out.println(session().get("type"));
-            return redirect("/AdminIndex");
+            return redirect("/index");
         }
         else {
-            System.out.println(session().get("type"));
             return redirect("/index");
         }
     }
@@ -97,11 +106,11 @@ public class Application extends Controller {
             session("groupid", ""+user.groupid);
             session("name", user.name);
             if (session().get("type").equals("Admin")){
-                System.out.println(session().get("type"));
+                Logger.info("User : " + session.get("username") + " logged in as admin");
                 return redirect("/AdminIndex");
             }
             else {
-                System.out.println(session().get("type"));
+                Logger.info("User : " + session.get("username") + " logged in as voter");
                 return redirect("/index");
             }
         }
