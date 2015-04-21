@@ -128,7 +128,11 @@ public class Application extends Controller {
         }
         Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " requested to add project");
         Project project = Form.form(Project.class).bindFromRequest().get();
+        if ( project.name.length() <= 0 || project.manager.length() <= 0 ) {
+            return badRequest(addproject.render("Please at least fill in project name and project manager username"));
+        }
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
+            System.out.println(project.name.length());
             project.save();
             Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " project added successfully");
         }
@@ -139,7 +143,7 @@ public class Application extends Controller {
     public static Result GotoAddProjectPage() {
         if(session().get("type").equals("Admin")) {
             Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " accessed to add project page");
-            return ok(addproject.render("Add Project"));
+            return ok(addproject.render(""));
         }
         return redirect("/");
     }
