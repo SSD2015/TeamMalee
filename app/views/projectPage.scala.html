@@ -134,7 +134,7 @@
                         <div class="popUpContainer">
                             <header id="popUpHeader">
                                 <a href="#!" class="closePopUp">X</a>
-                                <h2>Vote for Team @project.name</h2>
+                                <h2>Rate for Team @project.name</h2>
                             </header>
 
                             <article>
@@ -315,11 +315,21 @@
                 function setCurrentScore(){
                     @defining( (Vote.findExist(session().get("id")+"", project.id+"")) ) { voterVote =>
                         @if(voterVote != null) {
-                            document.getElementById("rating-input1-@voterVote.sel1").checked = true;
-                            document.getElementById("rating-input2-@voterVote.sel2").checked = true;
-                            document.getElementById("rating-input3-@voterVote.sel3").checked = true;
-                            document.getElementById("rating-input4-@voterVote.sel4").checked = true;
-                            document.getElementById("rating-input5-@voterVote.sel5").checked = true;
+                            @if(voterVote.sel1 > 0) {
+                                document.getElementById("rating-input1-@voterVote.sel1").checked = true;
+                            }
+                            @if(voterVote.sel2 > 0) {
+                                document.getElementById("rating-input2-@voterVote.sel2").checked = true;
+                            }
+                            @if(voterVote.sel3 > 0) {
+                                document.getElementById("rating-input3-@voterVote.sel3").checked = true;
+                            }
+                            @if(voterVote.sel4 > 0) {
+                                document.getElementById("rating-input4-@voterVote.sel4").checked = true;
+                            }
+                            @if(voterVote.sel5 > 0) {
+                                document.getElementById("rating-input5-@voterVote.sel5").checked = true;
+                            }
                         }
                     }
                 };

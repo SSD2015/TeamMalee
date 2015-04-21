@@ -3,6 +3,7 @@ package controllers;
 /**
  * Created by thanyaboontovorapan on 4/17/15 AD.
  */
+import play.Logger;
 import play.mvc.*;
 import play.mvc.Http.*;
 import play.mvc.Http.MultipartFormData.FilePart;
@@ -38,22 +39,32 @@ public class ImageController extends Controller {
         }
         return false;
     }
+    @Security.Authenticated(Secured.class)
     public static Result uploadImage(long id) {
         Form<UploadImageForm> form = form(UploadImageForm.class).bindFromRequest();
+        Logger.info("User : " + session().get("username") + " groupid : " + session().get("groupid") + " requested to upload image to project id : " + id);
+        if(!session().get("groupid").equals(id+"") && !session().get("type").equals("Admin")) {
+            Logger.info("User : " + session().get("username") + " groupid : " + session().get("groupid") + " failed to upload image to project id : " + id);
+            return redirect("/");
+        }
+
 
 
         if (form.hasErrors()) {
+            Logger.error("Error occured during upload image");
             return badRequest(projectPage.render(Project.find.byId(id), "Error occured"));
 
         } else {
             Image oldImage = Image.find.where().eq("projectID", id).findUnique();
             if (oldImage != null) {
+                Logger.info("User : " + session().get("username") + " groupid : " + session().get("groupid") + " replaced the image of project id : " + id);
                 oldImage.delete("secondary");
             }
             new Image(
                     id,
                     form.get().image.getFile()
             );
+            Logger.info("Image uploaded");
 //            File checker = new File("public/projectimages");
 //            if ( !checker.exists() ) {
 //                checker.mkdir();
