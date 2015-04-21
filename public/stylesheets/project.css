@@ -257,6 +257,9 @@ a#openPopUp:hover{
         -o-transition: top 0.35s ease;
         transition: top 0.35s ease;
     }
+    #popUpHeader h2{
+        font-size: 1.3em;
+    }
 }
 #popUpHeader{
     background-color: #8b314a;
