@@ -279,11 +279,11 @@ public class Global extends GlobalSettings {
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
             project.save();
         }
-        //----------------------Team!!!!!!!!!!! TheFrank
+        //----------------------Team!!!!!!!!!!! TheFatCat
         project = new Project();
-        project.id = (long)2;
-        project.name = "TheFrank";
-        project.manager = "5610546681";
+        project.id = (long)6;
+        project.name = "FatCat";
+        project.manager = "5610546222";
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
             project.save();
         }
@@ -295,11 +295,11 @@ public class Global extends GlobalSettings {
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
             project.save();
         }
-        //----------------------Team!!!!!!!!!!! JDED
+        //----------------------Team!!!!!!!!!!! Manat
         project = new Project();
-        project.id = (long)4;
-        project.name = "JDED";
-        project.manager = "5410545044";
+        project.id = (long)8;
+        project.name = "Manat";
+        project.manager = "5610546231";
         if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
             project.save();
         }
@@ -568,12 +568,12 @@ public class Global extends GlobalSettings {
 
             //-------------------------
 
-            url = new URL("http://image.ohozaa.com/i/590/B60SEM.png");
+            url = new URL("http://image.ohozaa.com/i/af3/jJXCNh.png");
             tempImage = ImageIO.read(url);
             tempFile = File.createTempFile( "temporary", "png");
             ImageIO.write(tempImage, "png", tempFile);
 
-            new Image((long)2, tempFile);
+            new Image((long)6, tempFile);
 
             tempFile.delete();
 
@@ -590,12 +590,12 @@ public class Global extends GlobalSettings {
 
             //-------------------------
 
-            url = new URL("http://image.ohozaa.com/i/482/kUSfYr.png");
+            url = new URL("http://image.ohozaa.com/i/658/Cf1piB.png");
             tempImage = ImageIO.read(url);
             tempFile = File.createTempFile( "temporary", "png");
             ImageIO.write(tempImage, "png", tempFile);
 
-            new Image((long)4, tempFile);
+            new Image((long)8, tempFile);
 
             tempFile.delete();
 

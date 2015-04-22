@@ -45,14 +45,34 @@ public class Application extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result votingResult() {
+        long maxindexProject = 0;
+        long maxindexVote = 0;
+        long maxindexCriteria = 0;
         List<resultVote> results = new ArrayList<resultVote>();
 
-        for (int i=0;i< Project.find.all().size();i++){
+        List<Project> projectList= Project.find.all();
+        if(projectList.size() > 0) {
+            maxindexProject = projectList.get(projectList.size() - 1).id;
+        }
 
-           results.add(new resultVote(Project.find.byId((long) i+1).name,0));
+        List<Vote> voteList= Vote.find.all();
+        if(voteList.size() > 0) {
+            maxindexVote = voteList.get(voteList.size() - 1).id;
+        }
+
+        List<Criteria> criteriaList= Criteria.find.all();
+        if(criteriaList.size() > 0) {
+            maxindexCriteria = criteriaList.get(criteriaList.size() - 1).id;
+        }
+        for (int i=0;i< maxindexProject;i++){
+            Project tempProject = Project.find.byId((long)i+1);
+            if ( tempProject != null ) {
+                resultVote temp = new resultVote(tempProject.name, 0);
+                results.add(temp);
+            }
         }
         // Come back to clean code
-        for(int i=0;i< Vote.find.all().size();i++){
+        for(int i=0;i< maxindexVote;i++){
             Vote resultV = Vote.find.byId((long) i+1);
             if (resultV != null) {
                 resultVote resultPro = (resultVote) results.get(resultV.projectID-1);
@@ -64,10 +84,12 @@ public class Application extends Controller {
                 resultPro.setScore5(resultV.sel5);
             }
         }
-        for (int i=0;i< Criteria.find.all().size();i++){
+        for (int i=0;i< maxindexCriteria;i++){
             Criteria resultC = Criteria.find.byId((long) i+1);
-            resultVote resultPro = (resultVote) results.get(Integer.parseInt(resultC.projectid)-1);
-            resultPro.setCriteria(1);
+            if(resultC != null) {
+                resultVote resultPro = (resultVote) results.get(Integer.parseInt(resultC.projectid) - 1);
+                resultPro.setCriteria(1);
+            }
         }
         if(session().get("type").equals("Admin")) {
             Logger.info("User : " + session().get("username") + " Type " + session().get("type") + " accessed to voting result page");
