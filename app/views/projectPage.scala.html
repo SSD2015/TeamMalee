@@ -312,6 +312,23 @@
                     setCurrentScore();
                 });
 
+                $("input[type = 'radio']").click(function()
+                {
+                    var previousValue = $(this).attr('previousValue');
+                    var name = $(this).attr('name');
+
+                    if (previousValue == 'checked')
+                    {
+                        $(this).removeAttr('checked');
+                        $(this).attr('previousValue', false);
+                    }
+                    else
+                    {
+                        $("input[name="+name+"]:radio").attr('previousValue', false);
+                        $(this).attr('previousValue', 'checked');
+                    }
+                });
+
                 function setCurrentScore(){
                     @defining( (Vote.findExist(session().get("id")+"", project.id+"")) ) { voterVote =>
                         @if(voterVote != null) {
