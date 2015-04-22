@@ -64,18 +64,22 @@ public class Application extends Controller {
         if(criteriaList.size() > 0) {
             maxindexCriteria = criteriaList.get(criteriaList.size() - 1).id;
         }
+        for (int i=0;i<= maxindexProject;i++) {
+            results.add(new resultVote("Empty", 0));
+        }
         for (int i=0;i< maxindexProject;i++){
             Project tempProject = Project.find.byId((long)i+1);
             if ( tempProject != null ) {
                 resultVote temp = new resultVote(tempProject.name, 0);
-                results.add(temp);
+                results.remove(i+1);
+                results.add(i+1, temp);
             }
         }
         // Come back to clean code
         for(int i=0;i< maxindexVote;i++){
             Vote resultV = Vote.find.byId((long) i+1);
             if (resultV != null) {
-                resultVote resultPro = (resultVote) results.get(resultV.projectID-1);
+                resultVote resultPro = (resultVote) results.get(resultV.projectID);
                 resultPro.setName(Project.find.byId((long) resultV.projectID).name);
                 resultPro.setScore(resultV.sel1);
                 resultPro.setScore2(resultV.sel2);
@@ -87,7 +91,7 @@ public class Application extends Controller {
         for (int i=0;i< maxindexCriteria;i++){
             Criteria resultC = Criteria.find.byId((long) i+1);
             if(resultC != null) {
-                resultVote resultPro = (resultVote) results.get(Integer.parseInt(resultC.projectid) - 1);
+                resultVote resultPro = (resultVote) results.get(Integer.parseInt(resultC.projectid));
                 resultPro.setCriteria(1);
             }
         }
