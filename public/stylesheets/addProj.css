@@ -65,7 +65,8 @@
 header {
     text-align: center;
     color: #fff;
-    background: #fc6d58;
+    background: #D35400;
+    /*background: #fc6d58;*/
 }
 
 header .container {
@@ -132,6 +133,7 @@ header .intro-text .skills {
     outline: none;
     padding: 8px 0;
     font-size: 16px;
+    text-align: center;
 }
 
 .mat-div {
@@ -172,7 +174,8 @@ header .intro-text .skills {
 }
 
 .wrap button {
-    background-color: #93E1D8;
+    /*background-color: #93E1D8;*/
+    background-color: #F1C40F;
     border: none;
     display: block;
     margin: 35px auto;

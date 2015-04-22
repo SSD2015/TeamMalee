@@ -1,14 +1,19 @@
-@media(min-width:768px) {
-    .resultTable .container {
-        padding-top: 80px;
-        padding-bottom: 100px;
-    }
+header{
+    /*background-color: #04aebc;*/
+    background: #36a3ea;
+}
 
-    header .intro-text .name {
-        font-size: 4.75em;
-    }
+.resultTable{
+    width: 100%;
+    border-collapse: collapse;
+}
 
-    header .intro-text .skills {
-        font-size: 1.75em;
+@media screen and (max-width: 640px) {
+    .resultTable {
+        overflow-x: auto;
+        display: block;
     }
 }
+
+/*#3498DB*/
+/*#04aebc*/

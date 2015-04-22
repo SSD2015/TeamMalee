@@ -79,40 +79,36 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12" style="text-decoration-color: slategrey">
+                        <div class="col-lg-12">
                             <div class="resultTable">
-                                <div class="container">
-                                    <div class="text-center">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Ease of use</th>
-                                                    <th>Reliability/Stability</th>
-                                                    <th>Completeness</th>
-                                                    <th>Security</th>
-                                                    <th>Quality of UI</th>
-                                                    <th>Criteria</th>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Ease of use</th>
+                                            <th>Reliability / Stability</th>
+                                            <th>Completeness</th>
+                                            <th>Security</th>
+                                            <th>Quality of UI</th>
+                                            <th>Criteria</th>
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            @votes.map { acc =>
-                                                <tr>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @votes.map { acc =>
+                                        <tr>
 
-                                                    <td id="id" name="id">@acc.getname</td>
-                                                    <td>@acc.getScore</td>
-                                                    <td>@acc.getScore2</td>
-                                                    <td>@acc.getScore3</td>
-                                                    <td>@acc.getScore4</td>
-                                                    <td>@acc.getScore5</td>
-                                                    <td>@acc.getCriteria</td>
-                                                </tr>
-                                            <tbody>
-                                            }
-                                        </table>
-                                    </div>
-                                </div>
+                                            <td id="id" name="id">@acc.getname</td>
+                                            <td>@acc.getScore</td>
+                                            <td>@acc.getScore2</td>
+                                            <td>@acc.getScore3</td>
+                                            <td>@acc.getScore4</td>
+                                            <td>@acc.getScore5</td>
+                                            <td>@acc.getCriteria</td>
+                                        </tr>
+                                    <tbody>
+                                    }
+                                </table>
                             </div>
                         </div>
                     </div>
