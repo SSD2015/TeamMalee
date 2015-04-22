@@ -10,6 +10,8 @@ import result.Project;
 import views.html.*;
 import result.Vote;
 
+import java.sql.Time;
+
 import static result.Criteria.findExist;
 
 /**
@@ -69,16 +71,21 @@ public class Voting extends Controller{
         Criteria getCri = Form.form(Criteria.class).bindFromRequest().get();
         getCri.accID = Integer.parseInt(session().get("id"));
         Criteria cri = (Criteria) findExist(getCri.accID + "");
+        if (TimerController.getTimeLeftInSec() <= 0) {
+            Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " failed to vote (criteria, vote is closed)");
+            return badRequest(criteria.render("Failed, vote is not open"));
+        }
         if (cri == null) {
             getCri.save();
             Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " successfully voted(criteria)");
+            return ok(criteria.render("Vote successfully"));
         }
         else {
             cri.projectid = getCri.projectid;
             cri.update();
             Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " successfully voted(changed criteria)");
+            return ok(criteria.render("Change Vote successfully"));
         }
 
-        return redirect("/");
     }
 }

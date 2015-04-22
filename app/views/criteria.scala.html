@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href = "/index">@session.get("type") : @message @if(controllers.TimerController.getTimeLeftInSec() != -1) {
+                <a class="navbar-brand" href = "/index">@session.get("type") : @session.get("name") @if(controllers.TimerController.getTimeLeftInSec() != -1) {
                     : <div id = "clock" style="display: inline"></div>}else { : Vote is closed}</a>
             </div>
 
@@ -76,7 +76,7 @@
                     <hr class="star-light">
 
                     <h3>The Best App</h3>
-
+                    <center><h4>@message</h4></center>
                     <div class="mainRadio">
                         <form action = "/addCriteria" method = post>
 

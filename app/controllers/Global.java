@@ -28,6 +28,8 @@ import java.io.IOException;
 import java.net.URL;
 import javax.imageio.ImageIO;
 import play.libs.F.*;
+import result.Project;
+import java.util.List;
 
 
 public class Global extends GlobalSettings {
@@ -553,25 +555,15 @@ public class Global extends GlobalSettings {
             project.save();
         }
 
+
+            List<Project> projectList = Project.find.all();
         /////////----------------Image
-            File tempFile2 = new File("public/projectimages/1.png");
-            if(tempFile2.exists()) {
-                new Image((long) 1, tempFile2);
-            }
-//          //-------------------------
-            tempFile2 = new File("public/projectimages/6.png");
-            if(tempFile2.exists()) {
-                new Image((long) 6, tempFile2);
-            }
-            //-------------------
-            tempFile2 = new File("public/projectimages/3.png");
-            if(tempFile2.exists()) {
-                new Image((long) 3, tempFile2);
-            }
-            //------------------------
-            tempFile2 = new File("public/projectimages/8.png");
-            if(tempFile2.exists()) {
-                new Image((long) 8, tempFile2);
+            for(int j = 0; j < projectList.size(); j++) {
+                File tempFile2 = new File("public/projectimages/" + projectList.get(j).id + ".png");
+                if (tempFile2.exists()) {
+                    new Image(projectList.get(j).id, tempFile2);
+                }
+
             }
 //
 //            url = new URL(routes.Assets.at("public/projectimages/6.png"));
