@@ -1,6 +1,6 @@
-
-@(message: String)
 @import result.Project
+@import result.Criteria
+@(message: String)
 
 <!DOCTYPE html>
 <html>
@@ -87,7 +87,7 @@
 
                                         <div class="radioholder">
 
-                                            <input type="radio" name="projectid" value="@project.id">
+                                            <input id="criteria@project.id"type="radio" name="projectid" value="@project.id">
                                             <label >Team @project.name</label>
                                         </div>
                                     }
@@ -154,6 +154,20 @@
             if ( @controllers.TimerController.getTimeLeftInSec == -1 ) e.preventDefault(); // (or return false;)
         });
     });
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+    setCurrentScore();
+    });
+
+    function setCurrentScore(){
+        @defining( (Criteria.find.where().eq("acc_id", session.get("id")).findUnique()) ) { criteriaVote =>
+            @if(criteriaVote != null) {
+                document.getElementById("criteria@criteriaVote.projectid").checked = true;
+                $("#criteria@criteriaVote.projectid").parent().addClass('activeradioholder');
+            }
+        }
+    };
     </script>
 </body>
 </html>
