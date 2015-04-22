@@ -271,38 +271,6 @@ public class Global extends GlobalSettings {
         }
 
 
-        //----------------------Team!!!!!!!!!!! GG
-        Project project = new Project();
-        project.id = (long)1;
-        project.name = "GG";
-        project.manager = "5610545757";
-        if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
-            project.save();
-        }
-        //----------------------Team!!!!!!!!!!! TheFatCat
-        project = new Project();
-        project.id = (long)6;
-        project.name = "FatCat";
-        project.manager = "5610546222";
-        if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
-            project.save();
-        }
-        //----------------------Team!!!!!!!!!!! Malee
-        project = new Project();
-        project.id = (long)3;
-        project.name = "Malee";
-        project.manager = "5610545048";
-        if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
-            project.save();
-        }
-        //----------------------Team!!!!!!!!!!! Manat
-        project = new Project();
-        project.id = (long)8;
-        project.name = "Manat";
-        project.manager = "5610546231";
-        if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
-            project.save();
-        }
 
         //---------------------@@@@@@@@@@@@@@@@@ Division1 @@@@@@@@@@------------------
         //------------------------Saint4
@@ -552,58 +520,96 @@ public class Global extends GlobalSettings {
             account.save();
         }
 
+        //----------------------Team!!!!!!!!!!! GG
+        Project project = new Project();
+        project.id = (long)1;
+        project.name = "GG";
+        project.manager = "5610545757";
+        if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
+            project.save();
+        }
+        //----------------------Team!!!!!!!!!!! TheFatCat
+        project = new Project();
+        project.id = (long)6;
+        project.name = "FatCat";
+        project.manager = "5610546222";
+        if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
+            project.save();
+        }
+        //----------------------Team!!!!!!!!!!! Malee
+        project = new Project();
+        project.id = (long)3;
+        project.name = "Malee";
+        project.manager = "5610545048";
+        if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
+            project.save();
+        }
+        //----------------------Team!!!!!!!!!!! Manat
+        project = new Project();
+        project.id = (long)8;
+        project.name = "Manat";
+        project.manager = "5610546231";
+        if ( Ebean.find(Project.class).where().eq("name", project.name).findUnique() == null) {
+            project.save();
+        }
+
         /////////----------------Image
-        BufferedImage tempImage = null;
-
-        try {
-
-            URL url = new URL("http://image.ohozaa.com/i/71d/gLexat.png");
-            tempImage = ImageIO.read(url);
-            File tempFile = File.createTempFile( "temporary", "png");
-            ImageIO.write(tempImage, "png", tempFile);
-
-            new Image((long)1, tempFile);
-
-            tempFile.delete();
+            File tempFile2 = new File("public/projectimages/1.png");
+            if(tempFile2.exists()) {
+                new Image((long) 1, tempFile2);
+            }
+//          //-------------------------
+            tempFile2 = new File("public/projectimages/6.png");
+            if(tempFile2.exists()) {
+                new Image((long) 6, tempFile2);
+            }
+            //-------------------
+            tempFile2 = new File("public/projectimages/3.png");
+            if(tempFile2.exists()) {
+                new Image((long) 3, tempFile2);
+            }
+            //------------------------
+            tempFile2 = new File("public/projectimages/8.png");
+            if(tempFile2.exists()) {
+                new Image((long) 8, tempFile2);
+            }
+//
+//            url = new URL(routes.Assets.at("public/projectimages/6.png"));
+//            tempImage = ImageIO.read(url);
+//            tempFile = File.createTempFile( "temporary", "png");
+//            ImageIO.write(tempImage, "png", tempFile);
+//
+//            new Image((long)6, tempFile);
+//
+//            tempFile.delete();
+//
+//            //-------------------------
+//
+//            url = new URL(routes.Assets.at("public/projectimages/3.png"));
+//            tempImage = ImageIO.read(url);
+//            tempFile = File.createTempFile( "temporary", "png");
+//            ImageIO.write(tempImage, "png", tempFile);
+//
+//            new Image((long)3, tempFile);
+//
+//            tempFile.delete();
+//
+//            //-------------------------
+//
+//            url = new URL(routes.Assets.at("public/projectimages/8.png"));
+//            tempImage = ImageIO.read(url);
+//            tempFile = File.createTempFile( "temporary", "png");
+//            ImageIO.write(tempImage, "png", tempFile);
+//
+//            new Image((long)8, tempFile);
+//
+//            tempFile.delete();
 
             //-------------------------
-
-            url = new URL("http://image.ohozaa.com/i/af3/jJXCNh.png");
-            tempImage = ImageIO.read(url);
-            tempFile = File.createTempFile( "temporary", "png");
-            ImageIO.write(tempImage, "png", tempFile);
-
-            new Image((long)6, tempFile);
-
-            tempFile.delete();
-
-            //-------------------------
-
-            url = new URL("http://image.ohozaa.com/i/485/TEcclg.png");
-            tempImage = ImageIO.read(url);
-            tempFile = File.createTempFile( "temporary", "png");
-            ImageIO.write(tempImage, "png", tempFile);
-
-            new Image((long)3, tempFile);
-
-            tempFile.delete();
-
-            //-------------------------
-
-            url = new URL("http://image.ohozaa.com/i/658/Cf1piB.png");
-            tempImage = ImageIO.read(url);
-            tempFile = File.createTempFile( "temporary", "png");
-            ImageIO.write(tempImage, "png", tempFile);
-
-            new Image((long)8, tempFile);
-
-            tempFile.delete();
-
-            //-------------------------
-        } catch (IOException e) {
+         /*catch (IOException e) {
             Logger.error("Initialize project image failed");
             e.printStackTrace();
-        }
+        }*/
     }
 
     public static boolean stopTimer() {
