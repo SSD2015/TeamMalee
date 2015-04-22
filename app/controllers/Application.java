@@ -95,10 +95,11 @@ public class Application extends Controller {
                 resultPro.setCriteria(1);
             }
         }
-        if(session().get("type").equals("Admin")) {
+        if(TimerController.getTimeLeftInSec() == -1 || session().get("type").equals("Admin")) {
             Logger.info("User : " + session().get("username") + " Type " + session().get("type") + " accessed to voting result page");
             return ok(complete.render(results));
         }
+        Logger.info("User : " + session().get("username") + " Type " + session().get("type") + " failed to accessing to voting result page(Vote is not close)");
         return redirect("/");
     }
 

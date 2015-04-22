@@ -53,6 +53,11 @@
                             <li class = "hidden active">
                                 <a href = "#page-top"></a>
                             </li>
+                            @if(TimerController.getTimeLeftInSec() == -1) {
+                                <li class="page-scroll">
+                                    <a href= "/result">Voting Result</a>
+                                </li>
+                            }
                             <li class = "page-scroll">
                                 <a href= "/criteria">Criteria Vote</a>
                             </li>
