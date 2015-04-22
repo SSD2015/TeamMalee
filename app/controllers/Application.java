@@ -211,7 +211,7 @@ public class Application extends Controller {
         if (session().isEmpty())
             return ok(login.render(Form.form(Login.class)));
         else
-            return ok(criteria.render(session().get("name")));
+            return ok(criteria.render(""));
     }
 }
 
