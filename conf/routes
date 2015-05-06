@@ -44,4 +44,8 @@ GET         /getImage:id                       controllers.ImageController.getIm
 
 #criteria
 POST        /addCriteria                       controllers.Voting.VoteCri()
+
+#listProject
+GET         /projectList                       Admin.ProjectController.getProjectList
+POST        /deletePro                         Admin.ProjectController.remove()
     

@@ -26,23 +26,40 @@ public class resultVote {
     public String getname(){
         return this.name;
     }
-    public int getScore(){
-        return this.score;
+    public static double countNumberID(){
+        double num = 0;
+        for (int i=0;i<Vote.find.all().size();i++){
+            num++;
+        }
+        return num;
     }
-    public int getScore2(){
-        return this.score2;
+    public static double countNumVoteCri(){
+        double num = 0;
+        for (int i=0;i<Criteria.find.all().size();i++){
+            num++;
+        }
+        return num;
     }
-    public int getScore3(){
-        return this.score3;
+    public double getScore(){
+        //if (countNumberID()==0)
+        return this.score/countNumberID();
     }
-    public int getScore4(){
-        return this.score4;
+    public double getScore2(){
+        return this.score2/countNumberID();
     }
-    public int getScore5(){
-        return this.score5;
+    public double getScore3(){
+        return this.score3/countNumberID();
     }
-    public int getCriteria(){
-        return this.criteria;
+    public double getScore4(){
+        return this.score4/countNumberID();
+    }
+    public double getScore5(){
+        return this.score5/countNumberID();
+    }
+    public double getCriteria(){
+        if (criteria==0)
+            return 0.0;
+        return this.criteria/countNumVoteCri();
     }
     public void setName(String name){
         this.name = name;
