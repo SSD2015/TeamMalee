@@ -104,11 +104,11 @@ a:hover {
 }
 
 .radioholder:nth-child(odd) {
-    float: right;
+    float: left;
 }
 
 .radioholder:nth-child(even) {
-    float: left;
+    float: right;
 }
 
 .radioholder:hover {
