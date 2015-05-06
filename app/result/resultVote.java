@@ -28,9 +28,13 @@ public class resultVote {
     }
     public static double countNumberID(){
         double num = 0;
-        for (int i=0;i<Vote.find.all().size();i++){
+        int size = Vote.find.all().size();
+                if(size==0)
+                    return 1;
+        for (int i=0;i<size;i++){
             num++;
         }
+
         return num;
     }
     public static double countNumVoteCri(){
@@ -57,7 +61,7 @@ public class resultVote {
         return this.score5/countNumberID();
     }
     public double getCriteria(){
-        if (criteria==0)
+        if (criteria==0 || countNumVoteCri()==0)
             return 0.0;
         return this.criteria/countNumVoteCri();
     }
