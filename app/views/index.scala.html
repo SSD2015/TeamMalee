@@ -1,8 +1,10 @@
 @(message: String)
 
-@import play.api.Play.resource
-@import play.api.Play.current
-@import result.Project
+@import play.api.Play.resource;
+@import play.api.Play.current;
+@import result.Project;
+@import com.avaje.ebean.Ebean;
+@import result.Vote;
 
 <!DOCTYPE html>
 
@@ -99,7 +101,11 @@
                                 <a href="@routes.Application.GotoProjectPage( project.id , project.name )" class="portfolio-link" data-toggle="modal">
                                     <div class="caption">
                                         <div class="caption-content">
-                                            <h3>Team @project.name</h3>
+                                            @if(Vote.findExist(session().get("id")+"", project.id+"") != null) {
+                                                <h3>Team @project.name (Rated)</h3>
+                                            } else {
+                                                <h3>Team @project.name</h3>
+                                            }
                                         </div>
                                     </div>
                                     @if(controllers.ImageController.checkExist(project.id) && project.id != null && project.id >= 1) {

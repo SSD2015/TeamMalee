@@ -1,3 +1,4 @@
+@import result.RateList;
 <!DOCTYPE html>
 
 <html>
@@ -93,6 +94,34 @@
                                     <input class="mat-input" type="text" name="minute" placeholder="0">
                                 </div>
                                 <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+                            </div>
+                        </form>
+
+                        <form id="rateList" class="text-center" role="form" action = "/setRateList" method = post>
+                            <div class="wrap">
+                            @defining(RateList.find.all()) { rates =>
+                                <div class="mat-div">
+                                    <label for="rateList-1" class="mat-label">rateList-1</label>
+                                    <input class="mat-input" type="text" name="rateList1" value="@rates(0).rateName">
+                                </div>
+                                <div class="mat-div">
+                                    <label for="rateList-2" class="mat-label">rateList-2</label>
+                                    <input class="mat-input" type="text" name="rateList2" value="@rates(1).rateName">
+                                </div>
+                                <div class="mat-div">
+                                    <label for="rateList-3" class="mat-label">rateList-3</label>
+                                    <input class="mat-input" type="text" name="rateList3" value="@rates(2).rateName">
+                                </div>
+                                <div class="mat-div">
+                                    <label for="rateList-4" class="mat-label">rateList-4</label>
+                                    <input class="mat-input" type="text" name="rateList4" value="@rates(3).rateName">
+                                </div>
+                                <div class="mat-div">
+                                    <label for="rateList-5" class="mat-label">rateList-5</label>
+                                    <input class="mat-input" type="text" name="rateList5" value="@rates(4).rateName">
+                                </div>
+                                <button id="submit" type="submit" class="btn btn-primary btn-block center-block">Submit</button>
+                            }
                             </div>
                         </form>
                     </div>

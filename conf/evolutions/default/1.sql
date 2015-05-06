@@ -35,6 +35,12 @@ create table project (
   constraint pk_project primary key (id))
 ;
 
+create table rate_list (
+  id                        bigint auto_increment not null,
+  rate_name                 varchar(255),
+  constraint pk_rate_list primary key (id))
+;
+
 create table vote (
   id                        bigint auto_increment not null,
   sel1                      integer,
@@ -61,6 +67,8 @@ drop table criteria;
 drop table image;
 
 drop table project;
+
+drop table rate_list;
 
 drop table vote;
 
