@@ -78,9 +78,9 @@ public class Image extends Model {
 
     private static BufferedImage resizeImageWithHint(BufferedImage originalImage, int type){
 
-        BufferedImage resizedImage = new BufferedImage(300, 300, type);
+        BufferedImage resizedImage = new BufferedImage(900, 650, type);
         Graphics2D g = resizedImage.createGraphics();
-        g.drawImage(originalImage, 0, 0, 300, 300, null);
+        g.drawImage(originalImage, 0, 0, 900, 650, null);
         g.dispose();
         g.setComposite(AlphaComposite.Src);
 
