@@ -83,34 +83,31 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="resultTable">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Ease of use</th>
-                                            <th>Reliability / Stability</th>
-                                            <th>Completeness</th>
-                                            <th>Security</th>
-                                            <th>Quality of UI</th>
-                                            <th>Vote</th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    @votes.map { acc =>
-                                        <tr>
-                                            @if(!acc.getname().equals("Empty")) {
-                                                <td id="id" name="id">@acc.getname</td>
-                                                <td>@acc.getScore</td>
-                                                <td>@acc.getScore2</td>
-                                                <td>@acc.getScore3</td>
-                                                <td>@acc.getScore4</td>
-                                                <td>@acc.getScore5</td>
-                                                <td>@acc.getCriteria</td>
-                                            }
-                                        </tr>
-                                    <tbody>
-                                    }
+                                <table class="rwd-table">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Ease of use</th>
+                                        <th>Reliability / Stability</th>
+                                        <th>Completeness</th>
+                                        <th>Security</th>
+                                        <th>Quality of UI</th>
+                                        <th>Vote</th>
+                                    </tr>
+                                    <tr>
+                                        <tbody>
+                                         @votes.map { acc =>
+                                         @if(!acc.getname().equals("Empty")) {
+                                        <td id="id" name="id" data-th="Name">@acc.getname</td>
+                                        <td data-th="Ease of use">@acc.getScore</td>
+                                        <td data-th="Reliability/Stability">@acc.getScore2</td>
+                                        <td data-th="Completeness">@acc.getScore3</td>
+                                        <td data-th="Security">@acc.getScore4</td>
+                                        <td data-th="Quality of UI">@acc.getScore5</td>
+                                        <td data-th="Vote">@acc.getCriteria</td>
+                                        }
+                                        <tbody>}
+                                    </tr>
                                 </table>
                             </div>
                         </div>
