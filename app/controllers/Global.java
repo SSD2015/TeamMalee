@@ -85,9 +85,7 @@ public class Global extends GlobalSettings {
     }
 
     public static void firstAccount() {
-        int i = 0;
         Account account = new Account();
-        account.id = (long)++i;
         account.username = "admin";
         account.password = "adminpassword";
         account.type = "Admin";
@@ -98,7 +96,6 @@ public class Global extends GlobalSettings {
         }
         //------------------------GG
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545757";
         account.password = "manatsawin.h";
         account.type = "Voter";
@@ -108,7 +105,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546770";
         account.password = "varis.k";
         account.type = "Voter";
@@ -118,7 +114,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545749";
         account.password = "pongsachon.p";
         account.type = "Voter";
@@ -129,7 +124,6 @@ public class Global extends GlobalSettings {
         }
         //-----------------TheFrank
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546681";
         account.password = "kittinan.n";
         account.type = "Voter";
@@ -139,7 +133,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546281";
         account.password = "perawith.j";
         account.type = "Voter";
@@ -149,7 +142,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546753";
         account.password = "nathas.y";
         account.type = "Voter";
@@ -159,7 +151,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545692";
         account.password = "thanachote.v";
         account.type = "Voter";
@@ -169,7 +160,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546729";
         account.password = "thanaphon.k";
         account.type = "Voter";
@@ -180,7 +170,6 @@ public class Global extends GlobalSettings {
         }
         //--------------------Malee
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545048";
         account.password = "tanatorn.a";
         account.type = "Voter";
@@ -190,7 +179,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545714";
         account.password = "patawat.w";
         account.type = "Voter";
@@ -200,7 +188,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546745";
         account.password = "thanyaboon.t";
         account.type = "Voter";
@@ -210,7 +197,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546761";
         account.password = "mintra.t";
         account.type = "Voter";
@@ -221,7 +207,6 @@ public class Global extends GlobalSettings {
         }
         //--------------------JDED
         account = new Account();
-        account.id = (long)++i;
         account.username = "5410545044";
         account.password = "waranyu.r";
         account.type = "Voter";
@@ -231,7 +216,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5410545052";
         account.password = "supayut.r";
         account.type = "Voter";
@@ -241,7 +225,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5410546334";
         account.password = "wasin.h";
         account.type = "Voter";
@@ -251,7 +234,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5410546393";
         account.password = "akkarawit.p";
         account.type = "Voter";
@@ -261,7 +243,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5410547594";
         account.password = "nachanok.s";
         account.type = "Voter";
@@ -276,7 +257,6 @@ public class Global extends GlobalSettings {
         //---------------------@@@@@@@@@@@@@@@@@ Division1 @@@@@@@@@@------------------
         //------------------------Saint4
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545765";
         account.password = "muninthorn.t";
         account.type = "Voter";
@@ -286,7 +266,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545781";
         account.password = "runyasak.c";
         account.type = "Voter";
@@ -296,7 +275,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545706";
         account.password = "nara.s";
         account.type = "Voter";
@@ -306,7 +284,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546788";
         account.password = "vasupol.c";
         account.type = "Voter";
@@ -316,7 +293,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545803";
         account.password = "wuttipong.k";
         account.type = "Voter";
@@ -327,7 +303,6 @@ public class Global extends GlobalSettings {
         }
         //-----------------Manat
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546231";
         account.password = "chinnaporn.s";
         account.type = "Voter";
@@ -337,7 +312,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545811";
         account.password = "sorrawit.c";
         account.type = "Voter";
@@ -347,7 +321,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546290";
         account.password = "worapon.o";
         account.type = "Voter";
@@ -357,7 +330,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545013";
         account.password = "niti.p";
         account.type = "Voter";
@@ -367,7 +339,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546800";
         account.password = "supason.k";
         account.type = "Voter";
@@ -378,7 +349,6 @@ public class Global extends GlobalSettings {
         }
         //--------------------2Big2Slim
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545722";
         account.password = "punpikorn.r";
         account.type = "Voter";
@@ -388,7 +358,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545668";
         account.password = "nathakorn.s";
         account.type = "Voter";
@@ -398,7 +367,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545731";
         account.password = "piyaphat.t";
         account.type = "Voter";
@@ -408,7 +376,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546711";
         account.password = "naphat.y";
         account.type = "Voter";
@@ -418,7 +385,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545676";
         account.password = "nut.k";
         account.type = "Voter";
@@ -429,7 +395,6 @@ public class Global extends GlobalSettings {
         }
         //--------------------FatCat
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546702";
         account.password = "jiratchaya.i";
         account.type = "Voter";
@@ -439,7 +404,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610545684";
         account.password = "nichamon.h";
         account.type = "Voter";
@@ -449,7 +413,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546222";
         account.password = "chonnipa.k";
         account.type = "Voter";
@@ -459,7 +422,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546257";
         account.password = "natchanon.c";
         account.type = "Voter";
@@ -469,7 +431,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5610546699";
         account.password = "kittipat.p";
         account.type = "Voter";
@@ -481,7 +442,6 @@ public class Global extends GlobalSettings {
 
         //------------------ Staff, TA
         account = new Account();
-        account.id = (long)++i;
         account.username = "5510546166";
         account.password = "sarun.wo";
         account.type = "Admin";
@@ -491,7 +451,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "5410545036";
         account.password = "thai.p";
         account.type = "Admin";
@@ -501,7 +460,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "fengjeb";
         account.password = "james.b";
         account.type = "Admin";
@@ -511,7 +469,6 @@ public class Global extends GlobalSettings {
             account.save();
         }
         account = new Account();
-        account.id = (long)++i;
         account.username = "geedev";
         account.password = "keeratipong.u";
         account.type = "Admin";
