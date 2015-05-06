@@ -14,6 +14,7 @@ import javax.persistence.Id;
 public class Criteria extends Model {
     @Id
     public Long id;
+
     public String projectid;
     public int accID;
 

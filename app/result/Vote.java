@@ -11,6 +11,7 @@ import play.db.ebean.Model.Finder;
 public class Vote extends Model {
     @Id
     public Long id;
+    
     public int sel1;
     public int sel2;
     public int sel3;

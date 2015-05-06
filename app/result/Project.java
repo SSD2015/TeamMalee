@@ -15,7 +15,7 @@ import play.db.ebean.Model.Finder;
 public class Project extends Model {
     @Id
     public Long id;
-    
+
     public String name, description;
     public String manager;
 
