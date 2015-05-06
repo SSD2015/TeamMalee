@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/teammalee -Dhttp.port=${PORT} -DapplyEvolutions.default=true -DapplyEvolutions.secondary=true
+web: target/universal/stage/bin/teammalee -Dhttp.port=${PORT} -Ddb.default.url=${CLEARDB_DATABASE_URL} -DapplyEvolutions.default=true
