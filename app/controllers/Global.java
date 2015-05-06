@@ -5,7 +5,6 @@ import play.mvc.*;
 import play.mvc.Http.*;
 import akka.actor.Cancellable;
 import com.avaje.ebean.Ebean;
-import models.Image;
 import play.Application;
 import play.GlobalSettings;
 import play.Logger;
@@ -556,15 +555,15 @@ public class Global extends GlobalSettings {
         }
 
 
-            List<Project> projectList = Project.find.all();
-        /////////----------------Image
-            for(int j = 0; j < projectList.size(); j++) {
-                File tempFile2 = new File("public/projectimages/" + projectList.get(j).id + ".png");
-                if (tempFile2.exists()) {
-                    new Image(projectList.get(j).id, tempFile2);
-                }
-
-            }
+//            List<Project> projectList = Project.find.all();
+//        /////////----------------Image
+//            for(int j = 0; j < projectList.size(); j++) {
+//                File tempFile2 = new File("public/projectimages/" + projectList.get(j).id + ".png");
+//                if (tempFile2.exists()) {
+//                    new Image(projectList.get(j).id, tempFile2);
+//                }
+//
+//            }
 //
 //            url = new URL(routes.Assets.at("public/projectimages/6.png"));
 //            tempImage = ImageIO.read(url);

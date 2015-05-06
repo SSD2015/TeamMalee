@@ -1,4 +1,4 @@
-package models;
+package result;
 
 /**
  * Created by thanyaboontovorapan on 4/19/15 AD.
@@ -33,7 +33,7 @@ public class Image extends Model {
     public byte[] data;
 
     public static Finder<Long, Image> find =
-            new Finder<Long, Image>("secondary" ,Long.class, Image.class);
+            new Finder<Long, Image>(Long.class, Image.class);
 
     public Image(Long id, File image) {
         this.projectID = id;
@@ -58,7 +58,7 @@ public class Image extends Model {
 
         Image oldImage = Image.find.where().eq("projectID", id).findUnique();
         if (oldImage == null) {
-            this.save("secondary");
+            this.save();
         }
     }
 }
