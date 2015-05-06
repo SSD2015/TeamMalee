@@ -560,35 +560,35 @@ public class Global extends GlobalSettings {
         RateList rate = new RateList();
         rate.id = (long)++j;
         rate.rateName = "Ease of Use";
-        if ( Ebean.find(RateList.class).where().eq("rateName", rate.rateName).findUnique() == null) {
+        if ( Ebean.find(RateList.class).where().eq("id", rate.id).findUnique() == null) {
             rate.save();
         }
 
         rate = new RateList();
         rate.id = (long)++j;
         rate.rateName = "Reliability";
-        if ( Ebean.find(RateList.class).where().eq("rateName", rate.rateName).findUnique() == null) {
+        if ( Ebean.find(RateList.class).where().eq("id", rate.id).findUnique() == null) {
             rate.save();
         }
 
         rate = new RateList();
         rate.id = (long)++j;
         rate.rateName = "UI/UX Quality";
-        if ( Ebean.find(RateList.class).where().eq("rateName", rate.rateName).findUnique() == null) {
+        if ( Ebean.find(RateList.class).where().eq("id", rate.id).findUnique() == null) {
             rate.save();
         }
 
         rate = new RateList();
         rate.id = (long)++j;
         rate.rateName = "Security";
-        if ( Ebean.find(RateList.class).where().eq("rateName", rate.rateName).findUnique() == null) {
+        if ( Ebean.find(RateList.class).where().eq("id", rate.id).findUnique() == null) {
             rate.save();
         }
 
         rate = new RateList();
         rate.id = (long)++j;
         rate.rateName = "Sutability";
-        if ( Ebean.find(RateList.class).where().eq("rateName", rate.rateName).findUnique() == null) {
+        if ( Ebean.find(RateList.class).where().eq("id", rate.id).findUnique() == null) {
             rate.save();
         }
 

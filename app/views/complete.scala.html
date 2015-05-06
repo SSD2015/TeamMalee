@@ -1,5 +1,5 @@
 @(votes: List[result.resultVote])
-@import result.Account
+@import result.RateList;
 <!DOCTYPE html>
 
     <html>
@@ -87,13 +87,14 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Ease of use</th>
-                                            <th>Reliability / Stability</th>
-                                            <th>Completeness</th>
-                                            <th>Security</th>
-                                            <th>Quality of UI</th>
-                                            <th>Vote</th>
-
+                                        @defining(RateList.find.all()) { rates =>
+                                            <th>@rates(0).rateName</th>
+                                            <th>@rates(1).rateName</th>
+                                            <th>@rates(2).rateName</th>
+                                            <th>@rates(3).rateName</th>
+                                            <th>@rates(4).rateName</th>
+                                            }
+                                        <th>Vote</th>
                                         </tr>
                                     </thead>
                                     <tbody>
