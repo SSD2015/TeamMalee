@@ -14,7 +14,7 @@ import static play.data.Form.form;
 import result.Project;
 import views.html.*;
 import java.io.File;
-import models.Image;
+import result.Image;
 
 public class ImageController extends Controller {
 
@@ -58,7 +58,7 @@ public class ImageController extends Controller {
             Image oldImage = Image.find.where().eq("projectID", id).findUnique();
             if (oldImage != null) {
                 Logger.info("User : " + session().get("username") + " groupid : " + session().get("groupid") + " replaced the image of project id : " + id);
-                oldImage.delete("secondary");
+                oldImage.delete();
             }
             new Image(
                     id,

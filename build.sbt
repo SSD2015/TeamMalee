@@ -8,6 +8,8 @@ scalaVersion := "2.11.1"
 
 libraryDependencies ++= Seq( javaJdbc , javaEbean , cache , javaWs )
 
-libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.7.2"
+//libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.7.2"
+
+libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.18"
 
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  

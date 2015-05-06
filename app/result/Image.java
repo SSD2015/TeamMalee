@@ -1,4 +1,4 @@
-package models;
+package result;
 
 /**
  * Created by thanyaboontovorapan on 4/19/15 AD.
@@ -18,6 +18,12 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import java.awt.AlphaComposite;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+
 @Entity
 @Table(name="image")
 public class Image extends Model {
@@ -33,9 +39,17 @@ public class Image extends Model {
     public byte[] data;
 
     public static Finder<Long, Image> find =
-            new Finder<Long, Image>("secondary" ,Long.class, Image.class);
+            new Finder<Long, Image>(Long.class, Image.class);
 
     public Image(Long id, File image) {
+        try {
+            BufferedImage originalImage = ImageIO.read(image);
+            int type = originalImage.getType() == 0? BufferedImage.TYPE_INT_ARGB : originalImage.getType();
+            BufferedImage resizeImageHintPng = resizeImageWithHint(originalImage, type);
+            ImageIO.write(resizeImageHintPng, "png", image);
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
         this.projectID = id;
         this.data = new byte[(int)image.length()];
 
@@ -58,7 +72,22 @@ public class Image extends Model {
 
         Image oldImage = Image.find.where().eq("projectID", id).findUnique();
         if (oldImage == null) {
-            this.save("secondary");
+            this.save();
         }
+    }
+
+    private static BufferedImage resizeImageWithHint(BufferedImage originalImage, int type){
+
+        BufferedImage resizedImage = new BufferedImage(900, 650, type);
+        Graphics2D g = resizedImage.createGraphics();
+        g.drawImage(originalImage, 0, 0, 900, 650, null);
+        g.dispose();
+        g.setComposite(AlphaComposite.Src);
+
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        return resizedImage;
     }
 }
