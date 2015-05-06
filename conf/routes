@@ -48,4 +48,7 @@ POST        /addCriteria                       controllers.Voting.VoteCri()
 #listProject
 GET         /projectList                       Admin.ProjectController.getProjectList
 POST        /deletePro                         Admin.ProjectController.remove()
+
+#RateList
+POST        /setRateList                        controllers.Voting.changeRatelist()
     

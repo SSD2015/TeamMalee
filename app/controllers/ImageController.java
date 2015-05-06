@@ -65,13 +65,6 @@ public class ImageController extends Controller {
                     form.get().image.getFile()
             );
             Logger.info("Image uploaded");
-            File checker = new File("public/projectimages");
-            if ( !checker.exists() ) {
-                checker.mkdir();
-            }
-            File file = form.get().image.getFile();
-            file.renameTo(new File("public/projectimages/", id+".png"));
-
 
             return redirect("/");
         }

@@ -29,6 +29,7 @@ import javax.imageio.ImageIO;
 import play.libs.F.*;
 import result.Project;
 import java.util.List;
+import result.RateList;
 
 
 public class Global extends GlobalSettings {
@@ -554,53 +555,43 @@ public class Global extends GlobalSettings {
             project.save();
         }
 
+        //-----------------------------Rate List
+        int j = 0;
+        RateList rate = new RateList();
+        rate.id = (long)++j;
+        rate.rateName = "Ease of Use";
+        if ( Ebean.find(RateList.class).where().eq("rateName", rate.rateName).findUnique() == null) {
+            rate.save();
+        }
 
-//            List<Project> projectList = Project.find.all();
-//        /////////----------------Image
-//            for(int j = 0; j < projectList.size(); j++) {
-//                File tempFile2 = new File("public/projectimages/" + projectList.get(j).id + ".png");
-//                if (tempFile2.exists()) {
-//                    new Image(projectList.get(j).id, tempFile2);
-//                }
-//
-//            }
-//
-//            url = new URL(routes.Assets.at("public/projectimages/6.png"));
-//            tempImage = ImageIO.read(url);
-//            tempFile = File.createTempFile( "temporary", "png");
-//            ImageIO.write(tempImage, "png", tempFile);
-//
-//            new Image((long)6, tempFile);
-//
-//            tempFile.delete();
-//
-//            //-------------------------
-//
-//            url = new URL(routes.Assets.at("public/projectimages/3.png"));
-//            tempImage = ImageIO.read(url);
-//            tempFile = File.createTempFile( "temporary", "png");
-//            ImageIO.write(tempImage, "png", tempFile);
-//
-//            new Image((long)3, tempFile);
-//
-//            tempFile.delete();
-//
-//            //-------------------------
-//
-//            url = new URL(routes.Assets.at("public/projectimages/8.png"));
-//            tempImage = ImageIO.read(url);
-//            tempFile = File.createTempFile( "temporary", "png");
-//            ImageIO.write(tempImage, "png", tempFile);
-//
-//            new Image((long)8, tempFile);
-//
-//            tempFile.delete();
+        rate = new RateList();
+        rate.id = (long)++j;
+        rate.rateName = "Reliability";
+        if ( Ebean.find(RateList.class).where().eq("rateName", rate.rateName).findUnique() == null) {
+            rate.save();
+        }
 
-            //-------------------------
-         /*catch (IOException e) {
-            Logger.error("Initialize project image failed");
-            e.printStackTrace();
-        }*/
+        rate = new RateList();
+        rate.id = (long)++j;
+        rate.rateName = "UI/UX Quality";
+        if ( Ebean.find(RateList.class).where().eq("rateName", rate.rateName).findUnique() == null) {
+            rate.save();
+        }
+
+        rate = new RateList();
+        rate.id = (long)++j;
+        rate.rateName = "Security";
+        if ( Ebean.find(RateList.class).where().eq("rateName", rate.rateName).findUnique() == null) {
+            rate.save();
+        }
+
+        rate = new RateList();
+        rate.id = (long)++j;
+        rate.rateName = "Sutability";
+        if ( Ebean.find(RateList.class).where().eq("rateName", rate.rateName).findUnique() == null) {
+            rate.save();
+        }
+
     }
 
     public static boolean stopTimer() {

@@ -17,6 +17,7 @@ create table criteria (
   id                        bigint auto_increment not null,
   projectid                 varchar(255),
   acc_id                    integer,
+  vote_id                   integer,
   constraint pk_criteria primary key (id))
 ;
 
@@ -33,6 +34,12 @@ create table project (
   description               varchar(255),
   manager                   varchar(255),
   constraint pk_project primary key (id))
+;
+
+create table rate_list (
+  id                        bigint auto_increment not null,
+  rate_name                 varchar(255),
+  constraint pk_rate_list primary key (id))
 ;
 
 create table vote (
@@ -61,6 +68,8 @@ drop table criteria;
 drop table image;
 
 drop table project;
+
+drop table rate_list;
 
 drop table vote;
 
