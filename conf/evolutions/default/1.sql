@@ -17,7 +17,6 @@ create table criteria (
   id                        bigint auto_increment not null,
   projectid                 varchar(255),
   acc_id                    integer,
-  vote_id                   integer,
   constraint pk_criteria primary key (id))
 ;
 
