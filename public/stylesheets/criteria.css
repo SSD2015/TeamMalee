@@ -98,7 +98,8 @@ a:hover {
 
 .activeradioholder .tick {
     background-color: #2A817C;
-    background-image: url('http://supereightstudio.com/img/radio_tick.png');
+    /*background-image: url('http://supereightstudio.com/img/radio_tick.png');*/
+    background-image: url('../images/tick.png');
     background-size: cover;
 }
 
