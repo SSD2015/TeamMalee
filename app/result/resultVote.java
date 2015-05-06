@@ -1,5 +1,7 @@
 package result;
 
+import java.util.List;
+
 /**
  * Created by patawat on 4/16/15 AD.
  */
@@ -26,14 +28,24 @@ public class resultVote {
     public String getname(){
         return this.name;
     }
-    public static double countNumberID(){
+    public double countNumberID(){
         double num = 0;
-        int size = Vote.find.all().size();
-                if(size==0)
-                    return 1;
-        for (int i=0;i<size;i++){
-            num++;
+        //int size = Vote.find.all().size();
+        List<Vote> voteList = Vote.find.all();
+        for (int i = 0; i < voteList.size(); i++) {
+            Vote tempVote = voteList.get(i);
+            if(Project.find.byId((long)tempVote.projectID).name.equals(this.name)) {
+                num++;
+            }
         }
+        if (num == 0) {
+            return 1;
+        }
+//                if(size==0)
+//                    return 1;
+//        for (int i=0;i<size;i++){
+//            num++;
+//        }
 
         return num;
     }
