@@ -14,8 +14,8 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import static play.mvc.Results.*;
-import result.Account;
-import result.Project;
+
+import result.*;
 import scala.concurrent.duration.FiniteDuration;
 import scala.concurrent.duration.Duration;
 import play.libs.Time.CronExpression;
@@ -29,7 +29,6 @@ import javax.imageio.ImageIO;
 import play.libs.F.*;
 import result.Project;
 import java.util.List;
-import result.RateList;
 
 
 public class Global extends GlobalSettings {
@@ -590,6 +589,13 @@ public class Global extends GlobalSettings {
         rate.rateName = "Sutability";
         if ( Ebean.find(RateList.class).where().eq("id", rate.id).findUnique() == null) {
             rate.save();
+        }
+
+        CriteriaList tempCriList = new CriteriaList();
+        tempCriList.id = (long)1;
+        tempCriList.criteriaName = "Best app";
+        if ( Ebean.find(CriteriaList.class).where().eq("id", tempCriList.id).findUnique() == null) {
+            tempCriList.save();
         }
 
     }

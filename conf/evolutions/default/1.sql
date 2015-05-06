@@ -17,7 +17,14 @@ create table criteria (
   id                        bigint auto_increment not null,
   projectid                 varchar(255),
   acc_id                    integer,
+  criteria_id               integer,
   constraint pk_criteria primary key (id))
+;
+
+create table criteria_list (
+  id                        bigint auto_increment not null,
+  criteria_name             varchar(255),
+  constraint pk_criteria_list primary key (id))
 ;
 
 create table image (
@@ -63,6 +70,8 @@ SET FOREIGN_KEY_CHECKS=0;
 drop table account;
 
 drop table criteria;
+
+drop table criteria_list;
 
 drop table image;
 

@@ -44,11 +44,14 @@ GET         /getImage:id                       controllers.ImageController.getIm
 
 #criteria
 POST        /addCriteria                       controllers.Voting.VoteCri()
+GET         /criteriaList                      controllers.Voting.gotoCriteriaPage
+POST        /deleteCri                         controllers.Voting.remove()
+POST        /addCriteriaList                   controllers.Voting.addCriList
 
 #listProject
 GET         /projectList                       Admin.ProjectController.getProjectList
 POST        /deletePro                         Admin.ProjectController.remove()
 
 #RateList
-POST        /setRateList                        controllers.Voting.changeRatelist()
+POST        /setRateList                       controllers.Voting.changeRatelist()
     
