@@ -167,7 +167,7 @@ header #exceedHead{
 }
 
 .navbar .navbar-nav {
-    letter-spacing: 1px;
+    letter-spacing: 0.4px;
 }
 
 .navbar .navbar-nav li a:focus {
