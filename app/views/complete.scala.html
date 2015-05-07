@@ -83,35 +83,32 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="resultTable">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
+
+                                <table class="rwd-table">
+                                    <tr>
+                                        <th>Name</th>
                                         @defining(RateList.find.all()) { rates =>
-                                            <th>@rates(0).rateName</th>
-                                            <th>@rates(1).rateName</th>
-                                            <th>@rates(2).rateName</th>
-                                            <th>@rates(3).rateName</th>
-                                            <th>@rates(4).rateName</th>
-                                            }
-                                        <th>Vote</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    @votes.map { acc =>
-                                        <tr>
-                                            @if(!acc.getname().equals("Empty")) {
-                                                <td id="id" name="id">@acc.getname</td>
-                                                <td>@acc.getScore</td>
-                                                <td>@acc.getScore2</td>
-                                                <td>@acc.getScore3</td>
-                                                <td>@acc.getScore4</td>
-                                                <td>@acc.getScore5</td>
-                                                <td>@acc.getCriteria</td>
-                                            }
-                                        </tr>
-                                    <tbody>
-                                    }
+                                        <th>@rates(0).rateName</th>
+                                        <th>@rates(1).rateName</th>
+                                        <th>@rates(2).rateName</th>
+                                        <th>@rates(3).rateName</th>
+                                        <th>@rates(4).rateName</th>
+                                    </tr>
+                                    <tr>
+                                        <tbody>
+                                         @votes.map { acc =>
+                                             @if(!acc.getname().equals("Empty")) {
+                                                 <td id="id" name="id" data-th="Name">@acc.getname</td>
+                                                 <td data-th="@rates(0).rateName">@acc.getScore</td>
+                                                 <td data-th="@rates(1).rateName">@acc.getScore2</td>
+                                                 <td data-th="@rates(2).rateName">@acc.getScore3</td>
+                                                 <td data-th="@rates(3).rateName">@acc.getScore4</td>
+                                                 <td data-th="@rates(4).rateName">@acc.getScore5</td>
+                                             }
+                                        </tbody>
+                                        }
+                                        }
+                                    </tr>
                                 </table>
                             </div>
                         </div>

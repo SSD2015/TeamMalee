@@ -18,6 +18,7 @@
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/freelancer.css")">
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/font-awesome.css")">
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/criteria.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/popUp.css")">
         <!-- jQuery -->
     <script src="@routes.Assets.at("javascripts/jquery.js")" type="text/javascript"></script>
     <script src="@routes.Assets.at("javascripts/jquery.countdown.js")"></script>
@@ -101,6 +102,29 @@
                     </div>
                         }}
                 </div>
+
+                @*pop up edit description*@
+                @if( session.get("type").equals("Admin") ) {
+                    <div class = editPop>
+                        <a href="#popUpEdit" id="openPopUpEdit">Edit description</a>
+
+                            <!-- POP UP -->
+                        <aside id="popUpEdit" class="popupEdit">
+                            <div class="popUpContainerEdit">
+                                <header>
+                                    <a href="#!" class="closePopUpEdit">X</a>
+                                    <h2>Edit description</h2>
+                                </header>
+
+                                <article>
+
+                                </article>
+                                <br><br><br><br>
+                            </div>
+                            <a href="#!" class="closePopUpOutSideEdit"></a>
+                        </aside>
+                    </div>
+                }
             </div>
         </div>
     </header>
