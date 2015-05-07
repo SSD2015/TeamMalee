@@ -76,8 +76,8 @@
                     <h1>Criteria Vote</h1>
                     <hr class="star-light">
                     <center><h4>@message</h4></center>
-                    @defining(result.CriteriaList.find.all()) { criterias =>
-                        @criterias.map { criteria =>
+                        @defining(result.CriteriaList.find.all()) { criterias =>
+                            @criterias.map { criteria =>
                         <h3>@criteria.criteriaName</h3>
                             <div class="mainRadio">
                             <form action = "/addCriteria" method = post>

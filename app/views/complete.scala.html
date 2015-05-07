@@ -110,6 +110,27 @@
                                         }
                                     </tr>
                                 </table>
+
+                                @defining(result.CriteriaList.find.all()) { criterias =>
+                                    @criterias.map { criteria =>
+                                <table class="rwd-table">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>@criteria.criteriaName</th>
+                                    </tr>
+                                    <tr>
+                                        <tbody>
+                                        @votes.map { acc =>
+                                            @if(!acc.getname().equals("Empty")) {
+                                                <td id="id" name="id" data-th="Name">@acc.getname</td>
+                                                <td data-th="@criteria.criteriaName">@acc.getCriteria(Integer.parseInt(criteria.id+""))</td>
+                                            }
+                                        </tbody>
+                                        }
+                                    </tr>
+                                </table>
+                                }
+                                }
                             </div>
                         </div>
                     </div>

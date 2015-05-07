@@ -13,7 +13,7 @@ public class resultVote {
     private int score3;
     private int score4;
     private int score5;
-    private int criteria;
+    private int[] criteria;
     public resultVote(String name,int criteria){
 
         this.name = name;
@@ -22,7 +22,7 @@ public class resultVote {
         this.score3 = 0;
         this.score4 = 0;
         this.score5 = 0;
-        this.criteria = criteria;
+        this.criteria = new int[CriteriaList.find.all().size()];
     }
 // Come back to clean code
     public String getname(){
@@ -72,10 +72,8 @@ public class resultVote {
     public double getScore5(){
         return this.score5/countNumberID();
     }
-    public double getCriteria(){
-        if (criteria==0 || countNumVoteCri()==0)
-            return 0.0;
-        return this.criteria/countNumVoteCri();
+    public double getCriteria(int i){
+        return this.criteria[i-1];
     }
     public void setName(String name){
         this.name = name;
@@ -95,8 +93,8 @@ public class resultVote {
     public void setScore5(int newScore){
         this.score5 +=newScore;
     }
-    public void setCriteria(int newScore){
-        this.criteria +=newScore;
+    public void setCriteria(int newScore, int i){
+        this.criteria[i-1] +=newScore;
     }
 
 }

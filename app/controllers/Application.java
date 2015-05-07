@@ -92,7 +92,7 @@ public class Application extends Controller {
             Criteria resultC = Criteria.find.byId((long) i+1);
             if(resultC != null) {
                 resultVote resultPro = (resultVote) results.get(Integer.parseInt(resultC.projectid));
-                resultPro.setCriteria(1);
+                resultPro.setCriteria(1, resultC.criteriaID);
             }
         }
         if(TimerController.getTimeLeftInSec() == -1 || session().get("type").equals("Admin")) {
