@@ -73,7 +73,7 @@ public class resultVote {
     public double getScore5(){
         return this.score5/countNumberID();
     }
-    public double getCriteria(int i){
+    public int getCriteria(int i){
         return this.criteria[i-1];
     }
     public void setName(String name){
