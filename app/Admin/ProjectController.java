@@ -18,6 +18,9 @@ import static play.mvc.Results.redirect;
 public class ProjectController {
     public static Result getProjectList()
     {
+        if (!session().get("type").equals("Admin")) {
+            redirect("/");
+        }
         return ok(projectList.render(Project.find.all()));
     }
     public static class DeleteForm{

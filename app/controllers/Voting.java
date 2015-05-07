@@ -7,6 +7,7 @@ import play.data.Form;
 import result.*;
 import views.html.*;
 import java.util.List;
+import views.html.CriteriaList;
 
 import java.sql.Time;
 
@@ -69,7 +70,7 @@ public class Voting extends Controller{
         Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " requested to vote(criteria)");
         Criteria getCri = Form.form(Criteria.class).bindFromRequest().get();
         getCri.accID = Integer.parseInt(session().get("id"));
-        Criteria cri = (Criteria) findExist(getCri.accID + "");
+        Criteria cri = (Criteria) findExist(getCri.accID + "", getCri.criteriaID+"");
         if (TimerController.getTimeLeftInSec() <= 0) {
             Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " failed to vote (criteria, vote is closed)");
             return badRequest(criteria.render("Failed, vote is not open"));
@@ -136,5 +137,58 @@ public class Voting extends Controller{
 
             return null;
         }
+    }
+
+    public static class DeleteForm{
+        public String id;
+    }
+    @Security.Authenticated(Secured.class)
+    public static Result remove() {
+        if (!session().get("type").equals("Admin")) {
+            redirect("/");
+        }
+        DeleteForm criteria = Form.form(DeleteForm.class).bindFromRequest().get();
+        if(result.CriteriaList.find.byId((long) Integer.parseInt(criteria.id))!=null&&!criteria.id.equals("")) {
+            result.CriteriaList.find.byId((long) Integer.parseInt(criteria.id)).delete();
+            List<Criteria> deleteCascade = Criteria.find.all();
+            for(int i = 0; i < deleteCascade.size(); i ++) {
+                Criteria tempCriteria = deleteCascade.get(i);
+                if ( tempCriteria.criteriaID == Integer.parseInt(criteria.id) ) {
+                    tempCriteria.delete();
+                }
+            }
+            return redirect("/criteriaList");
+        }
+        return redirect("/criteriaList");
+    }
+    @Security.Authenticated(Secured.class)
+    public static Result gotoCriteriaPage()
+    {
+        if (!session().get("type").equals("Admin")) {
+            redirect("/");
+        }
+        return ok(CriteriaList.render());
+    }
+
+    @Security.Authenticated(Secured.class)
+    public static Result addCriList() {
+        Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " requested to create new criteria");
+        if(!session().get("type").equals("Admin")) {
+            Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " failed to create new criteria");
+            return redirect("/");
+        }
+        result.CriteriaList criteriaList = Form.form(result.CriteriaList.class).bindFromRequest().get();
+        if ( Ebean.find(result.CriteriaList.class).where().eq("criteriaName", criteriaList.criteriaName).findUnique() != null) {
+            return redirect("/criteriaList");
+        }
+        List<result.CriteriaList> crilist = result.CriteriaList.find.all();
+        if (crilist.size() == 0) {
+            criteriaList.id = (long)1;
+        }else {
+            criteriaList.id = crilist.get(crilist.size()-1).id+1;
+        }
+        criteriaList.save();
+        Logger.info("User : " + session().get("username") + " Type : " + session().get("type") + " successfully created new criteria");
+        return redirect("/criteriaList");
     }
 }

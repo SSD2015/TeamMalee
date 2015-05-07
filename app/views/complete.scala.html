@@ -1,5 +1,5 @@
 @(votes: List[result.resultVote])
-@import result.Account
+@import result.RateList;
 <!DOCTYPE html>
 
     <html>
@@ -87,26 +87,27 @@
                                 <table class="rwd-table">
                                     <tr>
                                         <th>Name</th>
-                                        <th>Ease of use</th>
-                                        <th>Reliability / Stability</th>
-                                        <th>Completeness</th>
-                                        <th>Security</th>
-                                        <th>Quality of UI</th>
-                                        <th>Vote</th>
+                                        @defining(RateList.find.all()) { rates =>
+                                        <th>@rates(0).rateName</th>
+                                        <th>@rates(1).rateName</th>
+                                        <th>@rates(2).rateName</th>
+                                        <th>@rates(3).rateName</th>
+                                        <th>@rates(4).rateName</th>
                                     </tr>
                                     <tr>
                                         <tbody>
                                          @votes.map { acc =>
-                                         @if(!acc.getname().equals("Empty")) {
-                                        <td id="id" name="id" data-th="Name">@acc.getname</td>
-                                        <td data-th="Ease of use">@acc.getScore</td>
-                                        <td data-th="Reliability/Stability">@acc.getScore2</td>
-                                        <td data-th="Completeness">@acc.getScore3</td>
-                                        <td data-th="Security">@acc.getScore4</td>
-                                        <td data-th="Quality of UI">@acc.getScore5</td>
-                                        <td data-th="Vote">@acc.getCriteria</td>
+                                             @if(!acc.getname().equals("Empty")) {
+                                                 <td id="id" name="id" data-th="Name">@acc.getname</td>
+                                                 <td data-th="@rates(0).rateName">@acc.getScore</td>
+                                                 <td data-th="@rates(1).rateName">@acc.getScore2</td>
+                                                 <td data-th="@rates(2).rateName">@acc.getScore3</td>
+                                                 <td data-th="@rates(3).rateName">@acc.getScore4</td>
+                                                 <td data-th="@rates(4).rateName">@acc.getScore5</td>
+                                             }
+                                        </tbody>
                                         }
-                                        <tbody>}
+                                        }
                                     </tr>
                                 </table>
                             </div>

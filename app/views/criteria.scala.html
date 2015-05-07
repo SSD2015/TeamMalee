@@ -1,5 +1,6 @@
 @import result.Project
 @import result.Criteria
+@import result.CriteriaList
 @(message: String)
 
 <!DOCTYPE html>
@@ -74,11 +75,12 @@
                 <div class="col-lg-12" style="text-decoration-color: slategrey">
                     <h1>Criteria Vote</h1>
                     <hr class="star-light">
-
-                    <h3>The Best App</h3>
                     <center><h4>@message</h4></center>
-                    <div class="mainRadio">
-                        <form action = "/addCriteria" method = post>
+                    @defining(result.CriteriaList.find.all()) { criterias =>
+                        @criterias.map { criteria =>
+                        <h3>@criteria.criteriaName</h3>
+                            <div class="mainRadio">
+                            <form action = "/addCriteria" method = post>
 
                             <div class="projectid">
 
@@ -87,7 +89,8 @@
 
                                         <div class="radioholder">
 
-                                            <input id="criteria@project.id"type="radio" name="projectid" value="@project.id">
+                                            <input id="criteria@criteria.id-@project.id"type="radio" name="projectid" value="@project.id">
+                                            <input name="criteriaID" type="hidden" value="@criteria.id">
                                             <label >Team @project.name</label>
                                         </div>
                                     }
@@ -97,6 +100,7 @@
                             <button id="submit" type="submit" class="btn btn-primary btn-block center-block" style="width: 60%">Submit</button>
                         </form>
                     </div>
+                        }}
                 </div>
             </div>
         </div>
@@ -167,12 +171,14 @@
     });
 
     function setCurrentScore(){
-        @defining( (Criteria.find.where().eq("acc_id", session.get("id")).findUnique()) ) { criteriaVote =>
-            @if(criteriaVote != null) {
-                document.getElementById("criteria@criteriaVote.projectid").checked = true;
-                $("#criteria@criteriaVote.projectid").parent().addClass('activeradioholder');
+        @defining(result.CriteriaList.find.all()) { criterias =>
+            @criterias.map { criteria =>
+                @if(Criteria.findExist(session.get("id"), criteria.id+"") != null){
+                    document.getElementById("criteria@criteria.id-@Criteria.findExist(session.get("id"), criteria.id+"").projectid").checked = true;
+                    $("#criteria@criteria.id-@Criteria.findExist(session.get("id"), criteria.id+"").projectid").parent().addClass('activeradioholder');
+                }
             }
-        }
+    }
     };
     </script>
     <script src="@routes.Assets.at("javascripts/cbpAnimatedHeader.js")" type="text/javascript"></script>
