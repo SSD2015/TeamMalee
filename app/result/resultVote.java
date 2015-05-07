@@ -22,7 +22,8 @@ public class resultVote {
         this.score3 = 0;
         this.score4 = 0;
         this.score5 = 0;
-        this.criteria = new int[CriteriaList.find.all().size()];
+        long maxIndex = CriteriaList.find.all().get(CriteriaList.find.all().size()-1).id;
+        this.criteria = new int[Integer.parseInt(maxIndex+"")];
     }
 // Come back to clean code
     public String getname(){
